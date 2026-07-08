@@ -1,0 +1,1252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nirvix Technology | Best Software Development &amp; IT Services in Nepal</title>
+<meta name="description" content="Nirvix Technology delivers high-performance web, mobile, and custom software solutions in Nepal. Scale your business with clean code and modern UI/UX. Get a free quote!" />
+<meta name="robots" content="index, follow" />
+<meta name="keywords" content="software development company Nepal, IT services Nepal, web development Nepal, mobile app development Nepal, custom software development, IT consulting Nepal, UI/UX design Nepal, Nirvix Technology" />
+<link rel="canonical" href="https://nirvixtech.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Nirvix Technology" />
+<meta property="og:title" content="Nirvix Technology | Best Software Development &amp; IT Services in Nepal" />
+<meta property="og:description" content="Nirvix Technology delivers high-performance web, mobile, and custom software solutions in Nepal. Scale your business with clean code and modern UI/UX." />
+<meta property="og:url" content="https://nirvixtech.com/" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Nirvix Technology | Best Software Development &amp; IT Services in Nepal" />
+<meta name="twitter:description" content="Nirvix Technology delivers high-performance web, mobile, and custom software solutions in Nepal." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Nirvix Technology",
+  "alternateName": "Nirvix Tech",
+  "url": "https://nirvixtech.com/",
+  "description": "Nirvix Technology delivers high-performance web, mobile, and custom software solutions in Nepal.",
+  "email": "info@nirvixtech.com",
+  "telephone": "+977-9818255423",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Harisiddhi",
+    "addressLocality": "Lalitpur",
+    "addressCountry": "NP"
+  },
+  "areaServed": "Worldwide",
+  "knowsAbout": ["Web Development", "Mobile App Development", "Custom Software Development", "IT Consulting", "UI/UX Design"]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f2f63' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M4.8 5.6A9 9 0 0 0 4.8 18.4'/%3E%3Cpath d='M19.2 5.6a9 9 0 0 1 0 12.8'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&display=swap" rel="stylesheet" />
+<script type="importmap">
+{ "imports": { "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.1.18/+esm" } }
+</script>
+<style>
+  :root{
+    --background:#ffffff;
+    --foreground:#0a0a0a;
+    --brand:#2563c9;
+    --brand-deep:#0f2f63;
+    --brand-light:#5790e6;
+    --accent-teal:#0b6e97;
+    --surface:#f4f4f4;
+    --surface-card:#ffffff;
+    --ink:#0a0a0a;
+    --ink-soft:#717784;
+    --ghost:#d7dae1;
+    --hairline:#e6e8ec;
+    --on-brand:#ffffff;
+    --radius-card:1.5rem;
+    --radius-card-lg:2rem;
+    --radius-pill:62.5rem;
+    --ease-out-expo: cubic-bezier(0.16,1,0.3,1);
+    --ease-out-quart: cubic-bezier(0.25,1,0.5,1);
+    --ease-in-out-cubic: cubic-bezier(0.65,0,0.35,1);
+  }
+
+  html{ font-size:16px; }
+  @media (max-width:1920px){ html{ font-size:0.833333vw; } }
+  @media (max-width:1440px){ html{ font-size:1.111111vw; } }
+  @media (max-width:1024px){ html{ font-size:1.5625vw; } }
+  @media (max-width:640px){  html{ font-size:4.444444vw; } }
+
+  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+  html.scroll-locked{ position:relative; overflow:hidden; height:100%; }
+  img{ display:block; max-width:100%; }
+  body{ min-height:100vh; background:var(--background); color:var(--foreground); font-family:"Onest", system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+  button{ cursor:pointer; font:inherit; color:inherit; background:none; border:none; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  :focus-visible{ outline:2px solid var(--brand-light); outline-offset:2px; }
+
+  main{ width:100%; overflow-x:clip; padding:0.5rem; }
+  @media (min-width:640px){ main{ padding:0.75rem; } }
+
+  /* ---------- reveal primitives ---------- */
+  .word-clip, .line-clip{ display:inline-block; overflow:hidden; vertical-align:top; }
+  .line-clip{ display:block; padding-bottom:0.14em; }
+  .word-clip{ padding-bottom:0.12em; }
+  .word-inner, .line-inner{ display:inline-block; transform:translateY(115%); opacity:0; will-change:transform,opacity; }
+  .word-inner.revealed, .line-inner.revealed{ transform:translateY(0); opacity:1; }
+  .fade-word{ display:inline-block; transform:translateY(18px); opacity:0; transition:transform .7s var(--ease-out-quart), opacity .7s var(--ease-out-quart); }
+  .fade-word.revealed{ transform:translateY(0); opacity:1; }
+
+  /* ---------- shared components ---------- */
+  .eyebrow{ display:inline-flex; align-items:center; gap:0.5rem; font-size:0.75rem; font-weight:500; text-transform:uppercase; letter-spacing:0.22em; }
+  .eyebrow::before{ content:""; width:0.375rem; height:0.375rem; border-radius:var(--radius-pill); flex:none; }
+  .eyebrow.dark{ color:var(--ink-soft); }
+  .eyebrow.dark::before{ background:var(--brand); }
+  .eyebrow.light{ color:rgba(255,255,255,0.7); }
+  .eyebrow.light::before{ background:var(--brand-light); }
+
+  .pill-btn{ display:inline-flex; align-items:center; gap:0.5rem; border-radius:var(--radius-pill); padding:0.875rem 1.75rem; font-size:0.875rem; font-weight:500; text-transform:uppercase; letter-spacing:0.05em; transition:background .25s ease,color .25s ease; }
+  .pill-btn svg{ width:1rem; height:1rem; transition:transform .05s linear; }
+  .pill-btn.light{ background:#fff; color:var(--brand-deep); }
+  .pill-btn.light:hover{ background:var(--brand-light); color:#fff; }
+  .pill-btn.solid{ background:var(--ink); color:#fff; }
+  .pill-btn.solid:hover{ background:var(--brand-deep); }
+  .pill-btn.outline{ border:1px solid currentColor; color:var(--ink); }
+  .pill-btn.outline:hover{ background:var(--ink); color:#fff; }
+
+  .arrow-btn{ display:grid; place-items:center; width:3rem; height:3rem; border-radius:var(--radius-pill); border:1px solid; transition:background .25s ease,color .25s ease,border-color .25s ease; }
+  @media (min-width:640px){ .arrow-btn{ width:3.5rem; height:3.5rem; } }
+  .arrow-btn svg{ width:1.25rem; height:1.25rem; transition:transform .05s linear; }
+  .arrow-btn.outline{ border-color:var(--hairline); background:transparent; color:var(--ink); }
+  .arrow-btn.outline:hover{ border-color:var(--ink); }
+  .arrow-btn.solid{ background:var(--ink); border-color:var(--ink); color:#fff; }
+  .arrow-btn.solid:hover{ background:var(--brand-deep); }
+  .arrow-btn.prev svg{ transform:scaleX(-1); }
+
+  .dots{ display:flex; align-items:center; gap:0.5rem; }
+  .dot{ padding:0.375rem; }
+  .dot span{ display:block; height:0.375rem; width:0.375rem; border-radius:var(--radius-pill); transition:width .3s ease,background .3s ease; }
+  .dots.dark .dot span{ background:var(--ghost); }
+  .dots.dark .dot[aria-current="true"] span{ width:1.25rem; background:var(--ink); }
+  .dots.light .dot span{ background:rgba(255,255,255,0.4); }
+  .dots.light .dot[aria-current="true"] span{ width:1.25rem; background:#fff; }
+
+  .brand-mark{ display:inline-flex; align-items:center; gap:0.5rem; }
+  .brand-mark svg{ width:1.25rem; height:1.25rem; flex:none; }
+  .brand-mark span{ font-size:1rem; font-weight:500; text-transform:uppercase; letter-spacing:0.2em; }
+
+  /* ---------- loader ---------- */
+  #loader{ position:fixed; inset:0; z-index:200; background:var(--brand-deep); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem; transform:translateY(0%); }
+  .loader__wordmark{ display:flex; align-items:center; gap:0.5rem; opacity:0; transform:translateY(16px); }
+  .loader__wordmark svg{ width:1.75rem; height:1.75rem; }
+  .loader__wordmark span{ font-size:1.5rem; font-weight:500; text-transform:uppercase; letter-spacing:0.2em; }
+  .loader__track{ width:10rem; height:1px; border-radius:var(--radius-pill); background:rgba(255,255,255,0.2); overflow:hidden; }
+  .loader__fill{ height:100%; width:100%; background:#fff; transform:scaleX(0); transform-origin:left; }
+
+  /* ---------- header ---------- */
+  .site-header{ position:relative; z-index:20; flex:none; display:flex; align-items:flex-start; padding:1.5rem 1.5rem 0; font-size:0.75rem; color:#fff; }
+  @media (min-width:640px){ .site-header{ padding:2rem 2.5rem 0; } }
+  .site-header__nav{ display:none; flex:1; gap:2rem; align-items:center; }
+  @media (min-width:1024px){ .site-header__nav{ display:flex; } }
+  .site-header__nav a{ opacity:0.9; transition:opacity .2s ease; }
+  .site-header__nav a:hover{ opacity:1; }
+  .site-header__brand{ flex:1; display:flex; justify-content:flex-start; }
+  @media (min-width:1024px){ .site-header__brand{ justify-content:center; } }
+  .site-header__right{ flex:1; display:flex; justify-content:flex-end; align-items:center; gap:1rem; }
+  @media (min-width:640px){ .site-header__right{ gap:1.25rem; } }
+  .book-visit-link{ display:none; text-transform:uppercase; letter-spacing:0.1em; }
+  @media (min-width:640px){ .book-visit-link{ display:inline; } }
+  .book-visit-link:hover{ text-decoration:underline; }
+  .burger{ width:2.5rem; height:2.5rem; display:grid; place-items:center; border-radius:var(--radius-pill); background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); transition:background .2s ease; }
+  .burger:hover{ background:rgba(255,255,255,0.25); }
+  .burger__bars{ display:flex; flex-direction:column; gap:5px; }
+  .burger__bars span{ display:block; width:1rem; height:1px; background:#fff; }
+
+  /* ---------- hero ---------- */
+  .hero{ position:relative; isolation:isolate; overflow:hidden; border-radius:var(--radius-card-lg); background:var(--brand-deep); color:#fff; height:calc(100svh - 1rem); min-height:36rem; display:flex; flex-direction:column; }
+  @media (min-width:640px){ .hero{ height:calc(100svh - 1.5rem); } }
+  .hero__bg{ position:absolute; inset:0; z-index:-10; overflow:hidden; }
+  .hero__bg-inner{ position:absolute; left:0; right:0; top:-16%; height:132%; width:100%; }
+  .hero__bg-inner img{ width:100%; height:100%; object-fit:cover; }
+  .hero__gradient{ position:absolute; inset:0; background:linear-gradient(to bottom, rgba(15,47,99,0.65), rgba(15,47,99,0.35), rgba(15,47,99,0.75)); }
+  .hero__title-wrap{ padding:1rem 1.5rem 0; }
+  @media (min-width:640px){ .hero__title-wrap{ padding-left:2.5rem; padding-right:2.5rem; } }
+  #hero-title{ font-size:12.5vw; font-weight:500; text-transform:uppercase; line-height:0.85; letter-spacing:-0.02em; white-space:nowrap; }
+  .hero__bottom{ margin-top:auto; padding:0 1.5rem 2rem; display:flex; flex-direction:column; gap:1.5rem; }
+  @media (min-width:640px){ .hero__bottom{ padding:0 2.5rem 2.5rem; flex-direction:row; justify-content:space-between; align-items:flex-end; } }
+  .hero__tagline{ font-size:2.4rem; font-weight:500; text-transform:uppercase; line-height:0.95; letter-spacing:-0.01em; color:rgba(255,255,255,0.85); }
+  .hero__right{ display:flex; align-items:flex-end; gap:1rem; }
+
+  .collection-slider{ display:none; width:16rem; flex-direction:column; gap:0.75rem; }
+  @media (min-width:768px){ .collection-slider{ display:flex; } }
+  .collection-card{ display:flex; gap:0.75rem; border-radius:var(--radius-card); border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.1); padding:0.75rem; box-shadow:0 1rem 2rem rgba(15,47,99,0.2); backdrop-filter:blur(10px); }
+  .collection-card__img{ width:3.5rem; height:3.5rem; border-radius:0.75rem; overflow:hidden; flex:none; }
+  .collection-card__img img{ width:100%; height:100%; object-fit:cover; }
+  .collection-card__body{ display:flex; flex-direction:column; justify-content:center; gap:0.15rem; min-width:0; }
+  .collection-card__brand{ font-size:0.7rem; font-weight:500; text-transform:uppercase; letter-spacing:0.08em; }
+  .collection-card__title{ font-size:0.7rem; text-transform:uppercase; opacity:0.8; }
+  .collection-card__cta{ font-size:0.65rem; text-decoration:underline; opacity:0.9; align-self:flex-start; }
+
+  .membership-card{ width:100%; max-width:20rem; display:flex; align-items:stretch; gap:0.75rem; border-radius:var(--radius-card); border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.1); padding:0.75rem; box-shadow:0 1rem 2rem rgba(15,47,99,0.2); backdrop-filter:blur(10px); }
+  @media (min-width:640px){ .membership-card{ max-width:15rem; } }
+  .membership-card__left{ display:flex; flex-direction:column; justify-content:space-between; }
+  .membership-card__value{ font-size:1.875rem; font-weight:500; line-height:1; }
+  .membership-card__avatars{ display:flex; }
+  .membership-card__avatars span{ width:1.25rem; height:1.25rem; border-radius:var(--radius-pill); border:1px solid rgba(15,47,99,0.4); margin-left:-0.5rem; }
+  .membership-card__avatars span:first-child{ margin-left:0; }
+  .membership-card__caption{ font-size:0.65rem; opacity:0.8; }
+  .membership-card__img{ width:4rem; aspect-ratio:3/4; border-radius:0.75rem; overflow:hidden; flex:none; }
+  .membership-card__img img{ width:100%; height:100%; object-fit:cover; }
+
+  /* ---------- trust section ---------- */
+  .trust{ position:relative; isolation:isolate; overflow:hidden; background:var(--background); padding:4rem 1.5rem; }
+  @media (min-width:640px){ .trust{ padding:5rem 2.5rem; } }
+  .trust__top{ position:relative; z-index:20; display:flex; flex-direction:column; gap:1.5rem; }
+  @media (min-width:640px){ .trust__top{ flex-direction:row; justify-content:space-between; align-items:flex-start; } }
+  .trust__badge{ width:7rem; height:7rem; border-radius:var(--radius-pill); background:var(--surface); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:0.25rem; flex:none; }
+  @media (min-width:640px){ .trust__badge{ width:8rem; height:8rem; } }
+  .trust__badge strong{ font-size:1.5rem; font-weight:500; }
+  .trust__badge p{ font-size:0.6rem; color:var(--ink-soft); max-width:7em; }
+  .trust__card{ max-width:28rem; display:flex; gap:1rem; border-radius:var(--radius-card); background:var(--surface); padding:1.25rem; }
+  @media (min-width:640px){ .trust__card{ gap:1.25rem; padding:1.5rem; } }
+  .trust__index{ flex:none; border-radius:0.75rem; background:var(--background); padding:0.5rem 1rem; font-size:1.25rem; font-weight:500; height:fit-content; }
+  .trust__card h3{ font-size:1.125rem; font-weight:500; }
+  .trust__card p{ font-size:0.75rem; color:var(--ink-soft); line-height:1.6; margin-top:0.5rem; }
+
+  .trust__ghost{ position:relative; z-index:0; pointer-events:none; user-select:none; max-width:88rem; margin:3rem auto 0; }
+  .trust__ghost-row{ display:flex; justify-content:space-between; }
+  .ghost-word{ font-size:8.2vw; font-weight:500; text-transform:uppercase; line-height:1.02; letter-spacing:-0.02em; color:var(--ghost); }
+  .ghost-word.ink{ color:var(--ink); }
+
+  .trust__coach-wrap{ z-index:10; display:flex; justify-content:center; margin-top:-4rem; }
+  @media (min-width:640px){ .trust__coach-wrap{ margin-top:-6rem; height:0; } }
+  .coach-card{ width:13rem; transform:rotate(6deg); }
+  @media (min-width:640px){ .coach-card{ width:16rem; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(6deg); } }
+  .coach-card__frame{ position:relative; aspect-ratio:3/4; border-radius:var(--radius-card); overflow:hidden; background:var(--brand); }
+  .coach-card__frame img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .coach-card__caption{ position:absolute; inset-inline:0.75rem; bottom:0.75rem; border-radius:0.75rem; background:rgba(15,47,99,0.4); color:#fff; backdrop-filter:blur(8px); padding:0.5rem 0.75rem; }
+  .coach-card__caption strong{ display:block; font-size:0.875rem; font-weight:500; }
+  .coach-card__caption span{ font-size:0.65rem; opacity:0.8; }
+
+  .trust__controls{ position:relative; z-index:20; margin-top:3rem; display:flex; align-items:center; justify-content:space-between; }
+  @media (min-width:640px){ .trust__controls{ margin-top:6rem; } }
+
+  /* ---------- programs ---------- */
+  .programs{ background:var(--surface); padding:6rem 1.5rem; }
+  @media (min-width:640px){ .programs{ padding-left:2.5rem; padding-right:2.5rem; } }
+  .section-heading-lines{ font-size:3rem; font-weight:500; line-height:0.95; letter-spacing:-0.01em; margin-top:1rem; }
+  .programs__list{ margin-top:3.5rem; }
+  .program-row{ display:flex; align-items:center; gap:1.5rem; padding:1.75rem 0; border-top:1px solid var(--hairline); }
+  .program-row:last-child{ border-bottom:1px solid var(--hairline); }
+  .program-row__index{ width:2.5rem; flex:none; font-size:0.875rem; font-weight:500; color:var(--ink-soft); }
+  .program-row__body{ flex:1; min-width:0; }
+  .program-row__body h3{ font-size:1.5rem; font-weight:500; letter-spacing:-0.01em; }
+  @media (min-width:640px){ .program-row__body h3{ font-size:1.875rem; } }
+  .program-row__body p{ font-size:0.875rem; color:var(--ink-soft); margin-top:0.25rem; }
+  .program-row__arrow{ flex:none; width:2.75rem; height:2.75rem; border-radius:var(--radius-pill); border:1px solid var(--hairline); display:grid; place-items:center; }
+  .program-row__arrow svg{ width:1.125rem; height:1.125rem; }
+
+  /* ---------- facilities ---------- */
+  .facilities{ background:var(--background); border-radius:var(--radius-card-lg); margin-top:-2.5rem; padding:4rem 1.5rem 5rem; position:relative; z-index:1; }
+  @media (min-width:640px){ .facilities{ padding-left:2.5rem; padding-right:2.5rem; } }
+  .facilities__grid{ display:grid; grid-template-columns:1fr; align-items:end; gap:2.5rem; }
+  @media (min-width:768px){ .facilities__grid{ grid-template-columns:1fr 1fr; } }
+  .facilities__intro{ max-width:24rem; }
+  .facilities__icon{ width:4rem; height:4rem; border-radius:var(--radius-card); overflow:hidden; }
+  .facilities__icon img{ width:100%; height:100%; object-fit:cover; }
+  .facilities__intro h2{ margin-top:1.5rem; }
+  .facilities__intro p{ font-size:0.875rem; color:var(--ink-soft); max-width:20rem; margin-top:1.5rem; }
+  .facilities__cards{ display:flex; align-items:flex-end; gap:1.25rem; }
+  .court-card{ flex:1; position:relative; aspect-ratio:3/4; border-radius:var(--radius-card); overflow:hidden; background:var(--surface); }
+  .court-card.offset{ margin-bottom:2rem; }
+  .court-card img{ width:100%; height:100%; object-fit:cover; transition:transform .05s linear; }
+  .court-card__caption{ position:absolute; inset-inline:0.75rem; bottom:0.75rem; border-radius:0.75rem; backdrop-filter:blur(8px); color:#fff; padding:0.75rem 1rem; }
+  .court-card__caption.clay{ background:rgba(15,47,99,0.4); }
+  .court-card__caption.blue{ background:rgba(11,110,151,0.55); }
+  .court-card__caption strong{ display:block; font-size:0.875rem; font-weight:500; }
+  .court-card__caption span{ font-size:0.65rem; opacity:0.85; }
+
+  /* ---------- stats ---------- */
+  .stats{ background:var(--brand-deep); color:#fff; border-radius:var(--radius-card-lg); margin-top:0.75rem; padding:5rem 1.5rem; }
+  @media (min-width:640px){ .stats{ padding-left:2.5rem; padding-right:2.5rem; } }
+  .stats__grid{ display:grid; grid-template-columns:repeat(2,1fr); column-gap:2rem; row-gap:3rem; margin-top:4rem; }
+  @media (min-width:1024px){ .stats__grid{ grid-template-columns:repeat(4,1fr); } }
+  .stat-cell{ border-top:1px solid rgba(255,255,255,0.2); padding-top:1.25rem; }
+  .stat-cell__value{ font-size:3.75rem; font-weight:500; letter-spacing:-0.01em; }
+  @media (min-width:640px){ .stat-cell__value{ font-size:4.5rem; } }
+  .stat-cell__label{ font-size:0.875rem; color:rgba(255,255,255,0.65); margin-top:0.75rem; }
+  .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+  /* ---------- testimonials ---------- */
+  .testimonials{ background:var(--background); padding:5rem 1.5rem; }
+  @media (min-width:640px){ .testimonials{ padding:6rem 2.5rem; } }
+  .testimonials__grid{ display:grid; grid-template-columns:1fr; gap:1.25rem; margin-top:3.5rem; }
+  @media (min-width:768px){ .testimonials__grid{ grid-template-columns:repeat(3,1fr); } }
+  .testimonial-parallax{ height:100%; will-change:transform; }
+  .testimonial-card{ display:flex; flex-direction:column; justify-content:space-between; height:100%; border-radius:var(--radius-card); background:var(--surface); padding:1.75rem; }
+  .testimonial-card__quote{ font-size:2.25rem; color:var(--brand); line-height:1; }
+  .testimonial-card blockquote{ font-size:1.125rem; line-height:1.6; color:var(--ink); margin-top:1rem; }
+  .testimonial-card figcaption{ border-top:1px solid var(--hairline); padding-top:1rem; margin-top:1.5rem; }
+  .testimonial-card figcaption strong{ display:block; font-weight:500; }
+  .testimonial-card figcaption span{ font-size:0.875rem; color:var(--ink-soft); }
+
+  /* ---------- footer ---------- */
+  .site-footer{ background:var(--brand-deep); color:#fff; border-radius:var(--radius-card-lg); margin-top:0.75rem; padding:3.5rem 1.5rem; }
+  @media (min-width:640px){ .site-footer{ padding:4rem 2.5rem; } }
+  .footer__cta{ display:flex; flex-direction:column; gap:1.5rem; border-bottom:1px solid rgba(255,255,255,0.15); padding-bottom:3.5rem; }
+  @media (min-width:640px){ .footer__cta{ flex-direction:row; justify-content:space-between; align-items:flex-end; } }
+  .footer__cta h2{ font-size:3.75rem; font-weight:500; line-height:0.92; letter-spacing:-0.01em; margin-top:1rem; }
+  @media (min-width:640px){ .footer__cta h2{ font-size:3.75rem; } }
+  .footer__columns{ display:grid; grid-template-columns:1fr; gap:2.5rem; padding:3.5rem 0; }
+  @media (min-width:768px){ .footer__columns{ grid-template-columns:1.4fr 1fr 1fr 1fr; } }
+  .footer__brand{ max-width:20rem; }
+  .footer__brand p{ font-size:0.875rem; color:rgba(255,255,255,0.65); margin-top:1rem; }
+  .footer__brand address{ font-style:normal; margin-top:1.5rem; color:rgba(255,255,255,0.8); font-size:0.875rem; display:flex; flex-direction:column; gap:0.35rem; }
+  .footer__brand address a:hover{ text-decoration:underline; }
+  .footer__brand address .muted{ color:rgba(255,255,255,0.55); }
+  .footer__nav h3{ font-size:0.75rem; font-weight:500; text-transform:uppercase; letter-spacing:0.2em; color:rgba(255,255,255,0.5); }
+  .footer__nav ul{ font-size:0.875rem; color:rgba(255,255,255,0.8); display:flex; flex-direction:column; gap:0.75rem; margin-top:1rem; }
+  .footer__nav a:hover{ text-decoration:underline; }
+  .footer__bottom{ border-top:1px solid rgba(255,255,255,0.15); padding-top:2rem; font-size:0.875rem; color:rgba(255,255,255,0.6); display:flex; flex-direction:column; gap:1.25rem; }
+  @media (min-width:640px){ .footer__bottom{ flex-direction:row; justify-content:space-between; align-items:center; } }
+  .footer__bottom nav{ display:flex; gap:1.25rem; }
+  .footer__bottom nav a:hover{ color:#fff; }
+
+  /* ---------- modal ---------- */
+  .modal-overlay{ position:fixed; inset:0; z-index:90; display:flex; align-items:flex-end; justify-content:center; padding:0.75rem; pointer-events:none; }
+  @media (min-width:640px){ .modal-overlay{ align-items:center; padding:1.5rem; } }
+  .modal-overlay.open{ pointer-events:auto; }
+  .modal-backdrop{ position:absolute; inset:0; background:rgba(15,47,99,0.4); backdrop-filter:blur(6px); opacity:0; }
+  .modal-panel{ position:relative; max-height:92svh; overflow-y:auto; border-radius:var(--radius-card-lg); background:var(--surface-card); padding:1.5rem; max-width:32rem; width:100%; color:var(--ink); box-shadow:0 2rem 4rem rgba(15,47,99,0.35); opacity:0; transform:translateY(28px) scale(0.96); }
+  @media (min-width:640px){ .modal-panel{ padding:2rem; } }
+  .modal-panel__header{ display:flex; justify-content:space-between; align-items:flex-start; }
+  .modal-panel h2{ font-size:2.25rem; font-weight:500; margin-top:0.75rem; }
+  @media (min-width:640px){ .modal-panel h2{ font-size:3rem; } }
+  .icon-close-btn{ width:2.5rem; height:2.5rem; border-radius:var(--radius-pill); background:var(--surface); display:grid; place-items:center; flex:none; transition:background .2s ease; }
+  .icon-close-btn:hover{ background:var(--hairline); }
+  .icon-close-btn svg{ width:1.125rem; height:1.125rem; }
+  .contact-form{ margin-top:1.75rem; display:flex; flex-direction:column; gap:1rem; }
+  .field{ display:flex; flex-direction:column; gap:0.5rem; }
+  .field label{ font-size:0.75rem; font-weight:500; text-transform:uppercase; letter-spacing:0.18em; color:var(--ink-soft); }
+  .field input, .field textarea{ width:100%; border-radius:0.75rem; border:1px solid var(--hairline); background:var(--background); padding:0.75rem 1rem; font-size:0.875rem; font-family:inherit; color:var(--ink); }
+  .field input:focus, .field textarea:focus{ outline:none; border-color:var(--brand-light); box-shadow:0 0 0 3px rgba(87,144,230,0.25); }
+  .submit-btn{ border-radius:var(--radius-pill); background:var(--ink); color:#fff; padding:0.875rem 1.75rem; font-size:0.875rem; font-weight:500; text-transform:uppercase; letter-spacing:0.05em; transition:background .2s ease,opacity .2s ease; align-self:flex-start; }
+  .submit-btn:hover{ background:var(--brand-deep); }
+  .submit-btn:disabled{ opacity:0.6; cursor:default; }
+  .success-panel{ margin-top:2rem; border-radius:var(--radius-card); background:var(--surface); padding:1.5rem; text-align:center; display:none; }
+  .success-panel.show{ display:block; }
+  .success-panel__check{ width:3rem; height:3rem; border-radius:var(--radius-pill); background:var(--brand); display:grid; place-items:center; margin:0 auto; }
+  .success-panel__check svg{ width:1.25rem; height:1.25rem; }
+  .success-panel h3{ font-size:1.125rem; font-weight:500; margin-top:1rem; }
+  .success-panel p{ font-size:0.875rem; color:var(--ink-soft); margin-top:0.5rem; }
+  .success-panel .submit-btn{ margin-top:1.25rem; }
+  .contact-form.hide, .success-panel-hide{ display:none; }
+
+  /* ---------- menu overlay ---------- */
+  .menu-overlay{ position:fixed; inset:0; z-index:70; display:flex; flex-direction:column; pointer-events:none; }
+  .menu-overlay.open{ pointer-events:auto; }
+  .menu-backdrop{ position:absolute; inset:0; background:var(--brand-deep); opacity:0; }
+  .menu-panel{ position:relative; height:100%; display:flex; flex-direction:column; padding:0.5rem; opacity:0; transform:translateY(-24px); }
+  @media (min-width:640px){ .menu-panel{ padding:0.75rem; } }
+  .menu-panel__inner{ height:100%; display:flex; flex-direction:column; padding:1.5rem; color:#fff; }
+  @media (min-width:640px){ .menu-panel__inner{ padding:2.5rem; } }
+  .menu-panel__top{ display:flex; justify-content:space-between; align-items:center; }
+  .menu-panel__nav{ flex:1; display:flex; flex-direction:column; justify-content:center; gap:0.5rem; }
+  .menu-link{ display:block; font-size:3rem; font-weight:500; letter-spacing:-0.01em; opacity:0; transform:translateY(28px); transition:color .2s ease; }
+  @media (min-width:640px){ .menu-link{ font-size:4.5rem; } }
+  .menu-link:hover{ color:var(--brand-light); }
+  .menu-panel__bottom{ border-top:1px solid rgba(255,255,255,0.15); padding-top:2rem; display:flex; flex-direction:column; gap:1.5rem; }
+  @media (min-width:640px){ .menu-panel__bottom{ flex-direction:row; justify-content:space-between; align-items:center; } }
+  .social-nav{ display:flex; gap:1.25rem; color:rgba(255,255,255,0.7); font-size:0.875rem; }
+  .social-nav a:hover{ color:#fff; }
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader__wordmark">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M4.8 5.6A9 9 0 0 0 4.8 18.4"/><path d="M19.2 5.6a9 9 0 0 1 0 12.8"/></svg>
+    <span>Nirvix</span>
+  </div>
+  <div class="loader__track"><div class="loader__fill"></div></div>
+</div>
+
+<main>
+
+<section class="hero" id="top">
+  <div class="hero__bg">
+    <div class="hero__bg-inner" id="hero-bg-inner">
+      <img src="https://api.getlayers.ai/storage/v1/object/public/public/assets/baseline-88535e4000/hero/hero-court.webp" alt="Player lunging for a shot on a hard court" loading="eager" fetchpriority="high" />
+    </div>
+    <div class="hero__gradient"></div>
+  </div>
+
+  <header class="site-header">
+    <nav class="site-header__nav">
+      <a href="#about">About Us</a>
+      <a href="#services">Our Services</a>
+    </nav>
+    <div class="site-header__brand brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M4.8 5.6A9 9 0 0 0 4.8 18.4"/><path d="M19.2 5.6a9 9 0 0 1 0 12.8"/></svg>
+      <span>Nirvix</span>
+    </div>
+    <div class="site-header__right">
+      <button class="book-visit-link" data-open-modal>Get a Quote</button>
+      <button class="burger" id="burger-btn" aria-label="Open menu">
+        <span class="burger__bars"><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="hero__title-wrap">
+    <h1 id="hero-title"></h1>
+  </div>
+
+  <div class="hero__bottom">
+    <p class="hero__tagline" id="hero-tagline"></p>
+
+    <div class="hero__right">
+      <div class="collection-slider" id="collection-slider">
+        <div class="collection-card" id="collection-card">
+          <div class="collection-card__img"><img id="collection-img" src="" alt="" loading="lazy" /></div>
+          <div class="collection-card__body">
+            <span class="collection-card__brand" id="collection-brand"></span>
+            <span class="collection-card__title" id="collection-title"></span>
+            <a href="#shop" class="collection-card__cta" id="collection-cta"></a>
+          </div>
+        </div>
+        <div class="dots light" id="collection-dots"></div>
+      </div>
+
+      <article class="membership-card" id="membership-card">
+        <div class="membership-card__left">
+          <span class="membership-card__value">11+</span>
+          <div class="membership-card__avatars">
+            <span style="background:#5790e6"></span>
+            <span style="background:#c2e029"></span>
+            <span style="background:#0b6e97"></span>
+            <span style="background:#ffffff"></span>
+          </div>
+          <span class="membership-card__caption">Hackathons won</span>
+        </div>
+        <div class="membership-card__img">
+          <img src="https://api.getlayers.ai/storage/v1/object/public/public/assets/baseline-88535e4000/1.webp" alt="Player waiting to return on a clay court" loading="lazy" />
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="trust" id="about">
+  <div class="trust__top">
+    <div class="trust__badge" id="trust-percent">
+      <strong>100%</strong>
+      <p>Dedicated to your success</p>
+    </div>
+    <article class="trust__card" id="trust-badge-card">
+      <div class="trust__index">#01</div>
+      <div>
+        <h3>Who We Are at Nirvix</h3>
+        <p>Nirvix Technology is a team of passionate builders who started with a dream, a dream shaped through winning 11+ hackathons, working on challenging team projects, and constantly pushing creative boundaries.</p>
+      </div>
+    </article>
+  </div>
+
+  <h2 class="trust__ghost" id="trust-title">
+    <div class="trust__ghost-row">
+      <span class="ghost-word" data-ghost="0"><span class="word-clip"><span class="word-inner"></span></span></span>
+      <span class="ghost-word" data-ghost="1"><span class="word-clip"><span class="word-inner"></span></span></span>
+    </div>
+    <div class="trust__ghost-row">
+      <span class="ghost-word ink" data-ghost="2"><span class="word-clip"><span class="word-inner"></span></span></span>
+      <span class="ghost-word" data-ghost="3"><span class="word-clip"><span class="word-inner"></span></span></span>
+    </div>
+  </h2>
+
+  <div class="trust__coach-wrap">
+    <figure class="coach-card" id="coach-card">
+      <div class="coach-card__frame">
+        <img id="coach-img" src="" alt="" loading="lazy" />
+        <div class="coach-card__caption">
+          <strong id="coach-name"></strong>
+          <span id="coach-role"></span>
+        </div>
+      </div>
+    </figure>
+  </div>
+
+  <div class="trust__controls">
+    <button class="arrow-btn outline prev" id="trust-prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+    <div class="dots dark" id="trust-dots"></div>
+    <button class="arrow-btn solid" id="trust-next" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</section>
+
+<section class="programs" id="services">
+  <div class="eyebrow dark">Smart Solutions for Your Growth</div>
+  <h2 class="section-heading-lines" id="programs-title"></h2>
+  <ul class="programs__list" id="programs-list"></ul>
+</section>
+
+<section class="facilities" id="projects">
+  <div class="facilities__grid">
+    <div class="facilities__intro">
+      <div class="facilities__icon" id="facilities-icon">
+        <img src="https://api.getlayers.ai/storage/v1/object/public/public/assets/baseline-88535e4000/3.webp" alt="Player stretching for a forehand on clay" loading="lazy" />
+      </div>
+      <h2 class="section-heading-lines" id="facilities-title"></h2>
+      <p id="facilities-body">As a software development company based in Nepal, we've built everything from travel booking platforms to modern news portals, including eKathaa, Damaru, Global Rising Travel, and Aena TV.</p>
+    </div>
+    <div class="facilities__cards" id="facilities-cards"></div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="eyebrow light">By the numbers</div>
+  <h2 class="section-heading-lines" id="stats-title" style="color:#fff"></h2>
+  <dl class="stats__grid" id="stats-grid"></dl>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="eyebrow dark">What clients say</div>
+  <h2 class="section-heading-lines" id="testimonials-title"></h2>
+  <ul class="testimonials__grid" id="testimonials-grid"></ul>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="footer__cta">
+    <div>
+      <div class="eyebrow light">Get started</div>
+      <p id="footer-cta-title"></p>
+    </div>
+    <button class="pill-btn light" id="footer-book-btn" data-open-modal>
+      Get a Quote
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+
+  <div class="footer__columns">
+    <div class="footer__brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M4.8 5.6A9 9 0 0 0 4.8 18.4"/><path d="M19.2 5.6a9 9 0 0 1 0 12.8"/></svg>
+        <span>Nirvix</span>
+      </div>
+      <p>Your trusted tech partner from Nepal, delivering high-performance software, web, and mobile solutions.</p>
+      <address>
+        <a href="mailto:info@nirvixtech.com">info@nirvixtech.com</a>
+        <a href="tel:+9779818255423">+977 9818255423</a>
+        <span class="muted">Harisiddhi, Lalitpur</span>
+      </address>
+    </div>
+
+    <nav class="footer__nav">
+      <h3>Services</h3>
+      <ul>
+        <li><a href="#services">Web &amp; Mobile App Development</a></li>
+        <li><a href="#services">Custom Software Development</a></li>
+        <li><a href="#services">IT Consulting &amp; Digital Transformation</a></li>
+        <li><a href="#services">UI/UX Design &amp; Branding</a></li>
+      </ul>
+    </nav>
+    <nav class="footer__nav">
+      <h3>Company</h3>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+    <nav class="footer__nav">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#projects">Our Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="footer__bottom">
+    <span>© Nirvix Technology 2025 | All Rights Reserved</span>
+    <nav>
+      <a href="#facebook">Facebook</a>
+      <a href="#linkedin">LinkedIn</a>
+      <a href="#tiktok">TikTok</a>
+      <a href="#instagram">Instagram</a>
+    </nav>
+    <nav>
+      <a href="#terms">Terms &amp; Condition</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </div>
+</footer>
+
+</main>
+
+<div class="modal-overlay" id="contact-modal">
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  <div class="modal-panel" id="modal-panel" role="dialog" aria-modal="true" aria-label="Get a quote">
+    <div class="modal-panel__header">
+      <div>
+        <div class="eyebrow dark">Get a quote</div>
+        <h2 id="modal-title"></h2>
+      </div>
+      <button class="icon-close-btn" id="modal-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+
+    <form class="contact-form" id="contact-form" novalidate>
+      <div class="field">
+        <label for="field-name">Full name</label>
+        <input id="field-name" name="name" type="text" placeholder="Alex Rivera" />
+      </div>
+      <div class="field">
+        <label for="field-email">Email</label>
+        <input id="field-email" name="email" type="email" placeholder="you@email.com" />
+      </div>
+      <div class="field">
+        <label for="field-message">Tell us about your project</label>
+        <textarea id="field-message" name="message" rows="3" placeholder="I'm looking to build a web platform for…"></textarea>
+      </div>
+      <button class="submit-btn" type="submit" id="submit-btn">Request a quote</button>
+    </form>
+
+    <div class="success-panel" id="success-panel">
+      <div class="success-panel__check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <h3>Message received</h3>
+      <p id="success-subtext"></p>
+      <button class="pill-btn solid submit-btn" id="modal-done">Done</button>
+    </div>
+  </div>
+</div>
+
+<div class="menu-overlay" id="menu-overlay">
+  <div class="menu-backdrop" id="menu-backdrop"></div>
+  <div class="menu-panel" id="menu-panel">
+    <div class="menu-panel__inner">
+      <div class="menu-panel__top">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M4.8 5.6A9 9 0 0 0 4.8 18.4"/><path d="M19.2 5.6a9 9 0 0 1 0 12.8"/></svg>
+          <span>Nirvix</span>
+        </div>
+        <button class="icon-close-btn" id="menu-close" aria-label="Close menu" style="background:rgba(255,255,255,0.15)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <nav class="menu-panel__nav" id="menu-nav">
+        <a class="menu-link" href="#top">Home</a>
+        <a class="menu-link" href="#about">About Us</a>
+        <a class="menu-link" href="#projects">Our Projects</a>
+        <a class="menu-link" href="#team">Our Team</a>
+        <a class="menu-link" href="#blog">Blog</a>
+        <a class="menu-link" href="#contact">Contact Us</a>
+      </nav>
+      <div class="menu-panel__bottom">
+        <button class="pill-btn light" id="menu-book-btn" data-open-modal>
+          Get a Quote
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <nav class="social-nav">
+          <a href="#facebook">Facebook</a>
+          <a href="#linkedin">LinkedIn</a>
+          <a href="#tiktok">TikTok</a>
+          <a href="#instagram">Instagram</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import Lenis from "lenis";
+
+/* ============ constants ============ */
+const ASSET_BASE = "https://api.getlayers.ai/storage/v1/object/public/public/assets/baseline-88535e4000";
+const asset = (p) => `${ASSET_BASE}/${p}`;
+const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const IS_MOBILE = () => window.innerWidth <= 768;
+
+/* ============ adaptive rem grid (scale-up above 1920) ============ */
+function updateFontScale(){
+  const FONT_BASE = 16, BASE_W = 1920, COEF = 0.6666;
+  const reduction = ((BASE_W - window.innerWidth) / BASE_W) * 100 * COEF;
+  const size = FONT_BASE - (FONT_BASE * reduction) / 100;
+  if (size > FONT_BASE) document.documentElement.style.fontSize = size + "px";
+  else document.documentElement.style.removeProperty("font-size");
+}
+updateFontScale();
+window.addEventListener("resize", updateFontScale);
+
+/* ============ Lenis smooth scroll ============ */
+const lenis = new Lenis({ smoothWheel: true });
+function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
+window.scrollTo(0, 0);
+
+function lockScroll(lock){
+  if (lock){ lenis.stop(); document.documentElement.classList.add("scroll-locked"); }
+  else { lenis.start(); document.documentElement.classList.remove("scroll-locked"); }
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  a.addEventListener("click", (e) => {
+    const id = a.getAttribute("href").slice(1);
+    const target = document.getElementById(id);
+    e.preventDefault();
+    if (target) lenis.scrollTo(target);
+  });
+});
+
+/* ============ tiny spring engine ============ */
+function applyTransformState(el, s, useOpacity){
+  const x = s.x || 0, y = s.y || 0, scale = s.scale != null ? s.scale : 1, rotate = s.rotate || 0;
+  el.style.transform = `translate(${x}px, ${y}px) scale(${scale}) rotate(${rotate}deg)`;
+  if (useOpacity && s.opacity != null) el.style.opacity = s.opacity;
+}
+
+function springTo(el, from, to, config = { tension: 200, friction: 26 }, onDone){
+  const keys = Object.keys(to);
+  const hasOpacity = "opacity" in to || "opacity" in from;
+  const cur = {}, vel = {};
+  keys.forEach((k) => { cur[k] = from[k] != null ? from[k] : (k === "scale" ? 1 : 0); vel[k] = 0; });
+  if (el._springRaf) cancelAnimationFrame(el._springRaf);
+  const dt = 0.016;
+  function step(){
+    let rest = true;
+    keys.forEach((k) => {
+      const target = to[k];
+      const accel = -config.tension * (cur[k] - target) - config.friction * vel[k];
+      vel[k] += accel * dt;
+      cur[k] += vel[k] * dt;
+      if (Math.abs(cur[k] - target) > 0.001 || Math.abs(vel[k]) > 0.001) rest = false;
+    });
+    applyTransformState(el, cur, hasOpacity);
+    if (!rest){ el._springRaf = requestAnimationFrame(step); }
+    else { applyTransformState(el, to, hasOpacity); if (onDone) onDone(); }
+  }
+  el._springRaf = requestAnimationFrame(step);
+}
+
+function setState(el, s){
+  const hasOpacity = "opacity" in s;
+  applyTransformState(el, s, hasOpacity);
+}
+
+/* ============ clip-mask word/line reveal ============ */
+function wordClipHTML(text, extraClass = ""){
+  return text.split(" ").map((w) => `<span class="word-clip ${extraClass}"><span class="word-inner">${w}</span></span>`).join(" ");
+}
+function lineClipHTML(lines){
+  return lines.map((l) => `<span class="line-clip"><span class="line-inner">${l}</span></span>`).join("");
+}
+function revealClips(container, { stagger = 100, duration = 950, baseDelay = 0, easing = "var(--ease-out-expo)", selector = ".word-inner, .line-inner" } = {}){
+  const inners = container.querySelectorAll(selector);
+  inners.forEach((inner, i) => {
+    inner.style.transitionProperty = "transform, opacity";
+    inner.style.transitionDuration = duration + "ms";
+    inner.style.transitionTimingFunction = easing;
+    inner.style.transitionDelay = (baseDelay + i * stagger) + "ms";
+  });
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    inners.forEach((inner) => inner.classList.add("revealed"));
+  }));
+}
+function resetClips(container, selector = ".word-inner, .line-inner"){
+  container.querySelectorAll(selector).forEach((inner) => {
+    inner.style.transitionDuration = "0ms";
+    inner.classList.remove("revealed");
+  });
+}
+function fadeWords(text, containerEl, { wordStagger = 28, delayIn = 0, duration = 700 } = {}){
+  containerEl.innerHTML = text.split(" ").map((w) => `<span class="fade-word">${w}</span>`).join(" ");
+  const words = containerEl.querySelectorAll(".fade-word");
+  words.forEach((w, i) => {
+    w.style.transitionDuration = duration + "ms";
+    w.style.transitionDelay = (delayIn + i * wordStagger) + "ms";
+  });
+  requestAnimationFrame(() => requestAnimationFrame(() => words.forEach((w) => w.classList.add("revealed"))));
+}
+
+/* ============ Inview (play-once IntersectionObserver reveal) ============ */
+function inview(el, { from, to, config = { tension: 200, friction: 26 }, delayIn = 0 }){
+  setState(el, from);
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting){
+        setTimeout(() => springTo(el, from, to, config), delayIn);
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.2 });
+  io.observe(el);
+}
+
+/* ============ Hover spring ============ */
+function hoverSpring(el, { from, to, config }){
+  setState(el, from);
+  el.addEventListener("mouseenter", () => { if (!IS_MOBILE()) springTo(el, from, to, config); });
+  el.addEventListener("mouseleave", () => { if (!IS_MOBILE()) springTo(el, to, from, config); });
+}
+
+/* ============ scroll parallax ============ */
+const parallaxItems = [];
+function addParallax(el, axis, fromVal, toVal, unit = "%"){
+  parallaxItems.push({ el, axis, fromVal, toVal, unit });
+}
+function tickParallax(){
+  const vh = window.innerHeight;
+  parallaxItems.forEach((p) => {
+    const rect = p.el.getBoundingClientRect();
+    const total = rect.height + vh;
+    const traveled = vh - rect.top;
+    const progress = Math.min(1, Math.max(0, traveled / total));
+    const val = p.fromVal + (p.toVal - p.fromVal) * progress;
+    if (p.axis === "y") p.el.style.transform = `translateY(${val}${p.unit})`;
+    else if (p.axis === "x") p.el.style.transform = `translateX(${val}${p.unit})`;
+  });
+  requestAnimationFrame(tickParallax);
+}
+requestAnimationFrame(tickParallax);
+
+/* hero bg parallax */
+addParallax(document.getElementById("hero-bg-inner"), "y", 0, 12);
+
+/* ============ loader ============ */
+const MIN_VISIBLE_MS = REDUCED_MOTION ? 200 : 1400;
+const MAX_VISIBLE_MS = REDUCED_MOTION ? 200 : 2600;
+const EXIT_MS = REDUCED_MOTION ? 0 : 850;
+
+function startLoader(){
+  lockScroll(true);
+  const loaderEl = document.getElementById("loader");
+  const fill = loaderEl.querySelector(".loader__fill");
+  const wordmark = loaderEl.querySelector(".loader__wordmark");
+
+  requestAnimationFrame(() => {
+    fill.style.transitionProperty = "transform";
+    fill.style.transitionDelay = REDUCED_MOTION ? "0ms" : "120ms";
+    fill.style.transitionDuration = (REDUCED_MOTION ? 0 : (MIN_VISIBLE_MS - 120)) + "ms";
+    fill.style.transitionTimingFunction = "var(--ease-in-out-cubic)";
+    fill.style.transform = "scaleX(1)";
+  });
+  springTo(wordmark, { opacity: 0, y: 16 }, { opacity: 1, y: 0 }, { tension: 200, friction: 22 });
+
+  let done = false;
+  const startTime = Date.now();
+  function finish(){
+    if (done) return;
+    done = true;
+    document.dispatchEvent(new CustomEvent("loader:ready"));
+    lockScroll(false);
+    loaderEl.style.transitionProperty = "transform";
+    loaderEl.style.transitionDuration = EXIT_MS + "ms";
+    loaderEl.style.transitionTimingFunction = "var(--ease-in-out-cubic)";
+    loaderEl.style.transform = "translateY(-105%)";
+    setTimeout(() => loaderEl.remove(), EXIT_MS + 20);
+  }
+  function onLoadOrTimeout(){
+    const elapsed = Date.now() - startTime;
+    setTimeout(finish, Math.max(0, MIN_VISIBLE_MS - elapsed));
+  }
+  if (document.readyState === "complete"){ onLoadOrTimeout(); }
+  else {
+    window.addEventListener("load", onLoadOrTimeout);
+    setTimeout(finish, MAX_VISIBLE_MS);
+  }
+}
+startLoader();
+
+/* ============ hero title / tagline ============ */
+const heroTitleEl = document.getElementById("hero-title");
+heroTitleEl.innerHTML = wordClipHTML("Your Vision, Our Code.");
+const heroTaglineEl = document.getElementById("hero-tagline");
+heroTaglineEl.innerHTML = lineClipHTML(["Dreams Into,", "Reality."]);
+
+const collectionSliderEl = document.getElementById("collection-slider");
+const membershipCardEl = document.getElementById("membership-card");
+setState(collectionSliderEl, { opacity: 0, y: 28 });
+setState(membershipCardEl, { opacity: 0, y: 28 });
+
+document.addEventListener("loader:ready", () => {
+  revealClips(heroTitleEl, { stagger: 140, duration: 1100, baseDelay: 0, selector: ".word-inner" });
+  revealClips(heroTaglineEl, { stagger: 110, duration: 900, baseDelay: 350, selector: ".line-inner" });
+  setTimeout(() => springTo(collectionSliderEl, { opacity: 0, y: 28 }, { opacity: 1, y: 0 }, { tension: 200, friction: 26 }), 650);
+  setTimeout(() => springTo(membershipCardEl, { opacity: 0, y: 28 }, { opacity: 1, y: 0 }, { tension: 200, friction: 26 }), 780);
+  startCollectionAutoplay();
+});
+
+/* ============ hero collection slider ============ */
+const collectionSlides = [
+  { img: "2.webp", brand: "MERN Stack", title: "Web & App Dev", cta: "Learn more", alt: "Player driving a backhand on a hard court" },
+  { img: "3.webp", brand: "Spring Framework", title: "Custom Backends", cta: "Learn more", alt: "Player stretching for a forehand on clay" },
+  { img: "5.webp", brand: "AWS & Cloud", title: "Scalable Infra", cta: "Learn more", alt: "Player set in a ready stance on clay" },
+];
+let collectionIndex = 0;
+let collectionTimer = null;
+const collectionCardEl = document.getElementById("collection-card");
+const collectionImgEl = document.getElementById("collection-img");
+const collectionBrandEl = document.getElementById("collection-brand");
+const collectionTitleEl = document.getElementById("collection-title");
+const collectionCtaEl = document.getElementById("collection-cta");
+const collectionDotsEl = document.getElementById("collection-dots");
+
+function renderDots(container, count, activeIndex, onClick){
+  container.innerHTML = "";
+  for (let i = 0; i < count; i++){
+    const btn = document.createElement("button");
+    btn.className = "dot";
+    btn.setAttribute("aria-current", i === activeIndex ? "true" : "false");
+    btn.innerHTML = "<span></span>";
+    btn.addEventListener("click", () => onClick(i));
+    container.appendChild(btn);
+  }
+}
+
+function renderCollectionSlide(i){
+  const s = collectionSlides[i];
+  springTo(collectionCardEl, { opacity: 1, y: 0, scale: 1 }, { opacity: 0, y: 16, scale: 0.96 }, { tension: 210, friction: 24 }, () => {
+    collectionImgEl.src = asset(s.img);
+    collectionImgEl.alt = s.alt;
+    collectionBrandEl.textContent = s.brand;
+    collectionTitleEl.textContent = s.title;
+    collectionCtaEl.textContent = s.cta + " →";
+    springTo(collectionCardEl, { opacity: 0, y: 16, scale: 0.96 }, { opacity: 1, y: 0, scale: 1 }, { tension: 210, friction: 24 });
+  });
+  renderDots(collectionDotsEl, collectionSlides.length, i, (idx) => { collectionIndex = idx; renderCollectionSlide(idx); restartCollectionAutoplay(); });
+}
+{
+  const s = collectionSlides[0];
+  collectionImgEl.src = asset(s.img);
+  collectionImgEl.alt = s.alt;
+  collectionBrandEl.textContent = s.brand;
+  collectionTitleEl.textContent = s.title;
+  collectionCtaEl.textContent = s.cta + " →";
+  renderDots(collectionDotsEl, collectionSlides.length, 0, (idx) => { collectionIndex = idx; renderCollectionSlide(idx); restartCollectionAutoplay(); });
+}
+function startCollectionAutoplay(){
+  collectionTimer = setInterval(() => {
+    collectionIndex = (collectionIndex + 1) % collectionSlides.length;
+    renderCollectionSlide(collectionIndex);
+  }, 3800);
+}
+function restartCollectionAutoplay(){
+  if (collectionTimer) clearInterval(collectionTimer);
+  startCollectionAutoplay();
+}
+
+/* ============ Trust coach carousel ============ */
+const trustSlides = [
+  { headline: ["Ideas", "Into", "Real", "Products"], img: "5.webp", name: "Engineering Team", role: "Web & App Development", alt: "Head coach set in a ready stance on clay" },
+  { headline: ["Dreams", "Into", "Digital", "Experiences"], img: "4.webp", name: "Design Team", role: "UI/UX & Branding", alt: "Performance coach following through on a serve" },
+  { headline: ["Code", "That", "Drives", "Growth"], img: "1.webp", name: "Cloud & DevOps", role: "Infrastructure & Deployment", alt: "Juniors lead waiting to return on clay" },
+];
+let trustIndex = 0;
+const trustTitleEl = document.getElementById("trust-title");
+const ghostWordEls = Array.from(trustTitleEl.querySelectorAll(".ghost-word"));
+const coachImgEl = document.getElementById("coach-img");
+const coachNameEl = document.getElementById("coach-name");
+const coachRoleEl = document.getElementById("coach-role");
+const trustDotsEl = document.getElementById("trust-dots");
+
+const ghostParallaxRanges = [ [-3, 3], [3, -3], [-2, 4], [4, -3] ];
+ghostWordEls.forEach((el, i) => addParallax(el.querySelector(".word-clip"), "x", ghostParallaxRanges[i][0], ghostParallaxRanges[i][1]));
+
+function renderTrustSlide(i, { firstLoad = false } = {}){
+  const s = trustSlides[i];
+  ghostWordEls.forEach((el, idx) => { el.querySelector(".word-inner").textContent = s.headline[idx]; });
+  resetClips(trustTitleEl, ".word-inner");
+  revealClips(trustTitleEl, { stagger: 70, duration: 700, baseDelay: 0, selector: ".word-inner" });
+
+  if (firstLoad){
+    coachImgEl.src = asset(s.img);
+    coachImgEl.alt = s.alt;
+    coachNameEl.textContent = s.name;
+    coachRoleEl.textContent = s.role;
+  } else {
+    springTo(coachImgEl, { opacity: 1 }, { opacity: 0 }, { tension: 260, friction: 26 }, () => {
+      coachImgEl.src = asset(s.img);
+      coachImgEl.alt = s.alt;
+      coachNameEl.textContent = s.name;
+      coachRoleEl.textContent = s.role;
+      springTo(coachImgEl, { opacity: 0 }, { opacity: 1 }, { tension: 260, friction: 26 });
+    });
+  }
+  renderDots(trustDotsEl, trustSlides.length, i, (idx) => { trustIndex = idx; renderTrustSlide(idx); });
+}
+renderTrustSlide(0, { firstLoad: true });
+
+document.getElementById("trust-prev").addEventListener("click", () => {
+  trustIndex = (trustIndex - 1 + trustSlides.length) % trustSlides.length;
+  renderTrustSlide(trustIndex);
+});
+document.getElementById("trust-next").addEventListener("click", () => {
+  trustIndex = (trustIndex + 1) % trustSlides.length;
+  renderTrustSlide(trustIndex);
+});
+
+inview(document.getElementById("trust-percent"), { from: { opacity: 0, scale: 0.9 }, to: { opacity: 1, scale: 1 }, config: { tension: 220, friction: 22 } });
+inview(document.getElementById("trust-badge-card"), { from: { opacity: 0, y: 24 }, to: { opacity: 1, y: 0 }, config: { tension: 200, friction: 26 }, delayIn: 120 });
+inview(document.getElementById("coach-card"), { from: { opacity: 0, y: 60, scale: 0.92 }, to: { opacity: 1, y: 0, scale: 1 }, config: { tension: 170, friction: 26 } });
+
+hoverSpring(document.getElementById("trust-prev").querySelector("svg"), { from: { scale: 1 }, to: { scale: 1.15 }, config: { tension: 320, friction: 18 } });
+hoverSpring(document.getElementById("trust-next").querySelector("svg"), { from: { scale: 1 }, to: { scale: 1.15 }, config: { tension: 320, friction: 18 } });
+
+/* ============ Programs section ============ */
+const programsData = [
+  { index: "01", name: "Web & Mobile App Development", desc: "High-performance websites, web apps, and mobile applications with modern UI/UX and secure backend architecture.", href: "#contact" },
+  { index: "02", name: "Custom Software Development", desc: "Tailored web and mobile software solutions designed to fit your business needs, workflows, and long-term scalability.", href: "#contact" },
+  { index: "03", name: "IT Consulting & Digital Transformation", desc: "Technical guidance, architecture planning, cloud integration, and end-to-end digital solutions to modernize your business.", href: "#contact" },
+  { index: "04", name: "UI/UX Design & Branding", desc: "User-focused interface design, brand identity, and seamless digital experiences that enhance engagement and trust.", href: "#contact" },
+];
+document.getElementById("programs-title").innerHTML = lineClipHTML(["Software Development", "Services in Nepal"]);
+revealClips(document.getElementById("programs-title"), { stagger: 120, duration: 950, selector: ".line-inner" });
+
+const programsListEl = document.getElementById("programs-list");
+programsData.forEach((p, i) => {
+  const li = document.createElement("li");
+  li.innerHTML = `
+    <a class="program-row" href="${p.href}">
+      <span class="program-row__index">${p.index}</span>
+      <span class="program-row__body">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+      </span>
+      <span class="program-row__arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>`;
+  programsListEl.appendChild(li);
+  const rowEl = li.querySelector(".program-row");
+  inview(rowEl, { from: { opacity: 0, y: 26 }, to: { opacity: 1, y: 0 }, config: { tension: 190, friction: 26 }, delayIn: i * 90 });
+  const arrowEl = rowEl.querySelector(".program-row__arrow");
+  setState(arrowEl, { x: 0, opacity: 0.55 });
+  rowEl.addEventListener("mouseenter", () => { if (!IS_MOBILE()) springTo(arrowEl, { x: 0, opacity: 0.55 }, { x: 8, opacity: 1 }, { tension: 300, friction: 20 }); });
+  rowEl.addEventListener("mouseleave", () => { if (!IS_MOBILE()) springTo(arrowEl, { x: 8, opacity: 1 }, { x: 0, opacity: 0.55 }, { tension: 300, friction: 20 }); });
+});
+
+/* ============ Facilities section ============ */
+document.getElementById("facilities-title").innerHTML = lineClipHTML(["Our Software", "Development", "Projects"]);
+revealClips(document.getElementById("facilities-title"), { stagger: 120, duration: 950, selector: ".line-inner" });
+inview(document.getElementById("facilities-icon"), { from: { opacity: 0, scale: 0.85 }, to: { opacity: 1, scale: 1 }, config: { tension: 240, friction: 20 } });
+
+const facilitiesBodyEl = document.getElementById("facilities-body");
+const facilitiesBodyText = facilitiesBodyEl.textContent;
+{
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting){
+        fadeWords(facilitiesBodyText, facilitiesBodyEl, { wordStagger: 28, delayIn: 250, duration: 700 });
+        io.unobserve(facilitiesBodyEl);
+      }
+    });
+  }, { threshold: 0.2 });
+  io.observe(facilitiesBodyEl);
+}
+
+const courtCards = [
+  { tone: "clay", img: "1.webp", name: "Global Rising Travel", desc: "A modern travel platform designed for seamless bookings and discovery.", alt: "Player on the baseline of an outdoor clay court" },
+  { tone: "blue", img: "4.webp", name: "Aena TV", desc: "A dynamic media and streaming platform built for fast, reliable content delivery.", alt: "Player following through on a blue hard court" },
+];
+const facilitiesCardsEl = document.getElementById("facilities-cards");
+courtCards.forEach((c, i) => {
+  const fig = document.createElement("figure");
+  fig.className = "court-card" + (i === 1 ? " offset" : "");
+  fig.innerHTML = `
+    <img src="${asset(c.img)}" alt="${c.alt}" loading="lazy" />
+    <div class="court-card__caption ${c.tone}">
+      <strong>${c.name}</strong>
+      <span>${c.desc}</span>
+    </div>`;
+  facilitiesCardsEl.appendChild(fig);
+  inview(fig, { from: { opacity: 0, y: 48 }, to: { opacity: 1, y: 0 }, config: { tension: 180, friction: 26 }, delayIn: i * 140 });
+  const imgEl = fig.querySelector("img");
+  fig.addEventListener("mouseenter", () => { if (!IS_MOBILE()) springTo(imgEl, { scale: 1 }, { scale: 1.03 }, { tension: 300, friction: 22 }); });
+  fig.addEventListener("mouseleave", () => { if (!IS_MOBILE()) springTo(imgEl, { scale: 1.03 }, { scale: 1 }, { tension: 300, friction: 22 }); });
+});
+
+/* ============ Stats section ============ */
+document.getElementById("stats-title").innerHTML = lineClipHTML(["Numbers That", "Define Us"]);
+revealClips(document.getElementById("stats-title"), { stagger: 120, duration: 950, selector: ".line-inner" });
+
+const statsData = [
+  { value: "11+", label: "Hackathons won" },
+  { value: "50+", label: "Projects delivered" },
+  { value: "20+", label: "Happy clients" },
+  { value: "100%", label: "Client satisfaction" },
+];
+const statsGridEl = document.getElementById("stats-grid");
+statsData.forEach((s, i) => {
+  const cell = document.createElement("div");
+  cell.className = "stat-cell";
+  cell.innerHTML = `
+    <dt class="sr-only">${s.label}</dt>
+    <dd>
+      <div class="stat-cell__value">${s.value}</div>
+      <div class="stat-cell__label">${s.label}</div>
+    </dd>`;
+  statsGridEl.appendChild(cell);
+  inview(cell, { from: { opacity: 0, y: 30 }, to: { opacity: 1, y: 0 }, config: { tension: 180, friction: 24 }, delayIn: i * 110 });
+});
+
+/* ============ Testimonials section ============ */
+document.getElementById("testimonials-title").innerHTML = lineClipHTML(["What Clients", "Say About Us"]);
+revealClips(document.getElementById("testimonials-title"), { stagger: 120, duration: 950, selector: ".line-inner" });
+
+const testimonialsData = [
+  { quote: "Nirvix Technology helped us create a seamless, user-friendly booking platform for our clients. The custom features, including real-time availability and personalized travel packages, have significantly improved our customer experience.", name: "Mira Pandey", role: "CEO, Leaf Tours and Travels" },
+  { quote: "Working with Nirvix was an absolute dream. They took my vision and turned it into a beautifully designed personal blog that perfectly represents my voice. The site is sleek, fast, and easy to manage!", name: "Roshan KC", role: "Zen Career Hub" },
+  { quote: "Working with Nirvix Technology has been an amazing experience. They delivered a clean, fast, and professional website that truly reflects our cleaning business in New Zealand. The team communicated clearly, met every deadline, and went beyond what we expected. Highly recommended!", name: "Prabin", role: "LuxeShine Cleaning, New Zealand" },
+  { quote: "Nirvix Technology built our news portal exactly the way we envisioned it. The platform is fast, secure, and easy to manage. Their team understood every requirement and delivered a clean, modern, and reliable system. Truly impressed with their dedication and professionalism.", name: "Keshabraj Joshi", role: "SeropheroOnline" },
+];
+const testimonialsGridEl = document.getElementById("testimonials-grid");
+const cascadeCol = (i) => i % 3;
+testimonialsData.forEach((t, i) => {
+  const li = document.createElement("li");
+  li.innerHTML = `
+    <div class="testimonial-parallax">
+      <figure class="testimonial-card">
+        <div>
+          <div class="testimonial-card__quote">&ldquo;</div>
+          <blockquote>${t.quote}</blockquote>
+        </div>
+        <figcaption>
+          <strong>${t.name}</strong>
+          <span>${t.role}</span>
+        </figcaption>
+      </figure>
+    </div>`;
+  testimonialsGridEl.appendChild(li);
+  const wrapEl = li.querySelector(".testimonial-parallax");
+  const col = cascadeCol(i);
+  addParallax(wrapEl, "y", 20 + col * 14, -(12 + col * 10), "%");
+  const cardEl = li.querySelector(".testimonial-card");
+  inview(cardEl, { from: { opacity: 0, y: 40 }, to: { opacity: 1, y: 0 }, config: { tension: 180, friction: 26 }, delayIn: i * 120 });
+  cardEl.addEventListener("mouseenter", () => { if (!IS_MOBILE()) springTo(cardEl, { y: 0 }, { y: -8 }, { tension: 300, friction: 22 }); });
+  cardEl.addEventListener("mouseleave", () => { if (!IS_MOBILE()) springTo(cardEl, { y: -8 }, { y: 0 }, { tension: 300, friction: 22 }); });
+});
+
+/* ============ Footer ============ */
+document.getElementById("footer-cta-title").innerHTML = lineClipHTML(["Ready to Build", "Your Digital Product?"]);
+revealClips(document.getElementById("footer-cta-title"), { stagger: 120, duration: 950, selector: ".line-inner" });
+inview(document.getElementById("footer-book-btn"), { from: { opacity: 0, y: 20 }, to: { opacity: 1, y: 0 }, config: { tension: 200, friction: 24 }, delayIn: 150 });
+
+document.querySelectorAll(".pill-btn").forEach((btn) => {
+  const svg = btn.querySelector("svg");
+  if (svg) hoverSpring(svg, { from: { x: 0 }, to: { x: 5 }, config: { tension: 320, friction: 20 } });
+});
+document.querySelectorAll(".arrow-btn").forEach((btn) => {
+  if (btn.id === "trust-prev" || btn.id === "trust-next") return;
+  const svg = btn.querySelector("svg");
+  if (svg) hoverSpring(svg, { from: { scale: 1 }, to: { scale: 1.15 }, config: { tension: 320, friction: 18 } });
+});
+
+/* ============ Contact modal ============ */
+const modalOverlay = document.getElementById("contact-modal");
+const modalBackdrop = document.getElementById("modal-backdrop");
+const modalPanel = document.getElementById("modal-panel");
+const modalTitle = document.getElementById("modal-title");
+modalTitle.innerHTML = lineClipHTML(["Get Your", "Free Quote"]);
+const contactForm = document.getElementById("contact-form");
+const submitBtn = document.getElementById("submit-btn");
+const successPanel = document.getElementById("success-panel");
+const successSubtext = document.getElementById("success-subtext");
+const fieldName = document.getElementById("field-name");
+
+let modalOpen = false;
+function openModal(){
+  if (modalOpen) return;
+  modalOpen = true;
+  modalOverlay.classList.add("open");
+  lockScroll(true);
+  springTo(modalBackdrop, { opacity: 0 }, { opacity: 1 }, { tension: 240, friction: 30 });
+  springTo(modalPanel, { opacity: 0, y: 28, scale: 0.96 }, { opacity: 1, y: 0, scale: 1 }, { tension: 240, friction: 26 });
+  revealClips(modalTitle, { stagger: 90, duration: 800, selector: ".line-inner" });
+  setTimeout(() => fieldName.focus(), 120);
+}
+function closeModal(){
+  if (!modalOpen) return;
+  modalOpen = false;
+  springTo(modalBackdrop, { opacity: 1 }, { opacity: 0 }, { tension: 240, friction: 30 });
+  springTo(modalPanel, { opacity: 1, y: 0, scale: 1 }, { opacity: 0, y: 28, scale: 0.96 }, { tension: 240, friction: 26 }, () => {
+    modalOverlay.classList.remove("open");
+  });
+  lockScroll(false);
+  setTimeout(() => {
+    contactForm.reset();
+    contactForm.style.display = "";
+    successPanel.classList.remove("show");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Request a quote";
+    resetClips(modalTitle, ".line-inner");
+  }, 350);
+}
+document.querySelectorAll("[data-open-modal]").forEach((btn) => btn.addEventListener("click", openModal));
+document.getElementById("modal-close").addEventListener("click", closeModal);
+document.getElementById("modal-done").addEventListener("click", closeModal);
+modalBackdrop.addEventListener("click", closeModal);
+hoverSpring(document.getElementById("modal-close").querySelector("svg"), { from: { rotate: 0 }, to: { rotate: 90 }, config: { tension: 300, friction: 18 } });
+
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending…";
+  const nameVal = fieldName.value.trim();
+  const firstName = nameVal ? nameVal.split(" ")[0] : "there";
+  setTimeout(() => {
+    contactForm.style.display = "none";
+    successSubtext.textContent = `Thanks, ${firstName} — our team will be in touch about your project shortly.`;
+    successPanel.classList.add("show");
+  }, 600);
+});
+
+/* ============ Menu overlay ============ */
+const menuOverlay = document.getElementById("menu-overlay");
+const menuBackdrop = document.getElementById("menu-backdrop");
+const menuPanel = document.getElementById("menu-panel");
+const menuLinks = Array.from(document.querySelectorAll(".menu-link"));
+
+let menuOpen = false;
+function openMenu(){
+  if (menuOpen) return;
+  menuOpen = true;
+  menuOverlay.classList.add("open");
+  lockScroll(true);
+  springTo(menuBackdrop, { opacity: 0 }, { opacity: 1 }, { tension: 260, friction: 30 });
+  springTo(menuPanel, { opacity: 0, y: -24 }, { opacity: 1, y: 0 }, { tension: 220, friction: 28 });
+  menuLinks.forEach((link, i) => {
+    setState(link, { opacity: 0, y: 28 });
+    setTimeout(() => springTo(link, { opacity: 0, y: 28 }, { opacity: 1, y: 0 }, { tension: 200, friction: 26 }), 120 + i * 70);
+  });
+}
+function closeMenu(){
+  if (!menuOpen) return;
+  menuOpen = false;
+  springTo(menuBackdrop, { opacity: 1 }, { opacity: 0 }, { tension: 260, friction: 30 });
+  springTo(menuPanel, { opacity: 1, y: 0 }, { opacity: 0, y: -24 }, { tension: 220, friction: 28 }, () => {
+    menuOverlay.classList.remove("open");
+  });
+  lockScroll(false);
+}
+document.getElementById("burger-btn").addEventListener("click", openMenu);
+document.getElementById("menu-close").addEventListener("click", closeMenu);
+menuBackdrop.addEventListener("click", closeMenu);
+hoverSpring(document.getElementById("menu-close").querySelector("svg"), { from: { rotate: 0 }, to: { rotate: 90 }, config: { tension: 300, friction: 18 } });
+menuLinks.forEach((link) => {
+  link.addEventListener("click", () => closeMenu());
+});
+
+/* ============ Esc closes modal / menu ============ */
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape"){
+    if (modalOpen) closeModal();
+    else if (menuOpen) closeMenu();
+  }
+});
+</script>
+</body>
+</html>
