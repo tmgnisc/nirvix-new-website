@@ -8,7 +8,10 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
   const nameRef = useRef<HTMLInputElement>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const t = setTimeout(() => nameRef.current?.focus(), 120);
@@ -22,13 +25,23 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
     };
   }, [onClose]);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+      if (!res.ok) throw new Error();
       setSubmitted(true);
-    }, 600);
+    } catch {
+      setError("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   const firstName = name.trim() ? name.trim().split(" ")[0] : "there";
@@ -89,6 +102,7 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
                 name="name"
                 type="text"
                 placeholder="Alex Rivera"
+                required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm outline-none transition focus:border-brand-light focus:ring-2 focus:ring-brand-light/25"
@@ -103,6 +117,9 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
                 name="email"
                 type="email"
                 placeholder="you@email.com"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm outline-none transition focus:border-brand-light focus:ring-2 focus:ring-brand-light/25"
               />
             </div>
@@ -115,9 +132,13 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
                 name="message"
                 rows={3}
                 placeholder="I'm looking to build a web platform for…"
+                required
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm outline-none transition focus:border-brand-light focus:ring-2 focus:ring-brand-light/25"
               />
             </div>
+            {error && <p className="text-sm text-red-600">{error}</p>}
             <button
               type="submit"
               disabled={submitting}

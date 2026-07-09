@@ -1,15 +1,19 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type ComponentType, type CSSProperties } from "react";
 import Image from "next/image";
 import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
+import { ReactLib, Nextjs, Java, Spring, Django, Php, MySQL, MongoDB, TypeScript as TypeScriptLogo } from "@aliimam/logos";
+import { FaAws } from "react-icons/fa";
 import logoImg from "@/app/logo.png";
 
 // --- Types ---
 export type AnimationPhase = "scatter" | "line" | "circle" | "bottom-strip";
 
 interface FlipCardProps {
-    src: string;
+    Icon: ComponentType<{ className?: string; style?: CSSProperties }>;
+    label: string;
+    color?: string;
     index: number;
     total: number;
     phase: AnimationPhase;
@@ -21,7 +25,9 @@ const IMG_WIDTH = 60;  // Reduced from 100
 const IMG_HEIGHT = 85; // Reduced from 140
 
 function FlipCard({
-    src,
+    Icon,
+    label,
+    color,
     index,
     total,
     phase,
@@ -61,16 +67,10 @@ function FlipCard({
             >
                 {/* Front Face */}
                 <div
-                    className="absolute inset-0 h-full w-full overflow-hidden rounded-xl shadow-lg bg-gray-200"
+                    className="absolute inset-0 flex h-full w-full items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg"
                     style={{ backfaceVisibility: "hidden" }}
                 >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                        src={src}
-                        alt={`hero-${index}`}
-                        className="h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-transparent" />
+                    <Icon className="h-8 w-8" style={color ? { color } : undefined} />
                 </div>
 
                 {/* Back Face */}
@@ -79,8 +79,8 @@ function FlipCard({
                     style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
                 >
                     <div className="text-center">
-                        <p className="text-[8px] font-bold text-brand-light uppercase tracking-widest mb-1">View</p>
-                        <p className="text-xs font-medium text-white">Details</p>
+                        <p className="text-[8px] font-bold text-brand-light uppercase tracking-widest mb-1">Tech</p>
+                        <p className="text-xs font-medium text-white">{label}</p>
                     </div>
                 </div>
             </motion.div>
@@ -89,31 +89,21 @@ function FlipCard({
 }
 
 // --- Main Hero Component ---
-const TOTAL_IMAGES = 20;
+const TOTAL_IMAGES = 10;
 const MAX_SCROLL = 3000; // Virtual scroll range
 
-// Unsplash Images
-const IMAGES = [
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=300&q=80",
-    "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=300&q=80",
-    "https://images.unsplash.com/photo-1497366216548-37526070297c?w=300&q=80",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=300&q=80",
-    "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=300&q=80",
-    "https://images.unsplash.com/photo-1506765515384-028b60a970df?w=300&q=80",
-    "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&q=80",
-    "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=300&q=80",
-    "https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?w=300&q=80",
-    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=300&q=80",
-    "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=300&q=80",
-    "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=300&q=80",
-    "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=300&q=80",
-    "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=300&q=80",
-    "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=300&q=80",
-    "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=300&q=80",
-    "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=300&q=80",
-    "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=300&q=80",
-    "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=300&q=80",
-    "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?w=300&q=80",
+// Nirvix tech stack — the tools and languages behind our work
+const TECH_STACK: { Icon: ComponentType<{ className?: string; style?: CSSProperties }>; label: string; color?: string }[] = [
+    { Icon: ReactLib, label: "React" },
+    { Icon: Nextjs, label: "Next.js" },
+    { Icon: Java, label: "Java" },
+    { Icon: Spring, label: "Spring Boot" },
+    { Icon: Django, label: "Django" },
+    { Icon: Php, label: "PHP" },
+    { Icon: MySQL, label: "MySQL" },
+    { Icon: MongoDB, label: "MongoDB" },
+    { Icon: TypeScriptLogo, label: "TypeScript" },
+    { Icon: FaAws, label: "AWS", color: "#FF9900" },
 ];
 
 // Helper for linear interpolation
@@ -178,13 +168,18 @@ export default function IntroAnimation() {
         };
 
         // Touch support
+        // Finger drags cover far less physical distance than desktop wheel
+        // notches, so amplify touch deltas on mobile — otherwise clearing
+        // MAX_SCROLL takes several full swipes instead of one or two.
+        const TOUCH_SCROLL_MULTIPLIER = 3;
         let touchStartY = 0;
         const handleTouchStart = (e: TouchEvent) => {
             touchStartY = e.touches[0].clientY;
         };
         const handleTouchMove = (e: TouchEvent) => {
             const touchY = e.touches[0].clientY;
-            const deltaY = touchStartY - touchY;
+            const isMobile = window.innerWidth < 768;
+            const deltaY = (touchStartY - touchY) * (isMobile ? TOUCH_SCROLL_MULTIPLIER : 1);
             touchStartY = touchY;
 
             const atMax = scrollRef.current >= MAX_SCROLL;
@@ -256,12 +251,12 @@ export default function IntroAnimation() {
     // exactly; real randomized scatter is filled in client-side after mount so
     // Math.random() never has to agree between server and client.
     const [scatterPositions, setScatterPositions] = useState(() =>
-        IMAGES.map(() => ({ x: 0, y: 0, rotation: 0, scale: 0.6, opacity: 0 }))
+        TECH_STACK.map(() => ({ x: 0, y: 0, rotation: 0, scale: 0.6, opacity: 0 }))
     );
 
     useEffect(() => {
         setScatterPositions(
-            IMAGES.map(() => ({
+            TECH_STACK.map(() => ({
                 x: (Math.random() - 0.5) * 1500,
                 y: (Math.random() - 0.5) * 1000,
                 rotation: (Math.random() - 0.5) * 180,
@@ -287,10 +282,18 @@ export default function IntroAnimation() {
         };
     }, [smoothMorph, smoothScrollRotate, smoothMouseX]);
 
+    // --- Mobile: skip the "circle around the text" stage ---
+    // On phones the circle formation sits directly on top of the headline
+    // with no room to breathe, and reaching the arc layout via scroll takes
+    // several swipes. Once the intro reaches the circle phase, mobile jumps
+    // straight to the fully-morphed arc-below-text layout instead.
+    const isMobile = containerSize.width > 0 && containerSize.width < 768;
+    const morphForUI = isMobile ? 1 : morphValue;
+
     // --- Content Opacity ---
-    // Fade in content when arc is formed (morphValue > 0.8)
-    const contentOpacity = useTransform(smoothMorph, [0.8, 1], [0, 1]);
-    const contentY = useTransform(smoothMorph, [0.8, 1], [20, 0]);
+    // Fade in content when arc is formed (morphForUI > 0.8)
+    const contentOpacityValue = Math.min(Math.max((morphForUI - 0.8) / 0.2, 0), 1);
+    const contentYValue = lerp(20, 0, contentOpacityValue);
 
     return (
         <div ref={containerRef} className="relative w-full h-full bg-[#FAFAFA] overflow-hidden">
@@ -298,18 +301,18 @@ export default function IntroAnimation() {
             <div className="flex h-full w-full flex-col items-center justify-center perspective-1000">
 
                 {/* Intro Text (Fades out) */}
-                <div className="absolute z-0 flex flex-col items-center justify-center text-center pointer-events-none top-1/2 -translate-y-1/2">
+                <div className="absolute z-20 flex flex-col items-center justify-center text-center pointer-events-none top-1/2 -translate-y-1/2 px-4">
                     <motion.h1
                         initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                        animate={introPhase === "circle" && morphValue < 0.5 ? { opacity: 1 - morphValue * 2, y: 0, filter: "blur(0px)" } : { opacity: 0, filter: "blur(10px)" }}
+                        animate={introPhase === "circle" && morphForUI < 0.5 ? { opacity: 1 - morphForUI * 2, y: 0, filter: "blur(0px)" } : { opacity: 0, filter: "blur(10px)" }}
                         transition={{ duration: 1 }}
-                        className="text-2xl font-medium tracking-tight text-gray-800 md:text-4xl"
+                        className="max-w-2xl text-xl font-medium tracking-tight text-gray-800 sm:text-2xl md:text-4xl"
                     >
-                        Your Vision, Our Code.
+                        Your Vision, Our Code - Leading IT Company in Nepal
                     </motion.h1>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
-                        animate={introPhase === "circle" && morphValue < 0.5 ? { opacity: 1 - morphValue * 2, y: 0 } : { opacity: 0 }}
+                        animate={introPhase === "circle" && morphForUI < 0.5 ? { opacity: 1 - morphForUI * 2, y: 0 } : { opacity: 0 }}
                         transition={{ duration: 1, delay: 0.1 }}
                         className="mt-3"
                     >
@@ -322,7 +325,7 @@ export default function IntroAnimation() {
                     </motion.div>
                     <motion.p
                         initial={{ opacity: 0 }}
-                        animate={introPhase === "circle" && morphValue < 0.5 ? { opacity: 0.5 - morphValue } : { opacity: 0 }}
+                        animate={introPhase === "circle" && morphForUI < 0.5 ? { opacity: 0.5 - morphForUI } : { opacity: 0 }}
                         transition={{ duration: 1, delay: 0.2 }}
                         className="mt-4 text-xs font-bold tracking-[0.2em] text-gray-500"
                     >
@@ -332,8 +335,8 @@ export default function IntroAnimation() {
 
                 {/* Arc Active Content (Fades in) */}
                 <motion.div
-                    style={{ opacity: contentOpacity, y: contentY }}
-                    className="absolute top-[10%] z-10 flex flex-col items-center justify-center text-center pointer-events-none px-4"
+                    style={{ opacity: contentOpacityValue, y: contentYValue }}
+                    className="absolute top-[10%] z-20 flex flex-col items-center justify-center text-center pointer-events-none px-4"
                 >
                     <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 tracking-tight mb-4">
                         Software Built For Growth
@@ -346,8 +349,8 @@ export default function IntroAnimation() {
                 </motion.div>
 
                 {/* Main Container */}
-                <div className="relative flex items-center justify-center w-full h-full">
-                    {IMAGES.slice(0, TOTAL_IMAGES).map((src, i) => {
+                <div className="relative z-0 flex items-center justify-center w-full h-full">
+                    {TECH_STACK.slice(0, TOTAL_IMAGES).map((tech, i) => {
                         let target = { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 };
 
                         // 1. Intro Phases (Scatter -> Line)
@@ -362,7 +365,6 @@ export default function IntroAnimation() {
                             // 2. Circle Phase & Morph Logic
 
                             // Responsive Calculations
-                            const isMobile = containerSize.width < 768;
                             const minDimension = Math.min(containerSize.width, containerSize.height);
 
                             // A. Calculate Circle Position
@@ -428,10 +430,10 @@ export default function IntroAnimation() {
 
                             // C. Interpolate (Morph)
                             target = {
-                                x: lerp(circlePos.x, arcPos.x, morphValue),
-                                y: lerp(circlePos.y, arcPos.y, morphValue),
-                                rotation: lerp(circlePos.rotation, arcPos.rotation, morphValue),
-                                scale: lerp(1, arcPos.scale, morphValue),
+                                x: lerp(circlePos.x, arcPos.x, morphForUI),
+                                y: lerp(circlePos.y, arcPos.y, morphForUI),
+                                rotation: lerp(circlePos.rotation, arcPos.rotation, morphForUI),
+                                scale: lerp(1, arcPos.scale, morphForUI),
                                 opacity: 1,
                             };
                         }
@@ -439,7 +441,9 @@ export default function IntroAnimation() {
                         return (
                             <FlipCard
                                 key={i}
-                                src={src}
+                                Icon={tech.Icon}
+                                label={tech.label}
+                                color={tech.color}
                                 index={i}
                                 total={TOTAL_IMAGES}
                                 phase={introPhase} // Pass intro phase for initial animations

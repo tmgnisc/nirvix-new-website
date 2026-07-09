@@ -31,10 +31,8 @@ const iconConfigs = [
 
 export default function StackFeatureSection({
   onOpenContact,
-  onLearnMore,
 }: {
   onOpenContact?: () => void;
-  onLearnMore?: () => void;
 }) {
   const orbitCount = 3;
   const orbitGap = 8; // rem between orbits
@@ -44,9 +42,9 @@ export default function StackFeatureSection({
     <section className="relative max-w-6xl mx-auto my-16 sm:my-24 pl-6 sm:pl-10 flex items-center justify-between h-[26rem] sm:h-[30rem] border border-hairline bg-white overflow-hidden rounded-3xl">
       {/* Left side: Heading and Text */}
       <div className="w-1/2 z-10">
-        <h1 className="text-3xl sm:text-6xl font-bold mb-4 text-neutral-900">
+        <h2 className="text-3xl sm:text-6xl font-bold mb-4 text-neutral-900">
           Build Your Next Product
-        </h1>
+        </h2>
         <p className="text-ink-soft mb-6 max-w-lg text-sm sm:text-base">
           Nirvix Technology builds fast, scalable software using the tools trusted by modern
           engineering teams worldwide.
@@ -54,9 +52,6 @@ export default function StackFeatureSection({
         <div className="flex items-center gap-3">
           <Button variant="default" onClick={onOpenContact}>
             Get a Quote
-          </Button>
-          <Button variant="outline" onClick={onLearnMore}>
-            Learn More
           </Button>
         </div>
       </div>

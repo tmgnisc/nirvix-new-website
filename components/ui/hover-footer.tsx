@@ -14,20 +14,20 @@ export const TextHoverEffect = ({
   className?: string;
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const [cursor, setCursor] = useState({ x: 0, y: 0 });
+  const [cursor, setCursor] = useState<{ x: number; y: number } | null>(null);
   const [hovered, setHovered] = useState(false);
   const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
 
   useEffect(() => {
-    if (svgRef.current && cursor.x !== null && cursor.y !== null) {
-      const svgRect = svgRef.current.getBoundingClientRect();
-      const cxPercentage = ((cursor.x - svgRect.left) / svgRect.width) * 100;
-      const cyPercentage = ((cursor.y - svgRect.top) / svgRect.height) * 100;
-      setMaskPosition({
-        cx: `${cxPercentage}%`,
-        cy: `${cyPercentage}%`,
-      });
-    }
+    if (!svgRef.current || !cursor) return;
+    const svgRect = svgRef.current.getBoundingClientRect();
+    if (svgRect.width === 0 || svgRect.height === 0) return;
+    const cxPercentage = ((cursor.x - svgRect.left) / svgRect.width) * 100;
+    const cyPercentage = ((cursor.y - svgRect.top) / svgRect.height) * 100;
+    setMaskPosition({
+      cx: `${cxPercentage}%`,
+      cy: `${cyPercentage}%`,
+    });
   }, [cursor]);
 
   return (
@@ -135,7 +135,7 @@ export const FooterBackgroundGradient = () => {
       className="absolute inset-0 z-0"
       style={{
         background:
-          "radial-gradient(125% 125% at 50% 10%, #0F0F1166 50%, #0168b533 100%)",
+          "radial-gradient(125% 125% at 50% 10%, #ffffff 40%, #0168b51a 100%)",
       }}
     />
   );

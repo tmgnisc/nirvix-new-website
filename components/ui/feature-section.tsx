@@ -36,8 +36,8 @@ const tasks = [
 
 export default function FeatureSection() {
   return (
-    <section className="relative w-full py-20 px-4 bg-background text-foreground">
-      <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+    <section className="relative w-full py-10 px-4 bg-background text-foreground sm:py-20">
+      <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 items-center gap-8 sm:gap-12">
         {/* LEFT SIDE - Task Loop with Vertical Bar */}
         <div className="relative w-full max-w-sm">
           <Card className="overflow-hidden bg-muted/30 backdrop-blur-md shadow-xl rounded-lg">
@@ -84,14 +84,15 @@ export default function FeatureSection() {
           <Badge variant="secondary" className="px-3 py-1 text-sm">
             How We Work
           </Badge>
-          <h3 className="text-lg sm:text-md lg:text-2xl font-normal text-neutral-900 leading-relaxed">
-            Building software that just works{" "}
-            <span className="text-ink-soft text-sm sm:text-base lg:text-2xl">
-              we help you turn ideas into reliable, scalable products — from custom web and
-              mobile apps to cloud infrastructure and ongoing IT support. Our solutions are
-              built to reduce complexity, ship faster, and grow with your business.
-            </span>
-          </h3>
+          <h2 className="text-lg sm:text-md lg:text-2xl font-normal text-neutral-900 leading-relaxed">
+            Transform your ideas into powerful digital products
+          </h2>
+          <p className="text-ink-soft text-sm sm:text-base lg:text-xl leading-relaxed">
+            At Nirvix Technology, we specialize in custom software development, website design,
+            mobile app development, AI integration, cloud solutions, and IT consulting. Every
+            solution is built for performance, security, scalability, and sustainable business
+            growth.
+          </p>
 
           <div className="flex gap-3 flex-wrap">
             <Badge className="px-4 py-2 text-sm">Custom Solutions</Badge>
