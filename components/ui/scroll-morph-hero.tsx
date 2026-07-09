@@ -168,18 +168,22 @@ export default function IntroAnimation() {
         };
 
         // Touch support
-        // Finger drags cover far less physical distance than desktop wheel
-        // notches, so amplify touch deltas on mobile — otherwise clearing
-        // MAX_SCROLL takes several full swipes instead of one or two.
-        const TOUCH_SCROLL_MULTIPLIER = 3;
+        // On mobile the arc layout is already fully settled without any
+        // scroll input (see morphForUI below), so there's nothing left for a
+        // captured touch gesture to drive — trapping it would just force
+        // users to swipe repeatedly to escape the hero. Let touch scroll pass
+        // straight through to the page so a single swipe moves on to the
+        // next section, same as scrolling anywhere else.
         let touchStartY = 0;
         const handleTouchStart = (e: TouchEvent) => {
             touchStartY = e.touches[0].clientY;
         };
         const handleTouchMove = (e: TouchEvent) => {
-            const touchY = e.touches[0].clientY;
             const isMobile = window.innerWidth < 768;
-            const deltaY = (touchStartY - touchY) * (isMobile ? TOUCH_SCROLL_MULTIPLIER : 1);
+            if (isMobile) return;
+
+            const touchY = e.touches[0].clientY;
+            const deltaY = touchStartY - touchY;
             touchStartY = touchY;
 
             const atMax = scrollRef.current >= MAX_SCROLL;
@@ -383,10 +387,14 @@ export default function IntroAnimation() {
 
                             // Radius:
                             const baseRadius = Math.min(containerSize.width, containerSize.height * 1.5);
-                            const arcRadius = baseRadius * (isMobile ? 1.4 : 1.1);
+                            const arcRadius = baseRadius * (isMobile ? 1.15 : 1.1);
 
                             // Position:
-                            const arcApexY = containerSize.height * (isMobile ? 0.35 : 0.25);
+                            // On mobile the arc sits directly under the "Software Built For
+                            // Growth" text with no scroll to bridge the distance, so the apex
+                            // is pulled much closer to center than on desktop to avoid a big
+                            // dead gap between the copy and the first row of icons.
+                            const arcApexY = containerSize.height * (isMobile ? 0.1 : 0.25);
                             const arcCenterY = arcApexY + arcRadius;
 
                             // Spread angle:
