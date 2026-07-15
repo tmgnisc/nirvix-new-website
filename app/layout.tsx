@@ -3,6 +3,7 @@ import { Onest } from "next/font/google";
 import { SmoothScrollProvider } from "@/components/smooth-scroll";
 import { faqItems } from "@/lib/faq-data";
 import { testimonials } from "@/lib/testimonials-data";
+import { SITE_URL, ORGANIZATION_ID } from "@/lib/site";
 import "./globals.css";
 
 const onest = Onest({
@@ -18,7 +19,7 @@ const SITE_DESCRIPTION =
 export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
-  metadataBase: new URL("https://nirvixtech.com"),
+  metadataBase: new URL(SITE_URL),
   robots: "index, follow",
   keywords: [
     "IT company in Nepal",
@@ -35,14 +36,14 @@ export const metadata: Metadata = {
     "Nirvix Technology",
   ],
   alternates: {
-    canonical: "https://nirvixtech.com/",
+    canonical: `${SITE_URL}/`,
   },
   openGraph: {
     type: "website",
     siteName: "Nirvix Technology",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    url: "https://nirvixtech.com/",
+    url: `${SITE_URL}/`,
     locale: "en_US",
     images: ["/logo.png"],
   },
@@ -53,8 +54,6 @@ export const metadata: Metadata = {
     images: ["/logo.png"],
   },
 };
-
-const ORGANIZATION_ID = "https://nirvixtech.com/#organization";
 
 const SERVICES = [
   {
@@ -101,9 +100,9 @@ const organizationJsonLd = {
   "@id": ORGANIZATION_ID,
   name: "Nirvix Technology",
   alternateName: "Nirvix Tech",
-  url: "https://nirvixtech.com/",
-  logo: "https://nirvixtech.com/logo.png",
-  image: "https://nirvixtech.com/logo.png",
+  url: `${SITE_URL}/`,
+  logo: `${SITE_URL}/logo.png`,
+  image: `${SITE_URL}/logo.png`,
   description: SITE_DESCRIPTION,
   email: "info@nirvixtech.com",
   telephone: "+977-9818255423",
@@ -186,7 +185,7 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Nirvix Technology",
-  url: "https://nirvixtech.com/",
+  url: `${SITE_URL}/`,
   publisher: {
     "@type": "Organization",
     name: "Nirvix Technology",

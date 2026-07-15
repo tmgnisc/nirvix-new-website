@@ -10,8 +10,10 @@ const footerLinks = [
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "#about" },
-      { label: "Our Team", href: "#" },
+      { label: "About Us", href: "/#about" },
+      { label: "Services", href: "/services" },
+      { label: "Bulk SMS Service", href: "/bulk-sms-service" },
+      { label: "Blog", href: "/blog" },
       { label: "Contact Us", href: "#contact" },
     ],
   },

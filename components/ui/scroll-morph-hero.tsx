@@ -340,7 +340,7 @@ export default function IntroAnimation() {
                 {/* Arc Active Content (Fades in) */}
                 <motion.div
                     style={{ opacity: contentOpacityValue, y: contentYValue }}
-                    className="absolute top-[10%] z-20 flex flex-col items-center justify-center text-center pointer-events-none px-4"
+                    className="absolute top-[18%] z-20 flex flex-col items-center justify-center text-center pointer-events-none px-4 sm:top-[16%]"
                 >
                     <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 tracking-tight mb-4">
                         Software Built For Growth

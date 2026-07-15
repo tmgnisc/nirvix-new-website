@@ -45,6 +45,13 @@ export function Reveal({
   );
 }
 
+const stackedLinesTags = {
+  div: motion.div,
+  h1: motion.h1,
+  h2: motion.h2,
+  p: motion.p,
+} as const;
+
 /** Clip-mask line-by-line reveal, gated on scroll-into-view (once). */
 export function StackedLines({
   lines,
@@ -52,12 +59,14 @@ export function StackedLines({
   lineClassName,
   stagger = 0.12,
   baseDelay = 0,
+  as = "div",
 }: {
   lines: string[];
   className?: string;
   lineClassName?: string;
   stagger?: number;
   baseDelay?: number;
+  as?: keyof typeof stackedLinesTags;
 }) {
   const container: Variants = {
     hidden: {},
@@ -72,8 +81,10 @@ export function StackedLines({
     },
   };
 
+  const Tag = stackedLinesTags[as];
+
   return (
-    <motion.div
+    <Tag
       className={className}
       initial="hidden"
       whileInView="show"
@@ -87,7 +98,7 @@ export function StackedLines({
           </motion.span>
         </span>
       ))}
-    </motion.div>
+    </Tag>
   );
 }
 

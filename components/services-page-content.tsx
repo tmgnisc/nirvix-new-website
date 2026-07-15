@@ -2,12 +2,10 @@
 
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import { Loader } from "@/components/loader";
-import { HeroSection } from "@/components/hero-section";
-import { FeaturesSectionWithBentoGrid } from "@/components/ui/feature-section-with-bento-grid";
-import FeatureSection from "@/components/ui/feature-section";
+import { ServicesHeroSection } from "@/components/services-hero-section";
+import { ServicesGridSection } from "@/components/services-grid-section";
+import { ServicesProcessSection } from "@/components/services-process-section";
 import { HighlightsSection } from "@/components/highlights-section";
-import { GrosmsShowcaseSection } from "@/components/grosms-showcase-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { FaqSection } from "@/components/faq-section";
 import StackFeatureSection from "@/components/ui/stack-feature-section";
@@ -15,8 +13,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { ContactModal } from "@/components/contact-modal";
 import { WhatsappButton } from "@/components/whatsapp-button";
 import { useSmoothScroll } from "@/components/smooth-scroll";
+import { servicesFaqItems } from "@/lib/faq-data";
 
-export default function Home() {
+export function ServicesPageContent() {
   const [contactOpen, setContactOpen] = useState(false);
   const { lock } = useSmoothScroll();
 
@@ -31,17 +30,19 @@ export default function Home() {
 
   return (
     <>
-      <Loader />
       <main id="top" className="w-full overflow-x-clip">
-        <HeroSection onOpenContact={openContact} />
-        <section id="about">
-          <FeaturesSectionWithBentoGrid />
-        </section>
-        <FeatureSection />
+        <ServicesHeroSection onOpenContact={openContact} />
+        <ServicesGridSection />
+        <ServicesProcessSection />
         <HighlightsSection />
-        <GrosmsShowcaseSection />
         <TestimonialsSection />
-        <FaqSection />
+        <FaqSection
+          id="services-faq"
+          eyebrow="Services FAQ"
+          title="Questions About Our Services"
+          subtitle="Everything you need to know before starting a project with Nirvix Technology."
+          items={servicesFaqItems}
+        />
         <StackFeatureSection onOpenContact={openContact} />
         <SiteFooter onOpenContact={openContact} />
       </main>
