@@ -1,6 +1,6 @@
 "use client";
 
-import IntroAnimation from "@/components/ui/scroll-morph-hero";
+import { HeroOrbitContent } from "@/components/hero-orbit-content";
 import { SiteHeader } from "@/components/site-header";
 
 export function HeroSection({
@@ -9,9 +9,9 @@ export function HeroSection({
   onOpenContact?: () => void;
 }) {
   return (
-    <div className="relative h-[100svh] min-h-[36rem] w-full">
+    <div className="relative min-h-screen w-full">
       <SiteHeader onOpenContact={onOpenContact} />
-      <IntroAnimation />
+      <HeroOrbitContent />
     </div>
   );
 }
