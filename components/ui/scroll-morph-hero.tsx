@@ -3,8 +3,17 @@
 import { useState, useEffect, useRef, type ComponentType, type CSSProperties } from "react";
 import Image from "next/image";
 import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
-import { ReactLib, Nextjs, Java, Spring, Django, Php, MySQL, MongoDB, TypeScript as TypeScriptLogo } from "@aliimam/logos";
-import { FaAws } from "react-icons/fa";
+import { FaAws, FaJava } from "react-icons/fa";
+import {
+    SiReact,
+    SiNextdotjs,
+    SiSpring,
+    SiDjango,
+    SiPhp,
+    SiMysql,
+    SiMongodb,
+    SiTypescript,
+} from "react-icons/si";
 import logoImg from "@/app/logo.png";
 
 // --- Types ---
@@ -94,15 +103,15 @@ const MAX_SCROLL = 3000; // Virtual scroll range
 
 // Nirvix tech stack — the tools and languages behind our work
 const TECH_STACK: { Icon: ComponentType<{ className?: string; style?: CSSProperties }>; label: string; color?: string }[] = [
-    { Icon: ReactLib, label: "React" },
-    { Icon: Nextjs, label: "Next.js" },
-    { Icon: Java, label: "Java" },
-    { Icon: Spring, label: "Spring Boot" },
-    { Icon: Django, label: "Django" },
-    { Icon: Php, label: "PHP" },
-    { Icon: MySQL, label: "MySQL" },
-    { Icon: MongoDB, label: "MongoDB" },
-    { Icon: TypeScriptLogo, label: "TypeScript" },
+    { Icon: SiReact, label: "React", color: "#61DAFB" },
+    { Icon: SiNextdotjs, label: "Next.js", color: "#000000" },
+    { Icon: FaJava, label: "Java", color: "#E76F00" },
+    { Icon: SiSpring, label: "Spring Boot", color: "#6DB33F" },
+    { Icon: SiDjango, label: "Django", color: "#092E20" },
+    { Icon: SiPhp, label: "PHP", color: "#777BB4" },
+    { Icon: SiMysql, label: "MySQL", color: "#4479A1" },
+    { Icon: SiMongodb, label: "MongoDB", color: "#47A248" },
+    { Icon: SiTypescript, label: "TypeScript", color: "#3178C6" },
     { Icon: FaAws, label: "AWS", color: "#FF9900" },
 ];
 

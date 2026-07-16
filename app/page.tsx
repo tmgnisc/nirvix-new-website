@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import { Loader } from "@/components/loader";
 import { HeroSection } from "@/components/hero-section";
 import { FeaturesSectionWithBentoGrid } from "@/components/ui/feature-section-with-bento-grid";
 import FeatureSection from "@/components/ui/feature-section";
@@ -31,7 +30,6 @@ export default function Home() {
 
   return (
     <>
-      <Loader />
       <main id="top" className="w-full overflow-x-clip">
         <HeroSection onOpenContact={openContact} />
         <section id="about">
