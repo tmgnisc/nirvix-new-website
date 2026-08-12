@@ -149,6 +149,29 @@
   }
 }
 
+/* Hero heading reveal — pure CSS so the LCP text paints from the static HTML
+   without waiting for the JS bundle to download and hydrate. */
+@keyframes nirvix-hero-reveal {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.nirvix-hero-heading {
+  animation: nirvix-hero-reveal 0.8s ease-out 0.15s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nirvix-hero-heading {
+    animation: none;
+  }
+}
+
 /* ---------- Nirvix brand tokens ---------- */
 :root {
   --brand: #0168b5;

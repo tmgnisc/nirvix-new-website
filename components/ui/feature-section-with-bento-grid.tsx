@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import createGlobe from "cobe";
 import { motion } from "framer-motion";
 
 const HACKATHON_IMAGES = [
@@ -195,40 +194,49 @@ export const Globe = ({ className }: { className?: string }) => {
   useEffect(() => {
     let phi = 0;
     let animationFrameId: number;
+    let globe: { update: (o: { phi: number }) => void; destroy: () => void } | undefined;
+    let cancelled = false;
 
     if (!canvasRef.current) return;
 
-    const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: 600 * 2,
-      height: 600 * 2,
-      phi: 0,
-      theta: 0,
-      dark: 1,
-      diffuse: 1.2,
-      mapSamples: 16000,
-      mapBrightness: 6,
-      baseColor: [0.3, 0.3, 0.3],
-      markerColor: [0.09, 0.42, 0.71],
-      glowColor: [1, 1, 1],
-      markers: [
-        // Kathmandu, Nepal — Nirvix HQ
-        { location: [27.7172, 85.324], size: 0.1 },
-      ],
+    // Load cobe on demand so it stays out of the initial page bundle — this
+    // globe is below the fold and doesn't need to block first paint.
+    import("cobe").then(({ default: createGlobe }) => {
+      if (cancelled || !canvasRef.current) return;
+
+      globe = createGlobe(canvasRef.current, {
+        devicePixelRatio: 2,
+        width: 600 * 2,
+        height: 600 * 2,
+        phi: 0,
+        theta: 0,
+        dark: 1,
+        diffuse: 1.2,
+        mapSamples: 16000,
+        mapBrightness: 6,
+        baseColor: [0.3, 0.3, 0.3],
+        markerColor: [0.09, 0.42, 0.71],
+        glowColor: [1, 1, 1],
+        markers: [
+          // Kathmandu, Nepal — Nirvix HQ
+          { location: [27.7172, 85.324], size: 0.1 },
+        ],
+      });
+
+      // cobe 2.x dropped the onRender callback in favor of driving rotation
+      // ourselves via globe.update() inside our own animation loop.
+      function frame() {
+        globe?.update({ phi });
+        phi += 0.01;
+        animationFrameId = requestAnimationFrame(frame);
+      }
+      animationFrameId = requestAnimationFrame(frame);
     });
 
-    // cobe 2.x dropped the onRender callback in favor of driving rotation
-    // ourselves via globe.update() inside our own animation loop.
-    function frame() {
-      globe.update({ phi });
-      phi += 0.01;
-      animationFrameId = requestAnimationFrame(frame);
-    }
-    animationFrameId = requestAnimationFrame(frame);
-
     return () => {
+      cancelled = true;
       cancelAnimationFrame(animationFrameId);
-      globe.destroy();
+      globe?.destroy();
     };
   }, []);
 

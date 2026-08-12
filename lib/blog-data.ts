@@ -16,6 +16,25 @@ const linkClass = "text-brand underline underline-offset-2 hover:text-brand-deep
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "agentic-ai-for-business-what-it-means-in-2026",
+    title: "Agentic AI in 2026: What It Actually Means for Businesses in Nepal",
+    excerpt:
+      "Agentic AI is the biggest shift in enterprise technology since cloud. Here's what AI agents really change, where the hype ends, and how businesses in Nepal can start using them.",
+    category: "AI Solutions",
+    date: "2026-08-12",
+    readTime: "7 min read",
+    author: "Nirvix Technology",
+    content: [
+      "If you've read anything about enterprise technology in 2026, you've run into the phrase 'agentic AI' — and it's not just another buzzword cycle. The global IT giants have all rebuilt their pitch around it: Accenture, Deloitte, and Infosys (through its Topaz platform) now lead with AI agents rather than generic 'digital transformation.' When the biggest consultancies in the world reorganize their homepage around a single idea, it's worth understanding what that idea actually is.",
+      "The short version: a regular AI chatbot answers a question, while an AI agent completes a task. Instead of just drafting a reply, an agent can read an incoming order, check inventory, flag a problem, update a record, and send a confirmation — a multi-step job that used to need a person clicking through several systems. Gartner projects that by the end of 2026 roughly 40% of enterprise applications will have task-specific AI agents built in, up from almost none two years ago.",
+      "But the hype outruns the reality, and that gap matters for smaller businesses deciding where to spend. Industry surveys in 2026 suggest only around a quarter of organizations that started agentic AI projects have actually put one into real production. The single biggest predictor of success isn't the model or the budget — it's whether a business redesigns a workflow around the agent, rather than bolting an agent onto a broken process and expecting magic.",
+      "For businesses in Nepal, this is less about chasing the enterprise trend and more about picking the few places where agents genuinely save time. Customer support triage, invoice and order processing, appointment scheduling, and lead qualification are all narrow, repetitive workflows where a well-scoped agent pays for itself quickly — without needing a data-science team to maintain it.",
+      `The practical starting point is almost always integration, not a moonshot. An agent is only as useful as the systems it can reach: your CRM, your payment records, your messaging channel. That's why a lot of real-world automation still runs on simple, reliable rails — for example, pairing an agent with <a href="${SITE_URL}/bulk-sms-service" class="${linkClass}">bulk SMS for instant order updates, reminders, and OTP verification</a> so the 'action' at the end of the agent's work actually reaches the customer in seconds.`,
+      "A sensible 2026 roadmap for most businesses looks like this: pick one high-volume, low-judgement workflow; map exactly what a human does today, step by step; automate only the steps that are truly repetitive; and keep a human in the loop for anything involving money, legal risk, or an unhappy customer. That's how you get the productivity gains the enterprises are chasing without the failed-project statistics they're quietly reporting.",
+      `At Nirvix Technology, we build <a href="${SITE_URL}/services" class="${linkClass}">AI solutions and custom software</a> around that exact principle — starting from a real workflow you want to fix, not from a demo. If you're trying to work out whether agentic AI is a fit for your business or just noise, that's a conversation worth having before you spend anything.`,
+    ],
+  },
+  {
     slug: "how-to-choose-the-right-it-company-in-nepal",
     title: "How to Choose the Right IT Company in Nepal in 2026",
     excerpt:

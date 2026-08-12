@@ -1,9 +1,17 @@
 "use client";
 
 import React, { type ComponentType } from "react";
+import dynamic from "next/dynamic";
 import { FaAws, FaJava } from "react-icons/fa";
 import { SiReact, SiNextdotjs, SiTypescript, SiMongodb, SiDjango, SiPhp } from "react-icons/si";
-import ParticleSphereAnimation from "@/components/ui/orbiting-circles-02-utils/particalsphear";
+
+// three.js (~900 KB) is the single largest dependency on the site and is only
+// needed for this decorative sphere. Load it lazily on the client so it never
+// blocks the hero's first paint or hydration.
+const ParticleSphereAnimation = dynamic(
+  () => import("@/components/ui/orbiting-circles-02-utils/particalsphear"),
+  { ssr: false },
+);
 
 interface OrbitIcon {
   Icon: ComponentType<{ className?: string; style?: React.CSSProperties }>;
