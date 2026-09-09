@@ -25,7 +25,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description: post.excerpt,
-    robots: "index, follow",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     alternates: {
       canonical: pageUrl,
     },

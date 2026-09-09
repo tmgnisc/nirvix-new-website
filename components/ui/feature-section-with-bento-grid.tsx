@@ -30,7 +30,7 @@ export function FeaturesSectionWithBentoGrid() {
     {
       title: "A glimpse into our victory",
       description:
-        "An innovative team that thrives under pressure, turning bold ideas into working products across 11+ hackathon wins.",
+        "An innovative team that thrives under pressure — the same instinct that turned bold ideas into 2 products now deployed and running in production.",
       skeleton: <SkeletonTwo />,
       className: "col-span-1 md:col-span-2 lg:col-span-2 border-b border-hairline",
     },

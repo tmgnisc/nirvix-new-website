@@ -4,6 +4,7 @@ import { SmoothScrollProvider } from "@/components/smooth-scroll";
 import { faqItems } from "@/lib/faq-data";
 import { testimonials } from "@/lib/testimonials-data";
 import { SITE_URL, ORGANIZATION_ID } from "@/lib/site";
+import { WEAVO_APP_URL, WEAVO_DESCRIPTION } from "@/lib/weavo-data";
 import "./globals.css";
 
 const onest = Onest({
@@ -12,15 +13,25 @@ const onest = Onest({
   weight: ["400", "500"],
 });
 
-const SITE_TITLE = "Nirvix Technology | IT Company in Nepal | Software & IT Solution";
+const SITE_TITLE = "Software Development & IT Company in Nepal | Nirvix Technology";
 const SITE_DESCRIPTION =
-  "Nirvix Technology is a leading IT company in Nepal offering custom software, websites, AI solutions, SEO, and cloud services. Contact us today for a free consultation.";
+  "Nirvix Technology is a software development and IT company in Lalitpur, Kathmandu, Nepal — building custom software, websites, mobile apps, AI solutions, SEO, and cloud services. Free consultation.";
 
 export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   metadataBase: new URL(SITE_URL),
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   keywords: [
     "IT company in Nepal",
     "software development company Nepal",
@@ -33,6 +44,12 @@ export const metadata: Metadata = {
     "cloud solutions Nepal",
     "IT consulting Nepal",
     "UI/UX design Nepal",
+    "IT company in Kathmandu",
+    "software company in Lalitpur",
+    "web design company in Kathmandu",
+    "software development company in Kathmandu",
+    "travel agency software Nepal",
+    "bulk SMS service in Nepal",
     "Nirvix Technology",
   ],
   alternates: {
@@ -91,6 +108,8 @@ const SERVICES = [
   },
 ];
 
+const WEAVO_ID = `${SITE_URL}/weavo#software`;
+
 const averageRating =
   testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length;
 
@@ -113,6 +132,13 @@ const organizationJsonLd = {
     addressLocality: "Lalitpur",
     addressCountry: "NP",
   },
+  // NOTE: locality-level coordinates for Satdobato, Lalitpur. Replace with the
+  // exact office pin from your Google Business Profile for best local ranking.
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 27.6588,
+    longitude: 85.3247,
+  },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+977-9818255423",
@@ -121,7 +147,19 @@ const organizationJsonLd = {
     areaServed: "Worldwide",
     availableLanguage: ["English", "Nepali"],
   },
-  areaServed: "Worldwide",
+  areaServed: [
+    { "@type": "City", name: "Lalitpur" },
+    { "@type": "City", name: "Kathmandu" },
+    { "@type": "City", name: "Bhaktapur" },
+    { "@type": "City", name: "Pokhara" },
+    { "@type": "Country", name: "Nepal" },
+    "Worldwide",
+  ],
+  foundingLocation: {
+    "@type": "Place",
+    name: "Lalitpur, Nepal",
+  },
+  slogan: "Your trusted tech partner from Nepal",
   sameAs: [
     "https://www.facebook.com/p/Nirvix-Technology-61575980913561/",
     "https://www.linkedin.com/company/nirvix-technology",
@@ -138,6 +176,20 @@ const organizationJsonLd = {
     "IT Consulting",
     "UI/UX Design",
   ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "IT & Software Services in Nepal",
+    itemListElement: SERVICES.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.name,
+        description: service.description,
+        provider: { "@id": ORGANIZATION_ID },
+      },
+    })),
+  },
+  owns: { "@id": WEAVO_ID },
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: averageRating.toFixed(1),
@@ -181,6 +233,23 @@ const faqJsonLd = {
   })),
 };
 
+const weavoProductJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": WEAVO_ID,
+  name: "Weavo",
+  alternateName: "Weavo by Nirvix Technology",
+  applicationCategory: "BusinessApplication",
+  applicationSubCategory: "Travel Agency Software",
+  operatingSystem: "Web browser",
+  url: `${SITE_URL}/weavo`,
+  sameAs: [WEAVO_APP_URL],
+  description: WEAVO_DESCRIPTION,
+  image: `${SITE_URL}/products/weavo-dashboard.webp`,
+  publisher: { "@id": ORGANIZATION_ID },
+  author: { "@id": ORGANIZATION_ID },
+};
+
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -209,6 +278,11 @@ export default function RootLayout({
           id="nirvix-jsonld-website"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          id="nirvix-jsonld-weavo-product"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(weavoProductJsonLd) }}
         />
         <script
           id="nirvix-jsonld-services"

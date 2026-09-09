@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "11+", label: "Hackathons Won" },
+  { value: "2", label: "Products Deployed" },
   { value: "50+", label: "Projects Delivered" },
   { value: "20+", label: "Happy Clients" },
   { value: "100%", label: "Satisfaction Rate" },
@@ -20,8 +20,8 @@ export function HighlightsSection() {
           Results that speak for themselves
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-sm text-ink-soft sm:text-base">
-          Nirvix Technology has proudly won hackathons, delivered dozens of projects, and earned
-          the trust of clients around the world.
+          Nirvix Technology has shipped its own SaaS products, delivered dozens of client projects,
+          and earned the trust of businesses in Nepal and around the world.
         </p>
       </div>
 

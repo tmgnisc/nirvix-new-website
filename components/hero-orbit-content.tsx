@@ -9,9 +9,16 @@ export function HeroOrbitContent() {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/3 rounded-full blur-3xl animate-pulse" />
 
-      <h1 className="nirvix-hero-heading absolute top-24 left-1/2 z-20 -translate-x-1/2 px-6 text-center text-5xl font-black tracking-tighter text-brand select-none sm:top-28 md:text-7xl lg:top-32 lg:text-8xl">
-        IT Company in Nepal
-      </h1>
+      <div className="nirvix-hero-heading absolute top-20 left-1/2 z-20 w-full -translate-x-1/2 px-6 text-center sm:top-22 lg:top-24">
+        <h1 className="mx-auto max-w-5xl text-4xl font-black tracking-tighter text-brand select-none sm:text-6xl md:text-7xl lg:text-8xl">
+          <span className="block">Software Development</span>
+          <span className="block">Company in Nepal</span>
+        </h1>
+        <p className="mx-auto mt-3 max-w-md text-sm text-ink-soft sm:mt-4 sm:max-w-xl sm:text-base">
+          Custom websites, mobile apps, and AI-powered software — built in Lalitpur, Kathmandu for
+          businesses across Nepal and worldwide.
+        </p>
+      </div>
 
       <div className="relative z-10 mt-24 flex min-h-[420px] items-end justify-center sm:mt-28 sm:min-h-[560px] lg:mt-32 lg:min-h-[720px]">
         <OrbitingCirclesGlobe />

@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/hero-section";
 import { FeaturesSectionWithBentoGrid } from "@/components/ui/feature-section-with-bento-grid";
 import FeatureSection from "@/components/ui/feature-section";
 import { HighlightsSection } from "@/components/highlights-section";
+import { WeavoShowcaseSection } from "@/components/weavo-showcase-section";
 import { GrosmsShowcaseSection } from "@/components/grosms-showcase-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { FaqSection } from "@/components/faq-section";
@@ -37,6 +38,7 @@ export default function Home() {
         </section>
         <FeatureSection />
         <HighlightsSection />
+        <WeavoShowcaseSection />
         <GrosmsShowcaseSection />
         <TestimonialsSection />
         <FaqSection />

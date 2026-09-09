@@ -11,6 +11,7 @@ import logoImg from "@/app/logo-navbar.png";
 const navLinks = [
   { label: "About Us", href: "/#about" },
   { label: "Services", href: "/services" },
+  { label: "Weavo", href: "/weavo" },
   { label: "Blog", href: "/blog" },
 ];
 
@@ -32,7 +33,7 @@ export function SiteHeader({
         <Image
           src={logoImg}
           alt="Nirvix Technology"
-          priority
+          preload
           className="h-7 w-auto object-contain sm:h-8"
         />
       </Link>
