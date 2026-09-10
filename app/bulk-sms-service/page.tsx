@@ -7,7 +7,7 @@ const PAGE_URL = `${SITE_URL}/bulk-sms-service`;
 
 const PAGE_TITLE = "Bulk SMS Service in Nepal | GroSMS via Nirvix Technology";
 const PAGE_DESCRIPTION =
-  "Nirvix Technology is a technology partner for GroSMS, bringing enterprise-grade bulk SMS, OTP, and transactional messaging to businesses in Nepal — sub-second delivery, 99.94% delivery rate, and developer-friendly APIs.";
+  "Enterprise-grade bulk SMS, OTP, and transactional messaging for businesses in Nepal via GroSMS — sub-second delivery, 99.94% delivery rate, simple APIs.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ProjectCard } from "@/components/project-card";
 import { projects, projectCategories } from "@/lib/projects-data";
@@ -53,7 +54,18 @@ export function ProjectsGridSection() {
       </div>
 
       <p className="mt-10 text-center text-sm text-ink-soft">
-        Showing {visible.length} of {projects.length} projects.
+        Showing {visible.length} of {projects.length} projects. See the{" "}
+        <Link href="/services" className="font-medium text-brand hover:text-brand-deep">
+          services behind this work
+        </Link>{" "}
+        or read how we approach{" "}
+        <Link
+          href="/blog/how-to-choose-the-right-it-company-in-nepal"
+          className="font-medium text-brand hover:text-brand-deep"
+        >
+          choosing an IT company in Nepal
+        </Link>
+        .
       </p>
     </section>
   );

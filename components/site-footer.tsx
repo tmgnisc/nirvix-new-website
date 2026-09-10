@@ -12,6 +12,7 @@ const footerLinks = [
     links: [
       { label: "About Us", href: "/#about" },
       { label: "Services", href: "/services" },
+      { label: "SEO Company in Lalitpur", href: "/seo-company-in-lalitpur" },
       { label: "Our Projects", href: "/projects" },
       { label: "Our Team", href: "/team" },
       { label: "Weavo — Travel Agency Software", href: "/weavo" },

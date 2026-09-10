@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Onest } from "next/font/google";
 import { SmoothScrollProvider } from "@/components/smooth-scroll";
-import { faqItems } from "@/lib/faq-data";
 import { SITE_URL, ORGANIZATION_ID } from "@/lib/site";
 import { WEAVO_APP_URL, WEAVO_DESCRIPTION } from "@/lib/weavo-data";
 import "./globals.css";
@@ -12,9 +11,9 @@ const onest = Onest({
   weight: ["400", "500"],
 });
 
-const SITE_TITLE = "Software Development & IT Company in Nepal | Nirvix Technology";
+const SITE_TITLE = "IT & Software Company in Lalitpur, Nepal | Nirvix Technology";
 const SITE_DESCRIPTION =
-  "Nirvix Technology is a software development and IT company in Lalitpur, Kathmandu, Nepal — building custom software, websites, mobile apps, AI solutions, SEO, and cloud services. Free consultation.";
+  "Nirvix Technology is an IT and software company in Lalitpur, Nepal — custom websites, mobile apps, AI solutions, and SEO. Book a free consultation.";
 
 export const metadata: Metadata = {
   title: SITE_TITLE,
@@ -203,19 +202,6 @@ const servicesJsonLd = SERVICES.map((service) => ({
   areaServed: "Worldwide",
 }));
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
-
 const weavoProductJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -278,11 +264,6 @@ export default function RootLayout({
           id="nirvix-jsonld-services"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
-        />
-        <script
-          id="nirvix-jsonld-faq"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>

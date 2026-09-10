@@ -10,7 +10,7 @@ import { ContactModal } from "@/components/contact-modal";
 import { WhatsappButton } from "@/components/whatsapp-button";
 import { Reveal, StackedLines } from "@/components/reveal";
 import { useSmoothScroll } from "@/components/smooth-scroll";
-import { blogPosts, type BlogPost } from "@/lib/blog-data";
+import { getRelatedPosts, type BlogPost } from "@/lib/blog-data";
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
@@ -33,7 +33,7 @@ export function BlogPostContent({ post }: { post: BlogPost }) {
     lock(false);
   }
 
-  const morePosts = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const morePosts = getRelatedPosts(post.slug, 3);
 
   return (
     <>

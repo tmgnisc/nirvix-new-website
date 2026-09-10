@@ -13,6 +13,7 @@ import {
   CircleCheckBig,
   type LucideIcon,
 } from "lucide-react";
+import Link from "next/link";
 import { services, type ServiceItem } from "@/lib/services-data";
 
 const iconMap: Record<ServiceItem["icon"], LucideIcon> = {
@@ -74,6 +75,29 @@ export function ServicesGridSection() {
           );
         })}
       </div>
+
+      <p className="mt-10 text-center text-sm text-ink-soft">
+        Looking for search specifically? We have a dedicated page on our work as an{" "}
+        <Link
+          href="/seo-company-in-lalitpur"
+          className="font-medium text-brand hover:text-brand-deep"
+        >
+          SEO company in Lalitpur
+        </Link>
+        .
+      </p>
+
+      <p className="mt-3 text-center text-sm text-ink-soft">
+        Every service above is running in production somewhere — browse the{" "}
+        <Link href="/projects" className="font-medium text-brand hover:text-brand-deep">
+          websites and apps we have built for clients
+        </Link>
+        , or{" "}
+        <Link href="/team" className="font-medium text-brand hover:text-brand-deep">
+          meet the team who build them
+        </Link>
+        .
+      </p>
     </section>
   );
 }

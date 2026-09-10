@@ -6,7 +6,9 @@ import { SITE_URL, ORGANIZATION_ID } from "@/lib/site";
 const PAGE_URL = `${SITE_URL}/weavo`;
 
 const PAGE_TITLE = "Weavo — Travel Agency Software in Nepal | Nirvix Technology";
-const PAGE_DESCRIPTION = WEAVO_DESCRIPTION;
+// WEAVO_DESCRIPTION stays long for the JSON-LD; the SERP snippet needs to fit ~160.
+const PAGE_DESCRIPTION =
+  "Weavo is travel agency software by Nirvix Technology in Nepal. Turn a trip into a branded, priced quotation, itinerary or voucher PDF in minutes. Free plan.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -81,7 +83,7 @@ const softwareJsonLd = {
   operatingSystem: "Web browser",
   url: PAGE_URL,
   sameAs: [WEAVO_APP_URL],
-  description: PAGE_DESCRIPTION,
+  description: WEAVO_DESCRIPTION,
   screenshot: [
     `${SITE_URL}/products/weavo-dashboard.webp`,
     `${SITE_URL}/products/weavo-document-builder.webp`,

@@ -60,7 +60,7 @@ export const blogPosts: BlogPost[] = [
     content: [
       "Search for 'best IT company in Nepal' today and you'll find no shortage of options — Kathmandu and Lalitpur alone are home to hundreds of software houses, web agencies, and freelance collectives, all claiming to be the right fit. For a business owner without a technical background, that's more noise than signal.",
       "## 1. Judge the portfolio on relevance, not volume",
-      "The first filter that actually matters is portfolio relevance, not portfolio size. A company with twenty polished landing pages isn't necessarily equipped to build a booking platform with real-time inventory, or a mobile app that needs to work offline in areas with patchy connectivity. Ask to see projects similar in complexity to yours, not just similar in industry.",
+      `The first filter that actually matters is portfolio relevance, not portfolio size. A company with twenty polished landing pages isn't necessarily equipped to build a booking platform with real-time inventory, or a mobile app that needs to work offline in areas with patchy connectivity. Ask to see projects similar in complexity to yours, not just similar in industry. Our own <a href="${SITE_URL}/projects" class="${linkClass}">portfolio of client websites</a> is public for that reason — every site listed is live, so you can open it and judge the work rather than take a screenshot on trust.`,
       "## 2. Watch how they handle requirements",
       "Second, look at how a company handles requirements before any code is written. Vendors who jump straight to a quote without asking about your users, your timeline, or how you'll measure success are optimizing for a quick sale, not a working product. A short discovery conversation should shape the proposal — not the other way around.",
       "## 3. Ask what happens after launch",
@@ -87,7 +87,7 @@ export const blogPosts: BlogPost[] = [
       "## The B2G opportunity",
       "There's also a growing opportunity on the B2G side. As government bodies digitize record-keeping and service delivery, there is real, ongoing demand for developers who understand both software and how Nepali institutions actually operate — a specific mix of technical and contextual knowledge that few outside firms can offer.",
       "## Who actually benefits",
-      "The businesses that benefit most from this shift aren't necessarily the biggest — they're the ones treating 'digital-first' as an actual product decision rather than a marketing line. That means fast checkout, local payment support, and interfaces that work well on the mid-range Android phones most of the country actually uses.",
+      `The businesses that benefit most from this shift aren't necessarily the biggest — they're the ones treating 'digital-first' as an actual product decision rather than a marketing line. That means fast checkout, local payment support, and interfaces that work well on the mid-range Android phones most of the country actually uses. Most of the <a href="${SITE_URL}/projects" class="${linkClass}">websites we have built for Nepali businesses</a> are designed against exactly that constraint.`,
     ],
   },
   {
@@ -106,7 +106,7 @@ export const blogPosts: BlogPost[] = [
       "## What hiring locally should mean now",
       "It also changes what 'hiring locally' should mean. Instead of building an in-house team from scratch and competing purely on salary, many businesses are better served by partnering with an established local company that already has senior talent retained through better projects, growth paths, and stability than a solo freelance contract can offer.",
       "## The upside: real depth of talent",
-      "There's an upside too: this same freelancing boom means the depth of available talent, especially in web development, mobile apps, and increasingly AI, is genuinely strong. The businesses that win aren't necessarily the highest payers — they're the ones offering interesting, well-scoped work and a real career path, not just a paycheck.",
+      `There's an upside too: this same freelancing boom means the depth of available talent, especially in web development, mobile apps, and increasingly AI, is genuinely strong. The businesses that win aren't necessarily the highest payers — they're the ones offering interesting, well-scoped work and a real career path, not just a paycheck. You can <a href="${SITE_URL}/team" class="${linkClass}">meet the engineers and designers on our team</a> to see what that retention looks like in practice.`,
       `At Nirvix Technology, this is part of why we invest in keeping senior engineers on stable, varied project work rather than treating hiring as a revolving door — it's a direct response to a talent market where good developers have more options than ever. It's also why businesses increasingly work with our <a href="${SITE_URL}/services" class="${linkClass}">custom software and web development team</a> directly, rather than managing a rotating cast of freelancers project by project.`,
     ],
   },
@@ -168,7 +168,7 @@ export const blogPosts: BlogPost[] = [
       "None of that requires new technology. It requires deciding that your website exists to answer questions rather than to describe your company, which is a harder editorial change than it sounds.",
       `## Where this connects to the rest of your stack`,
       `AEO sits alongside the same automation shift reshaping everything else — we covered that in <a href="${SITE_URL}/blog/agentic-ai-for-business-what-it-means-in-2026" class="${linkClass}">our guide to what agentic AI actually means for businesses in Nepal</a>, and the underlying customer expectation shift in <a href="${SITE_URL}/blog/digital-nepal-framework-what-it-means-for-businesses" class="${linkClass}">the Digital Nepal Framework explainer</a>. If you are also evaluating who should do this work, our <a href="${SITE_URL}/blog/how-to-choose-the-right-it-company-in-nepal" class="${linkClass}">framework for choosing the right IT company in Nepal</a> is a useful filter.`,
-      `Nirvix Technology builds this into every project — <a href="${SITE_URL}/services" class="${linkClass}">our SEO, web development, and AI solution services</a> treat structured data, page speed, and answer-shaped content as the baseline rather than an upsell. If you want to know whether your site is currently readable by AI search at all, that is a short, concrete audit worth doing before you spend anything on content.`,
+      `Nirvix Technology builds this into every project — <a href="${SITE_URL}/services" class="${linkClass}">our SEO, web development, and AI solution services</a> treat structured data, page speed, and answer-shaped content as the baseline rather than an upsell. If you are weighing up an <a href="${SITE_URL}/seo-company-in-lalitpur" class="${linkClass}">SEO company in Lalitpur</a>, that page covers how we scope and run the work. If you want to know whether your site is currently readable by AI search at all, that is a short, concrete audit worth doing before you spend anything on content.`,
     ],
   },
   {
@@ -214,4 +214,31 @@ export const blogPosts: BlogPost[] = [
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts.find((post) => post.slug === slug);
+}
+
+/**
+ * Picks the articles to link at the foot of a post.
+ *
+ * Same category first, since that is the most useful next read. The remainder walks
+ * forward from this post and wraps around, rather than always taking the top of the
+ * list — otherwise the first three articles absorb every internal link on the blog and
+ * everything after them ends up with one inbound link from the index page alone.
+ */
+export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
+  const index = blogPosts.findIndex((post) => post.slug === slug);
+  if (index === -1) return blogPosts.slice(0, limit);
+
+  const current = blogPosts[index];
+  const related = blogPosts.filter(
+    (post) => post.slug !== slug && post.category === current.category
+  );
+
+  for (let step = 1; related.length < limit && step < blogPosts.length; step++) {
+    const candidate = blogPosts[(index + step) % blogPosts.length];
+    if (candidate.slug === slug) continue;
+    if (related.some((post) => post.slug === candidate.slug)) continue;
+    related.push(candidate);
+  }
+
+  return related.slice(0, limit);
 }

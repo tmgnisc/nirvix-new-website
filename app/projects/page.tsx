@@ -7,7 +7,7 @@ const PAGE_URL = `${SITE_URL}/projects`;
 
 const PAGE_TITLE = "Our Projects | Web Development Portfolio | Nirvix Technology";
 const PAGE_DESCRIPTION =
-  "Explore websites built by Nirvix Technology — travel agencies, property marketplaces, news portals, education platforms, and non-profits across Nepal, Australia, and New Zealand.";
+  "Explore websites built by Nirvix Technology — travel, real estate, news, education, and non-profit sites across Nepal, Australia, and New Zealand.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
