@@ -163,7 +163,9 @@ export function SiteFooter({ onOpenContact }: { onOpenContact: () => void }) {
             ))}
           </div>
 
-          <p className="text-center md:text-left">© Nirvix Technology 2025 | All Rights Reserved</p>
+          <p className="text-center md:text-left">
+            © Nirvix Technology {new Date().getFullYear()} | All Rights Reserved
+          </p>
 
           <div className="flex gap-5">
             <a href="#terms" className="transition-colors hover:text-brand-deep">Terms &amp; Condition</a>
