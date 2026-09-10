@@ -1,12 +1,12 @@
 "use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { forwardRef, type HTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
 
-import { MotionConfig, useReducedMotion } from "motion/react";
+import { MotionConfig, useReducedMotion } from "framer-motion";
 import { createContext, useContext } from "react";
 
 interface ReducedMotionProp {

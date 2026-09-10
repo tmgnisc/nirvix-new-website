@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Onest } from "next/font/google";
 import { SmoothScrollProvider } from "@/components/smooth-scroll";
 import { faqItems } from "@/lib/faq-data";
-import { testimonials } from "@/lib/testimonials-data";
 import { SITE_URL, ORGANIZATION_ID } from "@/lib/site";
 import { WEAVO_APP_URL, WEAVO_DESCRIPTION } from "@/lib/weavo-data";
 import "./globals.css";
@@ -110,9 +109,6 @@ const SERVICES = [
 
 const WEAVO_ID = `${SITE_URL}/weavo#software`;
 
-const averageRating =
-  testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length;
-
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
@@ -190,24 +186,11 @@ const organizationJsonLd = {
     })),
   },
   owns: { "@id": WEAVO_ID },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: averageRating.toFixed(1),
-    bestRating: 5,
-    worstRating: 1,
-    reviewCount: testimonials.length,
-  },
-  review: testimonials.map((t) => ({
-    "@type": "Review",
-    author: { "@type": "Person", name: t.name },
-    reviewBody: t.text,
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: t.rating,
-      bestRating: 5,
-      worstRating: 1,
-    },
-  })),
+  // NOTE: no aggregateRating/review here on purpose. Google treats review markup a
+  // business publishes about itself as self-serving (disallowed for Organization /
+  // LocalBusiness), and this node is injected site-wide by the root layout, so it
+  // flagged every page — including /blog — with "multiple aggregate ratings" in GSC.
+  // Star ratings should come from the Google Business Profile instead.
 };
 
 const servicesJsonLd = SERVICES.map((service) => ({
@@ -253,6 +236,7 @@ const weavoProductJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
   name: "Nirvix Technology",
   url: `${SITE_URL}/`,
   publisher: {
@@ -268,6 +252,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${onest.variable} h-full antialiased`}>
+      <head>
+        {/* Team photos and product shots are served from ImageKit — open the
+            connection during HTML parse instead of after the first <img>. */}
+        <link rel="preconnect" href="https://ik.imagekit.io" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://ik.imagekit.io" />
+      </head>
       <body className="min-h-full flex flex-col font-sans">
         <script
           id="nirvix-jsonld-organization"

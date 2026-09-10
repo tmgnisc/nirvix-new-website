@@ -17,7 +17,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { blogPosts } from "@/lib/blog-data";
-import { SITE_URL } from "@/lib/site";
 
 const categoryIcons: Record<string, LucideIcon> = {
   "Web Development": Monitor,
@@ -57,7 +56,7 @@ export function BlogGridSection() {
               className="group flex flex-col overflow-hidden rounded-2xl border border-hairline bg-white transition-colors hover:bg-surface"
             >
               <Link
-                href={`${SITE_URL}/blog/${post.slug}`}
+                href={`/blog/${post.slug}`}
                 className="flex h-full flex-col p-6 sm:p-8"
               >
                 <div className="flex items-center justify-between">

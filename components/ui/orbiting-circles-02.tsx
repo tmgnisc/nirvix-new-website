@@ -1,6 +1,6 @@
 "use client";
 
-import React, { type ComponentType } from "react";
+import React, { useEffect, useState, type ComponentType } from "react";
 import dynamic from "next/dynamic";
 import { FaAws, FaJava } from "react-icons/fa";
 import { SiReact, SiNextdotjs, SiTypescript, SiMongodb, SiDjango, SiPhp } from "react-icons/si";
@@ -49,7 +49,45 @@ const orbits: { size: string; duration: number; icons: OrbitIcon[] }[] = [
   },
 ];
 
+/**
+ * three.js is ~860 KB — far too much to spend on a decorative sphere for someone on a
+ * phone or a metered connection in Nepal. Only mount it when the viewport is wide
+ * enough for it to read as anything, the device isn't on a slow/saving connection, and
+ * the visitor hasn't asked for reduced motion. Everything else on the hero is CSS.
+ */
+function useWantsHeavyDecoration() {
+  const [wanted, setWanted] = useState(false);
+
+  useEffect(() => {
+    const wide = window.matchMedia("(min-width: 768px)");
+    const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const connection = (
+      navigator as Navigator & {
+        connection?: { saveData?: boolean; effectiveType?: string };
+      }
+    ).connection;
+    const cheapData =
+      connection?.saveData === true ||
+      (connection?.effectiveType ? /2g/.test(connection.effectiveType) : false);
+
+    const evaluate = () => setWanted(wide.matches && !calm.matches && !cheapData);
+    evaluate();
+
+    wide.addEventListener("change", evaluate);
+    calm.addEventListener("change", evaluate);
+    return () => {
+      wide.removeEventListener("change", evaluate);
+      calm.removeEventListener("change", evaluate);
+    };
+  }, []);
+
+  return wanted;
+}
+
 export default function OrbitingCirclesGlobeDemo() {
+  const showSphere = useWantsHeavyDecoration();
+
   return (
     <div className="relative w-full h-110 md:h-160 overflow-hidden flex justify-center">
       <style>{`
@@ -73,7 +111,7 @@ export default function OrbitingCirclesGlobeDemo() {
 
       {/* Center particle globe */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 aspect-square pointer-events-none w-75 md:w-145 z-10">
-        <ParticleSphereAnimation />
+        {showSphere && <ParticleSphereAnimation />}
       </div>
 
       {/* Orbiting rings */}

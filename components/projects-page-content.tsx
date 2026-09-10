@@ -2,22 +2,17 @@
 
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import { HeroSection } from "@/components/hero-section";
-import { FeaturesSectionWithBentoGrid } from "@/components/ui/feature-section-with-bento-grid";
-import FeatureSection from "@/components/ui/feature-section";
+import { ProjectsHeroSection } from "@/components/projects-hero-section";
+import { ProjectsGridSection } from "@/components/projects-grid-section";
 import { HighlightsSection } from "@/components/highlights-section";
-import { WeavoShowcaseSection } from "@/components/weavo-showcase-section";
-import { GrosmsShowcaseSection } from "@/components/grosms-showcase-section";
-import { ProjectsSection } from "@/components/projects-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
-import { FaqSection } from "@/components/faq-section";
 import StackFeatureSection from "@/components/ui/stack-feature-section";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactModal } from "@/components/contact-modal";
 import { WhatsappButton } from "@/components/whatsapp-button";
 import { useSmoothScroll } from "@/components/smooth-scroll";
 
-export default function Home() {
+export function ProjectsPageContent() {
   const [contactOpen, setContactOpen] = useState(false);
   const { lock } = useSmoothScroll();
 
@@ -33,17 +28,10 @@ export default function Home() {
   return (
     <>
       <main id="top" className="w-full overflow-x-clip">
-        <HeroSection onOpenContact={openContact} />
-        <section id="about">
-          <FeaturesSectionWithBentoGrid />
-        </section>
-        <FeatureSection />
+        <ProjectsHeroSection onOpenContact={openContact} />
+        <ProjectsGridSection />
         <HighlightsSection />
-        <WeavoShowcaseSection />
-        <GrosmsShowcaseSection />
-        <ProjectsSection />
         <TestimonialsSection />
-        <FaqSection />
         <StackFeatureSection onOpenContact={openContact} />
         <SiteFooter onOpenContact={openContact} />
       </main>

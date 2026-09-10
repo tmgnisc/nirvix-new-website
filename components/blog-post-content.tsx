@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -11,7 +11,6 @@ import { WhatsappButton } from "@/components/whatsapp-button";
 import { Reveal, StackedLines } from "@/components/reveal";
 import { useSmoothScroll } from "@/components/smooth-scroll";
 import { blogPosts, type BlogPost } from "@/lib/blog-data";
-import { SITE_URL } from "@/lib/site";
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
@@ -45,7 +44,7 @@ export function BlogPostContent({ post }: { post: BlogPost }) {
           <div className="relative z-10 mx-auto max-w-3xl px-6 sm:px-8">
             <Reveal>
               <Link
-                href={`${SITE_URL}/blog`}
+                href="/blog"
                 className="inline-flex items-center gap-2 text-sm text-ink-soft transition-colors hover:text-brand"
               >
                 <ArrowLeft className="h-4 w-4" />
@@ -79,12 +78,19 @@ export function BlogPostContent({ post }: { post: BlogPost }) {
 
         <article className="mx-auto max-w-3xl px-8 pb-10 sm:pb-20">
           <div className="flex flex-col gap-6 border-t border-hairline pt-10">
-            {post.content.map((paragraph, i) => (
+            {post.content.map((block, i) => (
               <Reveal key={i} delay={i * 0.05} y={16}>
-                <p
-                  className="text-base leading-relaxed text-ink-soft sm:text-lg [&_a]:font-medium"
-                  dangerouslySetInnerHTML={{ __html: paragraph }}
-                />
+                {block.startsWith("## ") ? (
+                  <h2
+                    className="mt-4 text-xl font-medium tracking-tight text-neutral-900 sm:text-2xl [&_a]:font-medium"
+                    dangerouslySetInnerHTML={{ __html: block.slice(3) }}
+                  />
+                ) : (
+                  <p
+                    className="text-base leading-relaxed text-ink-soft sm:text-lg [&_a]:font-medium"
+                    dangerouslySetInnerHTML={{ __html: block }}
+                  />
+                )}
               </Reveal>
             ))}
           </div>
@@ -120,7 +126,7 @@ export function BlogPostContent({ post }: { post: BlogPost }) {
               {morePosts.map((p) => (
                 <Link
                   key={p.slug}
-                  href={`${SITE_URL}/blog/${p.slug}`}
+                  href={`/blog/${p.slug}`}
                   className="group flex flex-col rounded-2xl border border-hairline bg-white p-6 transition-colors hover:bg-surface"
                 >
                   <span className="text-xs text-ink-soft">{p.category}</span>

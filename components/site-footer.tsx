@@ -12,6 +12,8 @@ const footerLinks = [
     links: [
       { label: "About Us", href: "/#about" },
       { label: "Services", href: "/services" },
+      { label: "Our Projects", href: "/projects" },
+      { label: "Our Team", href: "/team" },
       { label: "Weavo — Travel Agency Software", href: "/weavo" },
       { label: "Bulk SMS Service", href: "/bulk-sms-service" },
       { label: "Blog", href: "/blog" },

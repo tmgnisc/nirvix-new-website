@@ -20,11 +20,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const pageUrl = `${SITE_URL}/blog/${post.slug}`;
-  const title = `${post.title} | Nirvix Technology Blog`;
+  // metaTitle/metaDescription let a post ship a length-tuned SERP snippet; the
+  // on-page title and excerpt are the fallback.
+  const title = post.metaTitle ?? `${post.title} | Nirvix Technology Blog`;
+  const description = post.metaDescription ?? post.excerpt;
 
   return {
     title,
-    description: post.excerpt,
+    description,
+    ...(post.keywords ? { keywords: post.keywords } : {}),
     robots: {
       index: true,
       follow: true,
@@ -43,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       siteName: "Nirvix Technology",
       title: post.title,
-      description: post.excerpt,
+      description,
       url: pageUrl,
       locale: "en_US",
       images: ["/logo.png"],
@@ -53,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: post.title,
-      description: post.excerpt,
+      description,
       images: ["/logo.png"],
     },
   };

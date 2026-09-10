@@ -11,6 +11,8 @@ import logoImg from "@/app/logo-navbar.png";
 const navLinks = [
   { label: "About Us", href: "/#about" },
   { label: "Services", href: "/services" },
+  { label: "Projects", href: "/projects" },
+  { label: "Team", href: "/team" },
   { label: "Weavo", href: "/weavo" },
   { label: "Blog", href: "/blog" },
 ];
