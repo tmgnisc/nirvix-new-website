@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { BlogPageContent } from "@/components/blog-page-content";
-import { blogPosts } from "@/lib/blog-data";
+import { blogPosts, getPostAuthor, getPostModified } from "@/lib/blog-data";
 import { SITE_URL, ORGANIZATION_ID } from "@/lib/site";
 
 const PAGE_URL = `${SITE_URL}/blog`;
@@ -86,7 +86,8 @@ const blogJsonLd = {
     description: post.excerpt,
     url: `${PAGE_URL}/${post.slug}`,
     datePublished: post.date,
-    author: { "@type": "Organization", name: post.author },
+    dateModified: getPostModified(post),
+    author: { "@id": getPostAuthor(post).id },
   })),
 };
 

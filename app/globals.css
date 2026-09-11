@@ -173,15 +173,34 @@
 }
 
 /* ---------- Nirvix brand tokens ---------- */
+/* Sky palette: the page ground and panels carry a light tint of the brand blue so
+   the site doesn't read as flat white; cards stay pure white to lift off it.
+   ink-soft is tuned to keep WCAG AA (4.5:1) on every one of these grounds. */
 :root {
   --brand: #0168b5;
   --brand-deep: #0f2f63;
   --brand-light: #5790e6;
   --accent-teal: #0b6e97;
-  --surface: #f4f4f4;
-  --ink-soft: #717784;
+  --surface: #e6f2fd;
+  --ink-soft: #636977;
   --ghost: #d7dae1;
-  --hairline: #e6e8ec;
+  --hairline: #d6e6f5;
+
+  /* shadcn tokens, re-pointed at the sky palette (replaces the neutral greys above). */
+  --background: #f4f9ff;
+  --muted: #e6f2fd;
+  --secondary: #e6f2fd;
+  --accent: #e6f2fd;
+  --border: #d6e6f5;
+  --input: #d6e6f5;
+}
+
+/* Top-of-page wash for hero sections: a soft brand-blue glow fading into the page. */
+@utility bg-sky-wash {
+  background-image:
+    radial-gradient(60% 55% at 85% 0%, rgb(1 104 181 / 0.12), transparent 70%),
+    radial-gradient(45% 40% at 5% 10%, rgb(87 144 230 / 0.1), transparent 70%),
+    linear-gradient(180deg, #e4f1fd 0%, var(--background) 100%);
 }
 
 html.scroll-locked {

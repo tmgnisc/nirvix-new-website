@@ -77,6 +77,11 @@ function buildLlmsTxt() {
     lines.push(
       `- [${post.title}](${SITE_URL}/blog/${post.slug}): ${plain(post.excerpt)} (${post.category}, ${post.date})`
     );
+    // The takeaways are the answer-first summary of each post — exactly what an
+    // LLM reading this file wants, without fetching every article.
+    for (const takeaway of post.takeaways ?? []) {
+      lines.push(`  - ${plain(takeaway)}`);
+    }
   }
   lines.push("");
 

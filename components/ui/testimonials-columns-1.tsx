@@ -34,7 +34,7 @@ export const TestimonialsColumn = (props: {
             <React.Fragment key={index}>
               {props.testimonials.map(({ text, image, name, role, rating }, i) => (
                 <div
-                  className="p-10 rounded-3xl border shadow-lg shadow-primary/10 max-w-xs w-full"
+                  className="p-10 rounded-3xl border bg-white shadow-lg shadow-primary/10 max-w-xs w-full"
                   key={i}
                   aria-hidden={index > 0 || undefined}
                 >

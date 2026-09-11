@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogPostContent } from "@/components/blog-post-content";
-import { blogPosts, getBlogPostBySlug } from "@/lib/blog-data";
+import {
+  blogPosts,
+  getBlogPostBySlug,
+  getPostAuthor,
+  getPostModified,
+} from "@/lib/blog-data";
 import { SITE_URL, ORGANIZATION_ID } from "@/lib/site";
 
 type Props = {
@@ -52,7 +57,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: "en_US",
       images: ["/logo.png"],
       publishedTime: post.date,
-      authors: [post.author],
+      modifiedTime: getPostModified(post),
+      authors: [getPostAuthor(post).name],
     },
     twitter: {
       card: "summary_large_image",
@@ -72,6 +78,7 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const pageUrl = `${SITE_URL}/blog/${post.slug}`;
+  const author = getPostAuthor(post);
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -92,14 +99,49 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.excerpt,
     url: pageUrl,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: getPostModified(post),
     inLanguage: "en-US",
-    author: { "@type": "Organization", name: post.author, "@id": ORGANIZATION_ID },
+    // Same @id as the Person node on /team, so the two merge into one entity.
+    author: {
+      "@type": "Person",
+      "@id": author.id,
+      name: author.name,
+      jobTitle: author.jobTitle,
+      url: author.url,
+      worksFor: { "@id": ORGANIZATION_ID },
+    },
     publisher: { "@id": ORGANIZATION_ID },
     mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
     articleSection: post.category,
+    ...(post.keywords ? { keywords: post.keywords.join(", ") } : {}),
+    ...(post.takeaways ? { abstract: post.takeaways.join(" ") } : {}),
+    ...(post.sources
+      ? {
+          citation: post.sources.map((source) => ({
+            "@type": "CreativeWork",
+            name: source.title,
+            url: source.url,
+            publisher: { "@type": "Organization", name: source.publisher },
+          })),
+        }
+      : {}),
     image: `${SITE_URL}/logo.png`,
   };
+
+  // Only emitted when the post renders its FAQ, so the markup always matches
+  // visible content.
+  const faqJsonLd = post.faqs
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: post.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      }
+    : null;
 
   return (
     <>
@@ -113,6 +155,13 @@ export default async function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          id="nirvix-jsonld-post-faq"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <BlogPostContent post={post} />
     </>
   );

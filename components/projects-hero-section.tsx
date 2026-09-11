@@ -17,7 +17,7 @@ const heroStats = [
 
 export function ProjectsHeroSection({ onOpenContact }: { onOpenContact?: () => void }) {
   return (
-    <div className="relative overflow-hidden bg-white pt-28 pb-16 sm:pt-36 sm:pb-24">
+    <div className="relative overflow-hidden bg-sky-wash pt-28 pb-16 sm:pt-36 sm:pb-24">
       <SiteHeader onOpenContact={onOpenContact} />
 
       <motion.div

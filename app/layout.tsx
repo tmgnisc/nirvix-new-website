@@ -156,6 +156,10 @@ const organizationJsonLd = {
   },
   slogan: "Your trusted tech partner from Nepal",
   sameAs: [
+    // Google Business Profile, by its Knowledge Graph id (/g/11yvcxsg1r). The
+    // share.google link the profile hands out is a redirect and can change; the kgmid
+    // is the stable identifier Google uses for the entity itself.
+    "https://www.google.com/search?kgmid=/g/11yvcxsg1r",
     "https://www.facebook.com/p/Nirvix-Technology-61575980913561/",
     "https://www.linkedin.com/company/nirvix-technology",
     "https://www.tiktok.com/@nirvix.technology",

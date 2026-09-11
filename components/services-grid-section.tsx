@@ -44,6 +44,15 @@ export function ServicesGridSection() {
       </div>
 
       <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
+        {/* The 1px gaps are the container's hairline showing through, so an unfilled
+            last row would show as a solid tinted block. Pad it with blank cells. */}
+        {services.length % 3 !== 0 && (
+          <div
+            aria-hidden
+            className="order-last hidden bg-white lg:block"
+            style={{ gridColumn: `span ${3 - (services.length % 3)}` }}
+          />
+        )}
         {services.map((service, i) => {
           const Icon = iconMap[service.icon];
           return (

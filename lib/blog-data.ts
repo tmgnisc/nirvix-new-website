@@ -1,19 +1,47 @@
 import { SITE_URL } from "@/lib/site";
+import type { FaqItem } from "@/lib/faq-data";
+import { teamMembers } from "@/lib/team-data";
+
+export interface BlogSource {
+  title: string;
+  publisher: string;
+  url: string;
+}
 
 export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
   /**
-   * Body blocks. A block starting with `## ` renders as an `<h2>`; everything else
-   * renders as a paragraph. Blocks may contain inline HTML (e.g. `<a>` links) and are
-   * rendered as trusted markup.
+   * Body blocks, rendered as trusted markup (inline HTML such as `<a>` is allowed):
+   * - `## Heading` renders as an `<h2>`
+   * - lines all starting `- ` render as a bulleted list, `1. ` as a numbered list
+   * - lines starting `|` render as a table; the first row is the header, and a
+   *   `| --- |` separator row is skipped
+   * - anything else renders as a paragraph
    */
   content: string[];
   category: string;
+  /** ISO publish date. */
   date: string;
+  /** ISO date of the last substantive edit, shown on the page and as dateModified. */
+  updated?: string;
   readTime: string;
-  author: string;
+  /** A `teamMembers` id. Falls back to DEFAULT_AUTHOR_ID. */
+  authorId?: string;
+  /**
+   * 2-4 one-sentence answers shown in a box above the body. AI answer engines lift
+   * the first clear answer on a page, so this is the part most likely to be quoted.
+   */
+  takeaways?: string[];
+  /** Plain-text Q&A shown at the foot of the post and emitted as FAQPage markup. */
+  faqs?: FaqItem[];
+  /**
+   * Where the post's statistics and factual claims come from. Rendered as a visible
+   * source list and as `citation` in the article markup — cited, sourced content is
+   * measurably more likely to be quoted by generative engines (GEO, KDD 2024).
+   */
+  sources?: BlogSource[];
   /** Overrides the `<title>` tag. Keep under ~60 chars. Falls back to `title`. */
   metaTitle?: string;
   /** Overrides the meta description. Keep 140-160 chars. Falls back to `excerpt`. */
@@ -36,7 +64,39 @@ export const blogPosts: BlogPost[] = [
     category: "IT Consulting",
     date: "2026-09-11",
     readTime: "9 min read",
-    author: "Nirvix Technology",
+    takeaways: [
+      "IT companies in Lalitpur fall into five broad types — web agencies, custom software houses, mobile app studios, digital marketing and SEO agencies, and outsourcing or product companies.",
+      "Judge them on live work, the named people who will build your project, a discovery process before any quote, and written post-launch support terms.",
+      "Your business, not the agency, should own the domain, the hosting account, and the source code.",
+      "A Lalitpur address is a good tiebreaker between strong candidates, not a reason to choose on its own.",
+    ],
+    faqs: [
+      {
+        question: "What types of IT companies are based in Lalitpur?",
+        answer:
+          "Mostly web design and development agencies, custom software houses, mobile app studios, digital marketing and SEO agencies, and offshore development or product companies. Many firms cover more than one category, so ask to see live work in the specific type of project you need.",
+      },
+      {
+        question: "How do I choose the best IT company in Lalitpur?",
+        answer:
+          "Shortlist companies that can show live projects similar in complexity to yours, name the people who will work on it, hold a discovery conversation before quoting, and put post-launch support terms in writing. Send every shortlisted company the same brief so their quotes are comparable.",
+      },
+      {
+        question: "How much does it cost to hire an IT company in Lalitpur?",
+        answer:
+          "It depends on scope: a brochure website, an e-commerce store, and a custom booking platform are different price categories. Ask each company for an itemised quote covering design, development, content, integrations, hosting, and a year of maintenance, then compare those lines side by side.",
+      },
+      {
+        question: "Who should own the domain and source code of my website?",
+        answer:
+          "You should. The domain, hosting account, and source code should be registered to your business, with the agency given access rather than ownership. Agree this in writing before the project starts.",
+      },
+      {
+        question: "Where is Nirvix Technology located?",
+        answer:
+          "Nirvix Technology is a software and IT company in Satdobato, Lalitpur, Nepal. It builds websites, mobile apps, custom software, and AI solutions for businesses in Nepal, Australia, and New Zealand.",
+      },
+    ],
     keywords: [
       "IT companies in Lalitpur",
       "IT company in Lalitpur",
@@ -94,14 +154,55 @@ export const blogPosts: BlogPost[] = [
       "Agentic AI is the biggest shift in enterprise technology since cloud. Here's what AI agents really change, where the hype ends, and how businesses in Nepal can start using them.",
     category: "AI Solutions",
     date: "2026-08-12",
+    updated: "2026-09-11",
     readTime: "7 min read",
-    author: "Nirvix Technology",
+    takeaways: [
+      "An AI chatbot answers a question; an AI agent completes a multi-step task, such as reading an order, checking stock, updating a record, and confirming with the customer.",
+      "Gartner predicts 40% of enterprise applications will include task-specific AI agents by the end of 2026, up from less than 5% in 2025 — and that over 40% of agentic AI projects will be canceled by the end of 2027.",
+      "For businesses in Nepal, the best starting points are narrow, repetitive workflows: support triage, order and invoice processing, scheduling, and lead qualification.",
+      "Redesign the workflow around the agent, and keep a human in the loop for money, legal risk, and unhappy customers.",
+    ],
+    faqs: [
+      {
+        question: "What is agentic AI?",
+        answer:
+          "Agentic AI refers to AI systems that complete tasks rather than only answering questions. An AI agent can take several steps on its own — reading an incoming request, checking other systems, updating records, and sending a response — within limits the business sets.",
+      },
+      {
+        question: "What is the difference between an AI chatbot and an AI agent?",
+        answer:
+          "A chatbot drafts a reply for a person to act on. An agent takes the action itself, connecting to systems such as a CRM, inventory, or payment records to finish a multi-step job.",
+      },
+      {
+        question: "Can small businesses in Nepal use AI agents?",
+        answer:
+          "Yes, if they start narrow. High-volume, low-judgement workflows such as customer support triage, order and invoice processing, appointment scheduling, and lead qualification can be automated without an in-house data-science team.",
+      },
+      {
+        question: "Why do agentic AI projects fail?",
+        answer:
+          "In our experience, most fail because an agent is bolted onto an existing broken process instead of the workflow being redesigned around it. Gartner predicts that over 40% of agentic AI projects will be canceled by the end of 2027.",
+      },
+    ],
+    sources: [
+      {
+        title:
+          "Gartner Predicts 40% of Enterprise Apps Will Feature Task-Specific AI Agents by 2026, Up from Less Than 5% in 2025",
+        publisher: "Gartner",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025",
+      },
+      {
+        title: "Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027",
+        publisher: "Gartner",
+        url: "https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027",
+      },
+    ],
     content: [
       "If you've read anything about enterprise technology in 2026, you've run into the phrase 'agentic AI' — and it's not just another buzzword cycle. The global IT giants have all rebuilt their pitch around it: Accenture, Deloitte, and Infosys (through its Topaz platform) now lead with AI agents rather than generic 'digital transformation.' When the biggest consultancies in the world reorganize their homepage around a single idea, it's worth understanding what that idea actually is.",
       "## What agentic AI actually means",
-      "The short version: a regular AI chatbot answers a question, while an AI agent completes a task. Instead of just drafting a reply, an agent can read an incoming order, check inventory, flag a problem, update a record, and send a confirmation — a multi-step job that used to need a person clicking through several systems. Gartner projects that by the end of 2026 roughly 40% of enterprise applications will have task-specific AI agents built in, up from almost none two years ago.",
+      `The short version: a regular AI chatbot answers a question, while an AI agent completes a task. Instead of just drafting a reply, an agent can read an incoming order, check inventory, flag a problem, update a record, and send a confirmation — a multi-step job that used to need a person clicking through several systems. Gartner predicts that by the end of 2026, 40% of enterprise applications will have task-specific AI agents built in, <a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025" target="_blank" rel="noopener noreferrer" class="${linkClass}">up from less than 5% in 2025</a>.`,
       "## Where the hype outruns the reality",
-      "But the hype outruns the reality, and that gap matters for smaller businesses deciding where to spend. Industry surveys in 2026 suggest only around a quarter of organizations that started agentic AI projects have actually put one into real production. The single biggest predictor of success isn't the model or the budget — it's whether a business redesigns a workflow around the agent, rather than bolting an agent onto a broken process and expecting magic.",
+      `But the hype outruns the reality, and that gap matters for smaller businesses deciding where to spend. The same analysts are blunt about it: Gartner also predicts that <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" target="_blank" rel="noopener noreferrer" class="${linkClass}">over 40% of agentic AI projects will be canceled by the end of 2027</a>. In our experience, the biggest predictor of success isn't the model or the budget — it's whether a business redesigns a workflow around the agent, rather than bolting an agent onto a broken process and expecting magic.`,
       "## What this means for businesses in Nepal",
       "For businesses in Nepal, this is less about chasing the enterprise trend and more about picking the few places where agents genuinely save time. Customer support triage, invoice and order processing, appointment scheduling, and lead qualification are all narrow, repetitive workflows where a well-scoped agent pays for itself quickly — without needing a data-science team to maintain it.",
       `The practical starting point is almost always integration, not a moonshot. An agent is only as useful as the systems it can reach: your CRM, your payment records, your messaging channel. That's why a lot of real-world automation still runs on simple, reliable rails — for example, pairing an agent with <a href="${SITE_URL}/bulk-sms-service" class="${linkClass}">bulk SMS for instant order updates, reminders, and OTP verification</a> so the 'action' at the end of the agent's work actually reaches the customer in seconds.`,
@@ -118,7 +219,34 @@ export const blogPosts: BlogPost[] = [
     category: "IT Consulting",
     date: "2026-07-01",
     readTime: "6 min read",
-    author: "Nirvix Technology",
+    takeaways: [
+      "Judge an IT company's portfolio on relevance to your project's complexity, not on how many projects it lists.",
+      "Good vendors hold a discovery conversation before quoting; a quote that arrives with no questions is a template.",
+      "Agree post-launch support — response times, hosting, and what a retainer includes — before you sign.",
+      "Compare the total cost of ownership over several years, not just the initial quote.",
+    ],
+    faqs: [
+      {
+        question: "What should I look for in an IT company in Nepal?",
+        answer:
+          "Relevant live work, a discovery process before pricing, clear post-launch support terms, and a quote you can compare on total cost of ownership rather than the upfront figure alone.",
+      },
+      {
+        question: "What questions should I ask an IT company before hiring them?",
+        answer:
+          "Ask to see live projects similar in complexity to yours, who will work on your project, what happens after launch, who owns the domain and source code, and exactly what the quote includes and excludes.",
+      },
+      {
+        question: "Why do IT projects in Nepal go wrong after launch?",
+        answer:
+          "Many teams are structured around project delivery rather than ongoing maintenance, so support terms are left vague. Agree response times, hosting responsibility, and retainer scope in writing before the project starts.",
+      },
+      {
+        question: "Is the cheapest IT company quote the best value?",
+        answer:
+          "Rarely. A cheaper build that needs rewriting in eighteen months costs more than a slightly higher investment in clean, documented, maintainable code. Compare itemised quotes line by line.",
+      },
+    ],
     content: [
       "Search for 'best IT company in Nepal' today and you'll find no shortage of options — Kathmandu and Lalitpur alone are home to hundreds of software houses, web agencies, and freelance collectives, all claiming to be the right fit. For a business owner without a technical background, that's more noise than signal.",
       "## 1. Judge the portfolio on relevance, not volume",
@@ -138,10 +266,45 @@ export const blogPosts: BlogPost[] = [
       "Nepal's push toward a digital economy is more than a government slogan. Here's what the shift toward e-governance and digital payments means for businesses building software today.",
     category: "Industry Trends",
     date: "2026-06-17",
+    updated: "2026-09-11",
     readTime: "5 min read",
-    author: "Nirvix Technology",
+    takeaways: [
+      "The Digital Nepal Framework is the government's 2019 blueprint of 80 digital initiatives across eight sectors, from digital foundation and agriculture to health, education, energy, tourism, finance, and urban infrastructure.",
+      "Its biggest effect on businesses is on customer expectations: people who pay bills and file taxes online expect the same speed from private businesses.",
+      "Digital wallet and bank QR payments, and instant SMS updates, are now default expectations across urban and semi-urban Nepal.",
+      "Digitising government services is creating B2G demand for developers who understand how Nepali institutions work.",
+    ],
+    faqs: [
+      {
+        question: "What is the Digital Nepal Framework?",
+        answer:
+          "It is the Government of Nepal's digital transformation blueprint, published by the Ministry of Communication and Information Technology in 2019. It identifies 80 digital initiatives across eight sectors: digital foundation, agriculture, health, education, energy, tourism, finance, and urban infrastructure.",
+      },
+      {
+        question: "How does the Digital Nepal Framework affect private businesses?",
+        answer:
+          "Mostly through customer expectations. As more government services move online, customers expect businesses to offer online payments, instant updates, and customer journeys that don't need a phone call or an office visit.",
+      },
+      {
+        question: "Which payment methods should a business website in Nepal support?",
+        answer:
+          "At minimum, the digital wallets and bank QR payments customers already use, such as eSewa, Khalti, and bank-linked QR. Add card payments if you sell to customers outside Nepal.",
+      },
+      {
+        question: "Is there demand for software development for Nepal's government?",
+        answer:
+          "Yes. As government bodies digitise record-keeping and service delivery, there is ongoing demand for developers who combine technical skill with an understanding of how Nepali institutions operate.",
+      },
+    ],
+    sources: [
+      {
+        title: "2019 Digital Nepal Framework",
+        publisher: "Ministry of Communication and Information Technology, Government of Nepal",
+        url: "https://www.digitaldevelopment.org/wp-content/uploads/2023/09/bEN_Digital_Nepal_Framework_V7.2March2019-1.pdf",
+      },
+    ],
     content: [
-      "The Digital Nepal Framework has been cited in government policy for years, but 2026 is the first stretch where its effects are visible outside of ministries — expanded digital ID integration, growing pressure on public agencies to accept online payments, and a steady rise in digital literacy programs reaching outside the Kathmandu valley.",
+      "The Digital Nepal Framework — the Ministry of Communication and Information Technology's 2019 blueprint of 80 digital initiatives across eight sectors — has been cited in government policy for years, but 2026 is the first stretch where its effects are visible outside of ministries — expanded digital ID integration, growing pressure on public agencies to accept online payments, and a steady rise in digital literacy programs reaching outside the Kathmandu valley.",
       "## What actually changes for businesses",
       "For businesses, this shift changes user expectations more than it changes regulation. Customers who now pay utility bills, renew licenses, and file taxes online are far less tolerant of a business that still requires a phone call or an in-person visit to get anything done. A slow or manual customer journey stands out more than it used to.",
       "## Digital payments are the clearest signal",
@@ -160,7 +323,29 @@ export const blogPosts: BlogPost[] = [
     category: "Tech Talent",
     date: "2026-06-03",
     readTime: "5 min read",
-    author: "Nirvix Technology",
+    takeaways: [
+      "A growing share of Nepal's software talent works remotely for international clients, often for higher pay than the local market offers.",
+      "Local businesses now compete with foreign remote employers for the same developers, so outdated salary benchmarks lose candidates.",
+      "Partnering with an established local company is often more reliable than building an in-house team from scratch or managing rotating freelancers.",
+      "Well-scoped work and a real career path retain developers better than salary alone.",
+    ],
+    faqs: [
+      {
+        question: "Why is it hard to hire developers in Nepal?",
+        answer:
+          "Many experienced developers work remotely for international clients who pay in foreign currency, so local employers are competing with global salaries. Businesses using outdated salary benchmarks often lose candidates before the interview stage.",
+      },
+      {
+        question: "Should I hire freelancers or an IT company in Nepal?",
+        answer:
+          "Freelancers suit small, well-defined tasks. For products that need ongoing maintenance, an established company with retained senior staff reduces the risk of losing knowledge when one person moves on.",
+      },
+      {
+        question: "What tech skills are strongest in Nepal's talent pool?",
+        answer:
+          "Web development and mobile app development have deep talent pools, and AI skills are growing as more developers take on international projects.",
+      },
+    ],
     content: [
       "Nepal's IT freelancing sector has grown well past the side-income stereotype it carried a decade ago. A large and increasing share of the country's software talent now works remotely for international clients on platforms like Upwork and Fiverr, earning in foreign currency and building skills far faster than the traditional local job market rewards.",
       "## The hiring tension this creates",
@@ -180,7 +365,41 @@ export const blogPosts: BlogPost[] = [
     category: "Bulk SMS",
     date: "2026-07-10",
     readTime: "6 min read",
-    author: "Nirvix Technology",
+    takeaways: [
+      "Nepali businesses in e-commerce, fintech, and healthcare are moving transactional SMS — OTPs, payment confirmations, delivery alerts — to global-grade platforms.",
+      "GroSMS reports 2B+ messages a month across 200+ countries, a 99.94% average delivery rate, 0.8-second average latency, and a 99.9% uptime SLA.",
+      "Handling send-and-verify in a single API call removes friction from OTP flows.",
+      "Migrate transactional messages first, and keep promotional SMS where it is until the new platform has proven itself.",
+    ],
+    faqs: [
+      {
+        question: "What is bulk SMS?",
+        answer:
+          "Bulk SMS is sending large volumes of text messages through an SMS gateway. It covers promotional campaigns and transactional messages such as OTPs, order confirmations, and appointment reminders.",
+      },
+      {
+        question: "What is the difference between promotional and transactional SMS?",
+        answer:
+          "Promotional SMS markets an offer to many recipients at once. Transactional SMS is triggered by a customer action — a login, a payment, an order — and has to arrive within seconds.",
+      },
+      {
+        question: "How do I send OTP SMS in Nepal?",
+        answer:
+          "Integrate an SMS platform's API into your app or website so it sends a one-time code when a user signs up, logs in, or pays. Platforms such as GroSMS handle sending and verifying the code in a single API call.",
+      },
+      {
+        question: "How do I switch bulk SMS providers without disruption?",
+        answer:
+          "Move transactional messages first, test delivery across Nepal Telecom and Ncell, then migrate promotional traffic once delivery rates are confirmed. Nirvix Technology handles this migration end to end as a GroSMS technology partner.",
+      },
+    ],
+    sources: [
+      {
+        title: "GroSMS — Enterprise Messaging Platform",
+        publisher: "GroSMS",
+        url: "https://www.grosms.com/",
+      },
+    ],
     content: [
       "For years, bulk SMS in Nepal has meant picking between a handful of local gateways — reliable enough for basic promotional blasts, but rarely built for the kind of transactional messaging modern apps depend on: instant OTPs, payment confirmations, and delivery alerts that customers expect within seconds, not minutes.",
       "## Where local gateways fall short",
@@ -204,12 +423,60 @@ export const blogPosts: BlogPost[] = [
       "Search traffic is shifting from ten blue links to a single AI answer. Here's what Answer Engine Optimization actually involves, and how businesses in Nepal can get cited instead of skipped.",
     category: "SEO",
     date: "2026-09-02",
-    readTime: "8 min read",
-    author: "Nirvix Technology",
+    updated: "2026-09-11",
+    readTime: "9 min read",
+    takeaways: [
+      "Answer Engine Optimization (AEO) — also called GEO or AIEO — structures content so AI systems such as ChatGPT, Gemini, and Google AI Overviews can quote it and cite your business.",
+      "The research that introduced GEO found that citing sources, adding quotations, and adding statistics improved visibility in AI answers by 30-40%, while keyword stuffing did little.",
+      "Put a direct answer immediately under a question-shaped heading, and back it with specific numbers, dates, and sources.",
+      "Keep your business name, address, and services consistent across your website, Google Business Profile, and every directory you appear in.",
+    ],
+    faqs: [
+      {
+        question: "What is Answer Engine Optimization (AEO)?",
+        answer:
+          "AEO is the practice of structuring content so AI systems can extract a correct, quotable answer from it and attribute that answer to your business. It builds on SEO rather than replacing it.",
+      },
+      {
+        question: "What is the difference between AEO, GEO, and AIEO?",
+        answer:
+          "They are three names for the same practice. AEO stands for Answer Engine Optimization, GEO for Generative Engine Optimization, and AIEO for AI Engine Optimization. All three aim to get your content cited in AI-generated answers.",
+      },
+      {
+        question: "What is the difference between SEO and AEO?",
+        answer:
+          "SEO optimizes for a ranking position in search results. AEO optimizes for being the source an AI answer is built from. The same fast, crawlable, well-linked website supports both.",
+      },
+      {
+        question: "How do I get my business cited by ChatGPT or Google AI Overviews?",
+        answer:
+          "Answer your customers' real questions directly under matching headings, support each answer with statistics and sources, keep your organization and FAQ schema accurate, and make sure your business details match everywhere they appear online.",
+      },
+      {
+        question: "Does keyword stuffing help with AI search?",
+        answer:
+          "No. The research that introduced GEO found keyword stuffing offered little to no improvement in AI-generated answers, while citing sources, adding quotations, and adding statistics improved visibility by 30-40%.",
+      },
+    ],
+    sources: [
+      {
+        title: "GEO: Generative Engine Optimization (Aggarwal et al., KDD 2024)",
+        publisher: "arXiv",
+        url: "https://arxiv.org/abs/2311.09735",
+      },
+      {
+        title: "Review snippet structured data: self-serving reviews",
+        publisher: "Google Search Central",
+        url: "https://developers.google.com/search/docs/appearance/structured-data/review-snippet",
+      },
+    ],
     keywords: [
       "answer engine optimization",
       "AEO Nepal",
       "generative engine optimization",
+      "GEO",
+      "AI engine optimization",
+      "AIEO",
       "AI search optimization",
       "SEO company in Nepal",
       "Google AI Overviews",
@@ -221,7 +488,12 @@ export const blogPosts: BlogPost[] = [
       "The practical difference shows up in how you write. A page built to rank often buries the answer under three paragraphs of throat-clearing. A page built to be cited states the answer plainly, immediately under a heading that matches the question, then supports it with specifics an AI model can verify — numbers, dates, named entities, and sources.",
       "## The four things that decide whether AI cites you",
       "First, structure. Question-shaped H2s with direct answers underneath are far easier for a model to lift than a wall of narrative prose. Second, specificity — vague marketing claims get skipped, while a concrete figure with a date attached gets quoted. Third, entity clarity: your business name, location, services, and contact details need to be consistent everywhere, so the model is confident about who it is citing. Fourth, corroboration — AI systems weight information that appears consistently across multiple independent sources.",
-      "Structured data does real work here. Schema markup for your organization, your services, and your FAQs tells a machine exactly what your business is and what it offers, rather than leaving it to infer from page copy. It is worth noting what not to do as well: review and rating markup a business publishes about itself is treated as self-serving and is not eligible for rich results, so genuine ratings belong on your Google Business Profile instead.",
+      `Structured data does real work here. Schema markup for your organization, your services, and your FAQs tells a machine exactly what your business is and what it offers, rather than leaving it to infer from page copy. It is worth noting what not to do as well: review and rating markup a business publishes about itself is <a href="https://developers.google.com/search/docs/appearance/structured-data/review-snippet" target="_blank" rel="noopener noreferrer" class="${linkClass}">treated by Google as self-serving and ineligible for star ratings</a>, so genuine ratings belong on your Google Business Profile instead.`,
+      "## AEO, GEO, and AIEO: what the research actually says",
+      "AEO (Answer Engine Optimization), GEO (Generative Engine Optimization), and AIEO (AI Engine Optimization) are three names for the same job: getting your content quoted in the answers ChatGPT, Gemini, Perplexity, and Google AI Overviews generate. The term GEO comes from a research paper by researchers at Princeton and IIT Delhi, published at KDD 2024, which tested what actually changes how often a page is used in an AI-generated answer.",
+      `Its findings are the most useful evidence the field has so far. The top-performing methods — citing sources, adding quotations from relevant experts, and adding statistics — <a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener noreferrer" class="${linkClass}">improved visibility in generative engine responses by 30-40%</a>. Keyword stuffing, the reflex of old-school SEO, offered little to no improvement.`,
+      "- <strong>Cite sources:</strong> link every statistic and factual claim to where it came from.\n- <strong>Add statistics:</strong> replace a vague claim with a specific number and the date it applies to.\n- <strong>Add quotations:</strong> a named expert's view, attributed properly, is more quotable than anonymous copy.\n- <strong>Skip keyword stuffing:</strong> repeating a phrase makes a page harder for a model to trust, not easier to find.",
+      "In practice, that means every claim that matters should carry a number, a date, and a link to its source. Those are the same things that make an article more trustworthy to a human reader, which is the point: generative engines are trying to reward the content a careful person would trust.",
       "## Why this matters more in Nepal than most markets",
       "Local search in Nepal has always been thin. Ask an AI assistant to recommend a software company in Kathmandu, or how much a business website costs in Nepal, and it is working from a much smaller pool of source material than it would for the same question in Delhi or Singapore. That is a disadvantage for users and an opportunity for businesses — the bar to become a cited source is genuinely lower here, and the market is nowhere near saturated with well-structured, locally specific content.",
       "It also compounds with the broader shift toward digital-first customer behaviour. Once customers are comfortable getting an answer from an AI assistant, the businesses that assistant names are the shortlist. Not being in the answer is closer to not existing than being on page two ever was.",
@@ -243,8 +515,48 @@ export const blogPosts: BlogPost[] = [
       "RCS adds branding, images, and tappable buttons to the messages businesses send. Here's how it compares to SMS in 2026, and why reach still makes SMS the backbone in Nepal.",
     category: "Bulk SMS",
     date: "2026-08-26",
+    updated: "2026-09-11",
     readTime: "7 min read",
-    author: "Nirvix Technology",
+    takeaways: [
+      "RCS adds verified sender branding, images, carousels, buttons, and read receipts to business messages; SMS works on every phone with no data connection.",
+      "In Nepal, where many people use mid-range Android phones and data coverage is uneven, SMS remains the backbone for reach.",
+      "Use SMS for OTPs, RCS with SMS fallback for transactional updates, and test RCS against plain SMS for promotions.",
+      "Make transactional SMS fast and reliable first, then layer RCS on top.",
+    ],
+    faqs: [
+      {
+        question: "What is RCS messaging?",
+        answer:
+          "RCS (Rich Communication Services) is the upgrade to SMS built into the default messaging apps on Android and, since iOS 18, iPhone. It supports verified business senders, images, carousels, tappable buttons, and read receipts.",
+      },
+      {
+        question: "Is RCS better than SMS for businesses?",
+        answer:
+          "It is richer but not universal. RCS needs a compatible phone, carrier support, and a data connection, while SMS reaches every phone. Most businesses use RCS as an enhancement with SMS fallback rather than a replacement.",
+      },
+      {
+        question: "Should OTPs be sent by RCS or SMS?",
+        answer:
+          "SMS. For one-time passwords, fast and universal delivery matters more than branding, and a failed OTP means a lost signup or payment.",
+      },
+      {
+        question: "What is SMS fallback?",
+        answer:
+          "SMS fallback automatically resends a message as a standard SMS when it cannot be delivered over RCS, so the customer receives it either way.",
+      },
+    ],
+    sources: [
+      {
+        title: "Turn on RCS messaging on your iPhone",
+        publisher: "Apple Support",
+        url: "https://support.apple.com/en-us/122195",
+      },
+      {
+        title: "RCS Now in iOS: a New Chapter for Mobile Messaging",
+        publisher: "GSMA",
+        url: "https://www.gsma.com/newsroom/article/rcs-nowin-ios-a-new-chapter-for-mobile-messaging/",
+      },
+    ],
     keywords: [
       "RCS vs SMS",
       "rich business messaging",
@@ -254,7 +566,9 @@ export const blogPosts: BlogPost[] = [
       "transactional SMS",
     ],
     content: [
-      "Business messaging is going through its first real upgrade since the SMS standard was written in the 1980s. RCS — Rich Communication Services — is now supported across Android and, since Apple added support, on iPhone too, which finally makes it something businesses can plan around rather than watch. The pitch is straightforward: verified sender branding, images and carousels, tappable buttons, and read receipts, all inside the default messaging app. The question for a business in Nepal is narrower: does any of that change what you should actually send tomorrow?",
+      "Business messaging is going through its first real upgrade since the SMS standard was written in the 1980s. RCS — Rich Communication Services — is now supported across Android and, since Apple added support in iOS 18, on iPhone too, which finally makes it something businesses can plan around rather than watch. The pitch is straightforward: verified sender branding, images and carousels, tappable buttons, and read receipts, all inside the default messaging app. The question for a business in Nepal is narrower: does any of that change what you should actually send tomorrow?",
+      "## RCS vs SMS at a glance",
+      "| | SMS | RCS |\n| --- | --- | --- |\n| Works on | Every mobile phone | Compatible Android phones, and iPhones on iOS 18 or later |\n| Needs mobile data | No | Yes |\n| Carrier support | Universal | Required |\n| Sender identity | Number or shortcode | Verified business name, logo, and badge |\n| Content | Plain text | Images, carousels, buttons, and suggested replies |\n| Receipts | Delivery reports | Delivery and read receipts |\n| If it can't be delivered | — | Falls back to SMS, when fallback is set up |",
       "## What RCS adds over SMS",
       "The most valuable part is not the media, it is the verification. An RCS message from a verified sender shows your business name, your logo, and a verification badge instead of an unfamiliar shortcode. In a market where SMS fraud and fake OTP messages are a live problem, that alone changes how much a customer trusts what they are reading.",
       "Beyond that, RCS supports images, product carousels, suggested replies, and action buttons — so an order confirmation can carry a track-order button, and an appointment reminder can offer reschedule and cancel inline. It also gives the sender delivery and read receipts, and typing indicators for two-way conversations. Practically, it turns a notification into something closer to an app screen.",
@@ -262,6 +576,7 @@ export const blogPosts: BlogPost[] = [
       "Reach. SMS works on every phone, on every carrier, with no data connection, no app, and no feature negotiation. RCS needs a compatible handset, a carrier that supports it, and an active data connection. In Nepal, where a large share of users are on mid-range Android devices and mobile data coverage is uneven outside urban centres, that gap is not a rounding error — it is the difference between a message that always arrives and one that usually arrives.",
       "This is exactly why every serious RCS deployment is built with SMS fallback. If the RCS message cannot be delivered, the platform sends the same content as an SMS. Businesses that treat RCS as an enhancement layer over a reliable SMS backbone get the upside without gambling on delivery; businesses that treat RCS as a replacement discover the gap during their first campaign.",
       "## Which channel to use for what",
+      "| Message type | Best channel | Why |\n| --- | --- | --- |\n| OTPs and verification | SMS | Universal, fast delivery matters more than branding |\n| Order, delivery, and appointment updates | RCS with SMS fallback | Track-order and reschedule buttons remove support calls |\n| Promotional campaigns | Test RCS against SMS | Rich messages cost more per send, so measure the lift |",
       "For OTPs and verification, use SMS. Speed and universal delivery matter more than branding, and a failed OTP is a lost signup or a failed payment. Anything in a checkout or login flow should sit on the most reliable path available.",
       "For transactional updates — order confirmations, dispatch and delivery alerts, appointment reminders, payment receipts — RCS with SMS fallback is a genuine improvement. These are the messages where a tracking button or a reschedule action removes a support call.",
       "For promotional campaigns, RCS is where the rich formatting earns its cost, but measure it against plain SMS rather than assuming. Richer messages cost more per send, and in a price-sensitive market the lift has to be real.",
@@ -276,6 +591,41 @@ export const blogPosts: BlogPost[] = [
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts.find((post) => post.slug === slug);
+}
+
+/** Byline for posts that don't set `authorId`. */
+export const DEFAULT_AUTHOR_ID = "nischal-tamang";
+
+export interface PostAuthor {
+  name: string;
+  jobTitle: string;
+  /** Matches the Person @id emitted on /team, so both describe one entity. */
+  id: string;
+  url: string;
+}
+
+/**
+ * A named person, not the company, so answer engines have an accountable author to
+ * attribute the article to. Throws on an unknown id so a typo fails the build instead
+ * of shipping a post with no byline.
+ */
+export function getPostAuthor(post: BlogPost): PostAuthor {
+  const authorId = post.authorId ?? DEFAULT_AUTHOR_ID;
+  const member = teamMembers.find((m) => m.id === authorId);
+  if (!member) {
+    throw new Error(`Blog post "${post.slug}" has unknown authorId "${authorId}"`);
+  }
+  return {
+    name: member.name,
+    jobTitle: member.role,
+    id: `${SITE_URL}/team#${member.id}`,
+    url: `${SITE_URL}/team`,
+  };
+}
+
+/** Last substantive edit, falling back to the publish date. */
+export function getPostModified(post: BlogPost): string {
+  return post.updated ?? post.date;
 }
 
 /**

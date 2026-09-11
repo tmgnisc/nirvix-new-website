@@ -7,7 +7,7 @@ import { Reveal, StackedLines } from "@/components/reveal";
 
 export function TeamHeroSection({ onOpenContact }: { onOpenContact?: () => void }) {
   return (
-    <div className="relative overflow-hidden bg-white pt-28 pb-10 sm:pt-36 sm:pb-16">
+    <div className="relative overflow-hidden bg-sky-wash pt-28 pb-10 sm:pt-36 sm:pb-16">
       <SiteHeader onOpenContact={onOpenContact} />
 
       <motion.div

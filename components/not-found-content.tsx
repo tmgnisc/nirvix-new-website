@@ -63,7 +63,7 @@ export function NotFoundContent() {
   return (
     <>
       <main id="top" className="w-full overflow-x-clip">
-        <div className="relative overflow-hidden bg-white pt-28 pb-12 sm:pt-36 sm:pb-16">
+        <div className="relative overflow-hidden bg-sky-wash pt-28 pb-12 sm:pt-36 sm:pb-16">
           <SiteHeader onOpenContact={openContact} />
 
           <motion.div
