@@ -43,7 +43,9 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="mt-6 flex max-h-[420px] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] sm:mt-10 sm:max-h-[740px]">
+        {/* Fixed (not max) height: the looping copy of each column mounts after
+            hydration, and a max-height box would grow when it arrives. */}
+        <div className="mt-6 flex h-[420px] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] sm:mt-10 sm:h-[740px]">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />

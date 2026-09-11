@@ -34,7 +34,7 @@ export function ProjectsSection() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ type: "spring", stiffness: 190, damping: 26, delay: (i % 3) * 0.08 }}
           >
-            <ProjectCard project={project} eager={i < 3} />
+            <ProjectCard project={project} eager={i < 3} titleAs="p" />
           </motion.div>
         ))}
       </div>

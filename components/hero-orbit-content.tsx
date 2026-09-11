@@ -15,8 +15,9 @@ export function HeroOrbitContent() {
           <span className="block">Company in Nepal</span>
         </h1>
         <p className="mx-auto mt-3 max-w-md text-sm text-ink-soft sm:mt-4 sm:max-w-xl sm:text-base">
-          Custom websites, mobile apps, and AI-powered software — built in Lalitpur, Kathmandu for
-          businesses across Nepal and worldwide.
+          Nirvix Technology is a software development company in Nepal, based in Lalitpur, Kathmandu
+          — building custom websites, mobile apps, and AI-powered software for businesses across
+          Nepal and worldwide.
         </p>
       </div>
 

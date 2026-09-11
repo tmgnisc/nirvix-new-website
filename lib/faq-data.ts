@@ -40,7 +40,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Where is Nirvix Technology based?",
     answer:
-      "We're headquartered in Satdobato, Lalitpur, Nepal, and work with clients both locally and around the world.",
+      "We're a software development company headquartered in Satdobato, Lalitpur, Nepal, and work with clients both locally and around the world.",
   },
   {
     question: "How long does it take to build a website or app?",

@@ -89,9 +89,9 @@ const FeatureCard = ({
 
 const FeatureTitle = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <h3 className="mx-auto max-w-5xl text-left text-xl tracking-tight text-neutral-900 md:text-2xl md:leading-snug">
+    <p className="mx-auto max-w-5xl text-left text-xl tracking-tight text-neutral-900 md:text-2xl md:leading-snug">
       {children}
-    </h3>
+    </p>
   );
 };
 

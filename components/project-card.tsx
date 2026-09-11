@@ -5,8 +5,19 @@ import type { Project } from "@/lib/projects-data";
 /**
  * One live client site: laptop + phone mockup, name, category, and a short summary.
  * The whole card is the link out to the live site.
+ *
+ * `titleAs` lets a page that only previews a few projects (the homepage) keep the names
+ * out of its heading outline; /projects, where the projects are the content, keeps h3.
  */
-export function ProjectCard({ project, eager }: { project: Project; eager?: boolean }) {
+export function ProjectCard({
+  project,
+  eager,
+  titleAs: Title = "h3",
+}: {
+  project: Project;
+  eager?: boolean;
+  titleAs?: "h3" | "p";
+}) {
   const displayUrl = project.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
   return (
@@ -28,7 +39,7 @@ export function ProjectCard({ project, eager }: { project: Project; eager?: bool
 
       <div className="mt-6 flex items-start justify-between gap-3">
         <div>
-          <h3 className="text-base font-medium text-neutral-900 sm:text-lg">{project.name}</h3>
+          <Title className="text-base font-medium text-neutral-900 sm:text-lg">{project.name}</Title>
           <p className="mt-1 text-xs text-ink-soft">
             {project.category} · {project.location}
           </p>

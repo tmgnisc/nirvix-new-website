@@ -1,13 +1,20 @@
 "use client";
-import React from "react";
+import React, { useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+
+const noopSubscribe = () => () => {};
 
 export const TestimonialsColumn = (props: {
   className?: string;
   testimonials: { text: string; image: string; name: string; role: string; rating?: number }[];
   duration?: number;
 }) => {
+  // The seamless loop needs a second copy of every card, but that copy is pure
+  // decoration. Rendering it only on the client keeps it out of the server HTML, so
+  // crawlers and SEO audits see each testimonial once instead of flagging duplicates.
+  const showLoopCopy = useSyncExternalStore(noopSubscribe, () => true, () => false);
+
   return (
     <div className={props.className}>
       <motion.div
@@ -23,10 +30,14 @@ export const TestimonialsColumn = (props: {
         className="flex flex-col gap-6 pb-6 bg-background"
       >
         {[
-          ...new Array(2).fill(0).map((_, index) => (
+          ...new Array(showLoopCopy ? 2 : 1).fill(0).map((_, index) => (
             <React.Fragment key={index}>
               {props.testimonials.map(({ text, image, name, role, rating }, i) => (
-                <div className="p-10 rounded-3xl border shadow-lg shadow-primary/10 max-w-xs w-full" key={i}>
+                <div
+                  className="p-10 rounded-3xl border shadow-lg shadow-primary/10 max-w-xs w-full"
+                  key={i}
+                  aria-hidden={index > 0 || undefined}
+                >
                   {typeof rating === "number" && (
                     <div className="flex gap-0.5 mb-3" aria-label={`${rating} out of 5 stars`}>
                       {Array.from({ length: 5 }).map((_, starIndex) => (

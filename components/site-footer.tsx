@@ -10,14 +10,16 @@ const footerLinks = [
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "/#about" },
-      { label: "Services", href: "/services" },
+      // Labels differ from the header nav on purpose: the same anchor text pointing at
+      // the same URL twice per page is flagged as duplicate anchor text by SEO audits.
+      { label: "About Nirvix Technology", href: "/#about" },
+      { label: "Software Development Services", href: "/services" },
       { label: "SEO Company in Lalitpur", href: "/seo-company-in-lalitpur" },
       { label: "Our Projects", href: "/projects" },
       { label: "Our Team", href: "/team" },
       { label: "Weavo — Travel Agency Software", href: "/weavo" },
       { label: "Bulk SMS Service", href: "/bulk-sms-service" },
-      { label: "Blog", href: "/blog" },
+      { label: "Tech Blog", href: "/blog" },
       { label: "Contact Us", href: "#contact" },
     ],
   },
@@ -97,7 +99,7 @@ export function SiteFooter({ onOpenContact }: { onOpenContact: () => void }) {
           {/* Footer link sections */}
           {footerLinks.map((section) => (
             <div key={section.title}>
-              <h3 className="mb-6 text-lg font-semibold text-gray-900">{section.title}</h3>
+              <p className="mb-6 text-lg font-semibold text-gray-900">{section.title}</p>
               <ul className="space-y-3 text-gray-600">
                 {section.links.map((link) => (
                   <li key={link.label}>
@@ -124,7 +126,7 @@ export function SiteFooter({ onOpenContact }: { onOpenContact: () => void }) {
 
           {/* Contact section */}
           <div>
-            <h3 className="mb-6 text-lg font-semibold text-gray-900">Contact Us</h3>
+            <p className="mb-6 text-lg font-semibold text-gray-900">Contact Us</p>
             <ul className="space-y-4 text-gray-600">
               {contactInfo.map((item, i) => (
                 <li key={i} className="flex items-center gap-3">
