@@ -86,7 +86,14 @@ export function ServicesGridSection() {
       </div>
 
       <p className="mt-10 text-center text-sm text-ink-soft">
-        Looking for search specifically? We have a dedicated page on our work as an{" "}
+        Looking for a website specifically? See our page as a{" "}
+        <Link
+          href="/website-development-company-in-lalitpur"
+          className="font-medium text-brand hover:text-brand-deep"
+        >
+          website development company in Lalitpur
+        </Link>
+        . For search, we have a dedicated page on our work as an{" "}
         <Link
           href="/seo-company-in-lalitpur"
           className="font-medium text-brand hover:text-brand-deep"

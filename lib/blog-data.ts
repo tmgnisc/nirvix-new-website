@@ -54,6 +54,242 @@ const linkClass = "text-brand underline underline-offset-2 hover:text-brand-deep
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "tour-and-travel-website-development-nepal",
+    title: "Tour and Travel Website Development in 2026: What Trekking and Travel Agencies in Nepal Need",
+    metaTitle: "Tour and Travel Website Development in Nepal | 2026 Guide",
+    metaDescription:
+      "What a tour and travel website needs in 2026: fast trip pages, enquiry and booking flows, multi-currency pricing, SEO, and AI search visibility for Nepal agencies.",
+    excerpt:
+      "Travellers now shortlist trekking and tour operators on their phones and in AI trip planners before they ever send an enquiry. Here's what a tour and travel website needs in 2026 to win that booking.",
+    category: "Web Development",
+    date: "2026-09-14",
+    readTime: "10 min read",
+    takeaways: [
+      "A tour and travel website in 2026 is judged in seconds on a phone: fast trip pages, clear prices, and a one-tap way to enquire on WhatsApp or by form.",
+      "Every trek or tour needs its own page with a day-by-day itinerary, price, inclusions and exclusions, best season, difficulty, and FAQs — that page is what ranks in Google and gets quoted by AI trip planners.",
+      "International travellers expect prices in their own currency, secure online deposits, and visible proof of trust such as registration details and genuine reviews.",
+      "The website should connect to how the agency actually sells: fast enquiry replies, branded quotations and itineraries, and follow-up after the first message.",
+    ],
+    faqs: [
+      {
+        question: "What features should a tour and travel website have?",
+        answer:
+          "At minimum: a separate page for each trip with a day-by-day itinerary, price, inclusions and exclusions, departure dates, difficulty, and FAQs; a fast mobile layout; an enquiry form and WhatsApp button on every trip page; multi-currency pricing; secure deposit payments; trust signals such as company registration and reviews; and SEO structure including trip schema markup.",
+      },
+      {
+        question: "How much does a travel agency website cost in Nepal?",
+        answer:
+          "It depends on the number of trips, languages, and integrations. A brochure-style agency site with trip pages and enquiry forms costs far less than one with live availability, online deposits, and a booking dashboard. Ask for an itemised quote covering design, trip page setup, payment integration, hosting, and a year of maintenance so quotes can be compared fairly.",
+      },
+      {
+        question: "Should a trekking company website take online bookings or enquiries?",
+        answer:
+          "Most trekking and tour operators in Nepal do best with a hybrid: an enquiry flow for custom and private trips, and fixed-departure dates with an online deposit for group trips. Custom treks usually need a conversation about dates, fitness, and permits before a traveller commits.",
+      },
+      {
+        question: "How can a travel agency website rank on Google?",
+        answer:
+          "Give every trek and tour its own well-structured page targeting a specific search such as 'Everest Base Camp trek cost' or 'Annapurna Circuit itinerary', keep pages fast on mobile, add trip and FAQ schema, publish genuinely useful guides on seasons, permits, and preparation, and keep the company's details consistent across Google Business Profile and travel directories.",
+      },
+      {
+        question: "How do AI trip planners like ChatGPT choose which tour operators to recommend?",
+        answer:
+          "They draw on content that clearly answers travellers' questions and on information that is consistent across multiple sources. Agencies with detailed trip pages, specific facts such as prices, altitudes, and durations, clear company details, and reviews on independent platforms are more likely to be named.",
+      },
+    ],
+    sources: [
+      {
+        title: "Understanding Core Web Vitals and Google search results",
+        publisher: "Google Search Central",
+        url: "https://developers.google.com/search/docs/appearance/core-web-vitals",
+      },
+      {
+        title: "Managing multi-regional and multilingual sites",
+        publisher: "Google Search Central",
+        url: "https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites",
+      },
+      {
+        title: "TouristTrip",
+        publisher: "Schema.org",
+        url: "https://schema.org/TouristTrip",
+      },
+    ],
+    keywords: [
+      "tour and travel website development",
+      "travel website development Nepal",
+      "travel agency website design",
+      "trekking company website",
+      "tour operator website",
+      "travel booking website development",
+      "website for travel agency in Nepal",
+    ],
+    content: [
+      "A traveller planning the Everest Base Camp trek in 2026 rarely starts on a search results page anymore. They ask an AI assistant which operators are reputable, skim a few recommended names on their phone, compare two or three websites over a lunch break, and send a WhatsApp message to whichever one looks most trustworthy and answers the most questions up front. Every step of that journey happens before an agency knows the traveller exists. For tour and travel companies, the website is no longer a brochure. It is the salesperson doing the first three conversations.",
+      "Travel is also one of the most competitive categories on the Nepali web. Hundreds of trekking and tour operators target the same handful of routes — Everest, Annapurna, Langtang, Manaslu, Upper Mustang — and many of their websites are built from the same few templates. This guide covers what separates a travel website that wins bookings in 2026 from one that simply exists.",
+      "## Why tour and travel website development is changing in 2026",
+      "Three shifts are happening at once. First, discovery is moving into AI. Travellers increasingly ask ChatGPT, Gemini, or Google's AI Overviews to suggest itineraries and operators, and those systems favour websites with detailed, specific, well-structured trip information. Second, the decision happens on mobile. Research, comparison, and the first enquiry now happen largely on a phone, often on patchy hotel or airport Wi-Fi. Third, travellers expect speed. An agency that replies with a branded quotation within the hour looks far more professional than one that replies the next day with a plain-text email.",
+      "Agencies that treat their website as part of that sales process, rather than as a one-off design project, are the ones picking up the bookings.",
+      "## The essential features of a tour and travel website",
+      "| Feature | Why it matters |\n| --- | --- |\n| A dedicated page for every trip | Each page can rank for its own searches and answer every question about that trip |\n| Day-by-day itinerary | The first thing trekkers compare between operators |\n| Clear pricing with inclusions and exclusions | Removes the biggest reason travellers hesitate to enquire |\n| Fixed departure dates | Lets group travellers commit without a back-and-forth |\n| Enquiry form and WhatsApp on every trip page | Captures the enquiry while interest is highest |\n| Multi-currency prices | International visitors think in USD, EUR, GBP, or AUD, not NPR |\n| Secure online deposits | Turns a hesitant enquiry into a confirmed booking |\n| Trust signals | Registration numbers, association memberships, guide profiles, and genuine reviews |\n| Fast mobile performance | Most research happens on phones, often on slow connections |",
+      "## Build the trip page first — it does most of the selling",
+      "The single most important page on a travel website is not the homepage. It is the individual trip page, because that is where travellers land from Google, where AI assistants pull facts from, and where the decision to enquire is made. A strong trip page answers every question a traveller would otherwise have to email about.",
+      "- <strong>Trip overview:</strong> duration, maximum altitude, difficulty, group size, best season, and starting point, in a scannable summary at the top.\n- <strong>Day-by-day itinerary:</strong> daily walking hours, overnight altitude, and accommodation type for each day.\n- <strong>Price and what it covers:</strong> permits, guide, porter, meals, accommodation, domestic flights, and transfers — and what is not included.\n- <strong>Departure dates:</strong> fixed group departures with seats remaining, plus an option for private dates.\n- <strong>Map and elevation profile:</strong> travellers want to see the route and how hard the climb is.\n- <strong>Trip-specific FAQs:</strong> altitude sickness, permits, insurance, packing, and whether beginners can do it.\n- <strong>A clear call to action:</strong> an enquiry form and WhatsApp button that stay visible as the traveller scrolls.",
+      `Structured data helps search engines and AI systems read all of that accurately. Schema.org has a dedicated <a href="https://schema.org/TouristTrip" target="_blank" rel="noopener noreferrer" class="${linkClass}">TouristTrip type</a> for itineraries, and combining it with FAQ and organisation markup tells a machine exactly what the trip is, who runs it, and what it costs.`,
+      "## Mobile speed is a booking problem, not just a design problem",
+      "Travel websites are some of the heaviest on the web: full-width mountain photography, embedded videos, maps, review widgets, and chat plugins all on one page. On a large office monitor with fibre internet, none of that feels slow. On a mid-range phone connected to hotel Wi-Fi in Frankfurt or a mobile network in Sydney, it can mean a blank screen for several seconds — and a traveller who taps back to the next operator in the results.",
+      `Google measures that experience through <a href="https://developers.google.com/search/docs/appearance/core-web-vitals" target="_blank" rel="noopener noreferrer" class="${linkClass}">Core Web Vitals</a>, covering loading speed, responsiveness, and layout stability. The practical fixes for travel sites are consistent: serve images in modern formats at the right size, lazy-load galleries below the fold, load maps and videos only when tapped, and cut third-party scripts that add little. Frameworks like Next.js make much of this the default rather than an afterthought.`,
+      "## Enquiry vs online booking: which model fits your agency?",
+      "Most trekking and tour operators in Nepal should not force every trip into instant online booking. A private Manaslu trek or a custom Bhutan and Tibet combination needs a conversation about dates, fitness, permits, and budget before anyone pays. On the other hand, a fixed-departure group trek with set dates and a set price is exactly the kind of trip a traveller is happy to reserve with a deposit immediately.",
+      "| Trip type | Best model | Why |\n| --- | --- | --- |\n| Custom and private treks | Enquiry form and WhatsApp | Needs a conversation before commitment |\n| Fixed-departure group trips | Online deposit booking | Dates and price are already decided |\n| Day tours and activities | Instant booking | Low price, low complexity, quick decision |\n| Multi-country packages | Enquiry with a fast branded quotation | High value, many variables |",
+      "The hybrid approach captures both kinds of traveller. What matters most is that each path is short: an enquiry form that asks only for dates, group size, and contact details, and a booking flow that works in a few taps on a phone.",
+      "## What happens after the enquiry decides the booking",
+      "A beautiful website that generates enquiries still loses bookings if the follow-up is slow or looks improvised. Travellers usually contact several operators at once, and the first one to reply with a clear, professional, priced proposal tends to win. That is where many agencies fall down — building quotations by hand in a word processor, copying itinerary text between documents, and sending them hours later.",
+      `This is the problem we built <a href="${SITE_URL}/weavo" class="${linkClass}">Weavo, our travel agency software</a>, to solve. It turns a trip into a branded quotation, day-by-day itinerary, or hotel voucher PDF in minutes, on the agency's own letterhead, with prices in the currency the traveller uses. Paired with a website that captures the enquiry, it closes the gap between a traveller asking and an agency answering.`,
+      "## International travellers: currency, language, and payments",
+      "Most visitors to a Nepali trekking website live abroad, so the site has to work the way they expect. Show prices in major currencies such as USD, EUR, GBP, and AUD, with a clear note on what currency the final payment is in. Take deposits through an international payment gateway that accepts cards, and make the cancellation and refund policy visible before payment rather than buried in terms.",
+      `If you publish in more than one language — German, French, and Chinese are common choices for trekking operators — each language should live on its own URL rather than being swapped in by a script. Google's guidance on <a href="https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites" target="_blank" rel="noopener noreferrer" class="${linkClass}">managing multilingual sites</a> covers the hreflang setup that tells search engines which version to show to which traveller.`,
+      "## Trust signals travellers look for before they send money",
+      "Sending a deposit to a company in another country, for a trip into the mountains, is a leap of faith. Travellers look for proof that the agency is real and reputable before they take it. Show your company registration and tourism licence details, memberships of bodies such as the Trekking Agencies' Association of Nepal (TAAN) or NATTA where they apply, real photographs of your guides and team, and links to reviews on independent platforms such as TripAdvisor and Google.",
+      "Be careful with how reviews appear on the site itself. Genuine, attributed reviews build trust; star ratings a business marks up about itself are not eligible for rich results in Google, so the reviews that count for search belong on independent platforms and your Google Business Profile.",
+      "## SEO and AI search for travel websites",
+      `Travel search is dominated by specific, long-tail questions: 'Everest Base Camp trek cost', 'Annapurna Circuit itinerary 14 days', 'best time for Langtang trek', 'Manaslu permit requirements'. Each of those is an opportunity for a dedicated trip page or a genuinely useful guide. Our <a href="${SITE_URL}/blog/seo-keyword-research-guide" class="${linkClass}">guide to SEO keyword research</a> walks through how to find and map those searches to pages.`,
+      `The same content is what AI trip planners draw on. An assistant asked to recommend an operator for a first-time Everest trek is far more likely to name an agency whose website states the duration, maximum altitude, price, group size, and safety practices plainly than one with vague marketing copy. We explain how that works in <a href="${SITE_URL}/blog/answer-engine-optimization-aeo-nepal-2026" class="${linkClass}">our guide to Answer Engine Optimization</a>. Keep your company name, address, phone, and licence details identical across your website, Google Business Profile, and every travel directory, so both search engines and AI systems are confident who they are recommending.`,
+      "## Common mistakes on tour and travel websites",
+      "Hiding prices. 'Contact us for price' on every trip loses the travellers who are comparing three operators and only have time to enquire with one.",
+      "Copying itinerary text from other operators. Duplicate content across dozens of agency sites gives Google no reason to rank yours, and AI systems have no reason to cite it.",
+      "One giant packages page. Listing every trek on a single page means none of them can rank for its own searches.",
+      "Heavy sliders and autoplay video on the homepage. They look impressive in a design presentation and slow the site down for the traveller on a phone.",
+      "No clear path from trip page to enquiry. If a traveller has to scroll back to the top or find a contact page, many will not bother.",
+      "Letting the domain and hosting sit in someone else's name. If the developer who registered them disappears, so does your ability to change anything.",
+      "## A tour and travel website checklist for 2026",
+      "1. Give every trek, tour, and package its own page with an itinerary, price, inclusions, dates, and FAQs.\n2. Put an enquiry form and WhatsApp button on every trip page.\n3. Test every page on a mid-range phone over a slow connection.\n4. Show prices in the currencies your travellers use and take deposits securely.\n5. Display licence details, association memberships, team photos, and links to independent reviews.\n6. Add TouristTrip, FAQ, and organisation schema markup.\n7. Publish useful guides on seasons, permits, altitude, and preparation.\n8. Reply to enquiries fast with a branded quotation and itinerary.\n9. Keep the domain, hosting, and code registered to your business.",
+      "## Building a travel website with Nirvix Technology",
+      `Travel and tourism is the category we build for most. You can open several of the trekking and tour operator sites we have delivered — including J One Trekking, Greater Himalaya Treks & Tours, Global Rising Tours & Travel, Leaf Travel and Tour, and SR Travel and Holidays — in <a href="${SITE_URL}/projects" class="${linkClass}">our portfolio of live client websites</a> and judge them on your own phone.`,
+      `As a <a href="${SITE_URL}/website-development-company-in-lalitpur" class="${linkClass}">website development company in Lalitpur</a>, we build tour and travel websites with fast trip pages, enquiry and deposit flows, multi-currency pricing, and schema markup from day one, and connect them to Weavo so quotations go out in minutes. Because we also work as an <a href="${SITE_URL}/seo-company-in-lalitpur" class="${linkClass}">SEO company in Lalitpur</a>, the site is built around the searches travellers actually make. If you run a trekking or travel agency and your website is not bringing in the enquiries it should, ask for a free quote below.`,
+    ],
+  },
+  {
+    slug: "seo-keyword-research-guide",
+    title: "SEO Keyword Research in 2026: How to Find Keywords Your Business Can Actually Rank For",
+    metaTitle: "SEO Keyword Research: How to Find Keywords That Rank",
+    metaDescription:
+      "A practical guide to SEO keyword research in 2026: how to find keywords, read search intent, target long-tail terms, and map keywords to pages so they rank.",
+    excerpt:
+      "Most businesses chase the biggest keyword they can think of and never rank for it. Here's how to do SEO keyword research properly — find terms with real intent, map them to pages, and rank.",
+    category: "SEO",
+    date: "2026-09-14",
+    readTime: "10 min read",
+    takeaways: [
+      "Good SEO keywords sit where three things overlap: real search demand, clear buying or research intent, and competition your site can realistically beat.",
+      "Long-tail keywords — specific phrases of three or more words such as 'website development company in Lalitpur' — are easier to rank for and usually convert better than broad terms like 'website'.",
+      "Check the search results before targeting a keyword: the pages already ranking tell you the intent Google expects and the format your page needs.",
+      "Map one primary keyword to one page, put it in the title, H1, URL, and first paragraph, and never stuff it — Google's spam policies treat keyword stuffing as a violation.",
+    ],
+    faqs: [
+      {
+        question: "What are SEO keywords?",
+        answer:
+          "SEO keywords are the words and phrases people type into search engines that you want your web pages to appear for. Each important page on your site should target one primary keyword and a small group of closely related variations.",
+      },
+      {
+        question: "How do I find the right keywords for SEO?",
+        answer:
+          "Start from the questions your customers already ask, expand them with Google autocomplete, People Also Ask, and a keyword tool, then filter the list by search intent and by whether the pages currently ranking are ones your site can realistically beat.",
+      },
+      {
+        question: "What are long-tail keywords?",
+        answer:
+          "Long-tail keywords are longer, more specific search phrases, such as 'e-commerce website with eSewa integration' rather than 'website'. Each one has lower search volume, but they are less competitive and the searcher usually knows exactly what they want.",
+      },
+      {
+        question: "How many keywords should one page target?",
+        answer:
+          "One primary keyword plus a handful of close variations and related questions. If two keywords need different content to answer them, they need two different pages.",
+      },
+      {
+        question: "Does keyword stuffing still work?",
+        answer:
+          "No. Google's spam policies list keyword stuffing as a violation, and it makes pages harder to read for people and less likely to be cited by AI answer engines. Use the keyword naturally in the places that matter and write for the reader everywhere else.",
+      },
+      {
+        question: "Is keyword research different for businesses in Nepal?",
+        answer:
+          "The method is the same, but search volumes are smaller, so tools often show zero for terms that do get real searches. Businesses in Nepal should lean on local modifiers like Lalitpur, Kathmandu, or Nepal, on Search Console data, and on the phrases customers actually use on calls and in messages.",
+      },
+    ],
+    sources: [
+      {
+        title: "SEO Starter Guide",
+        publisher: "Google Search Central",
+        url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      },
+      {
+        title: "Spam policies for Google web search: keyword stuffing",
+        publisher: "Google Search Central",
+        url: "https://developers.google.com/search/docs/essentials/spam-policies",
+      },
+      {
+        title: "Creating helpful, reliable, people-first content",
+        publisher: "Google Search Central",
+        url: "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      },
+    ],
+    keywords: [
+      "SEO keywords",
+      "keyword research",
+      "how to find keywords for SEO",
+      "SEO keyword research",
+      "long-tail keywords",
+      "search intent",
+      "keywords for ranking",
+      "keyword research Nepal",
+    ],
+    content: [
+      "Ask a business owner which keyword they want to rank for and the answer is usually the biggest one they can think of: 'travel agency', 'website', 'software company'. Those terms have the most searches, so they feel like the prize. They are also the terms held by national directories, marketplaces, and sites with a decade of links behind them, and most businesses spend a year chasing them without reaching page one. Keyword research is how you avoid that year. Done properly, it finds the searches your customers actually make, that your site can realistically win, and that lead to an enquiry once someone lands.",
+      "## What makes a good SEO keyword?",
+      "A good SEO keyword sits where three things overlap. It has real search demand, meaning people actually type it. It has clear intent that matches what your page offers. And the competition for it is beatable by a site like yours. A keyword missing any one of those three is a poor target, however attractive it looks in a tool.",
+      "| Keyword | Demand | Intent | Competition | Verdict |\n| --- | --- | --- | --- | --- |\n| website | Very high | Unclear | Extreme | Avoid |\n| website development | High | Mixed | Very high | Too broad for most sites |\n| website development company in Lalitpur | Modest | Hiring now | Beatable | Strong primary keyword |\n| e-commerce website with eSewa integration | Low | Hiring now | Low | Strong supporting keyword |\n| how much does a website cost in Nepal | Modest | Researching to buy | Moderate | Strong blog topic |",
+      "Notice that the best targets in that table are the longer, more specific phrases. That is not a coincidence, and it is the single most useful idea in keyword research.",
+      "## Why long-tail keywords win for most businesses",
+      "Long-tail keywords are longer, more specific searches, usually three words or more. Individually, each one gets fewer searches than a broad head term. Together they make up most of what people actually search, and they carry two big advantages. Fewer sites are competing for any single one of them, so a smaller site can rank. And the person typing them has already told you what they want.",
+      "Someone searching 'website' could be a student, a designer looking for inspiration, or someone trying to log into their own site. Someone searching 'website development company in Lalitpur' is looking to hire, and is probably within a short ride of your office. Ten visits from the second search are worth more than a thousand from the first.",
+      "## Step 1: Start from your customers, not a tool",
+      "Before opening any keyword tool, write down the questions and phrases your customers already use. Look at your enquiry emails, WhatsApp messages, sales call notes, and the questions people ask before they buy. Customers rarely describe your service the way you do. You might say 'digital solutions'; they search for 'website for my trekking company'.",
+      "Then list your seed topics: each service you offer, each location you serve, each problem you solve, and each product or platform you work with. These seeds are the raw material the next steps will expand.",
+      "## Step 2: Expand the list with free and paid tools",
+      "- <strong>Google autocomplete:</strong> type a seed into Google and note every suggestion. These are real searches, in the order people make them.\n- <strong>People Also Ask and related searches:</strong> the questions box and the related searches at the bottom of the results page are a ready-made list of blog topics and FAQ entries.\n- <strong>Google Search Console:</strong> the Performance report shows the queries your site already appears for. Queries where you sit at positions 8 to 20 are the fastest wins available to you.\n- <strong>Google Keyword Planner:</strong> free with a Google Ads account, and useful for ballpark volume ranges and related terms.\n- <strong>Paid tools such as Ahrefs or Semrush:</strong> better volume estimates, keyword difficulty scores, and the exact keywords your competitors rank for.",
+      "At the end of this step you should have a long, messy list — often a few hundred phrases. That is fine. The next two steps are about cutting it down.",
+      "## Step 3: Match every keyword to search intent",
+      "Search intent is the reason behind a search, and it matters more than volume. If your page does not match the intent Google has decided a keyword has, it will not rank no matter how well it is optimised. Most searches fall into four types.",
+      "| Intent | What the searcher wants | Example | Page to create |\n| --- | --- | --- | --- |\n| Informational | To learn or understand something | what is technical SEO | Blog post or guide |\n| Commercial | To compare options before buying | best IT companies in Lalitpur | Comparison or buyer's guide |\n| Transactional | To hire or buy now | SEO company in Lalitpur | Service or product page |\n| Navigational | To reach a specific site | Nirvix Technology contact | Home, contact, or brand page |",
+      "The quickest way to check intent is to search the keyword yourself and look at what ranks. If the top results are all blog posts, Google has decided that keyword wants information, and a service page will struggle to break in. If the results are all agency service pages, a blog post will struggle instead. The results page is Google telling you the answer.",
+      "## Step 4: Judge whether you can actually rank",
+      "Keyword difficulty scores in tools are a starting point, not a verdict. The better test is to open the pages currently ranking on page one and ask honest questions about them. Are they national marketplaces and directories with huge authority, or small local businesses like yours? Do they answer the search well, or are they thin, outdated, or slow on mobile? Do they even mention the location or the specific service in the keyword?",
+      "If page one is full of weak, loosely relevant pages, that keyword is an opportunity even if a tool marks it difficult. If page one is full of strong, exactly matched pages from much bigger sites, move on to a more specific variation and come back to it once your site has more authority.",
+      "## Step 5: Map one primary keyword to one page",
+      "Keyword mapping is where research turns into a plan. Give every important page one primary keyword, and group closely related variations and questions under it. If two keywords need genuinely different content to answer, they need different pages. If they would be answered by the same content, they belong on the same page.",
+      `Getting this wrong causes keyword cannibalisation: two pages on your own site competing for the same term, so Google splits signals between them and neither ranks well. It is why we built a separate page for our work as a <a href="${SITE_URL}/website-development-company-in-lalitpur" class="${linkClass}">website development company in Lalitpur</a> and a separate one as an <a href="${SITE_URL}/seo-company-in-lalitpur" class="${linkClass}">SEO company in Lalitpur</a>, rather than trying to rank one services page for both.`,
+      "## Where to put your keyword on the page",
+      "- <strong>Title tag:</strong> near the start, and under about 60 characters so it is not cut off.\n- <strong>H1 heading:</strong> one H1 per page, using the keyword or a close variation.\n- <strong>URL:</strong> short and readable, such as /seo-company-in-lalitpur rather than /page?id=482.\n- <strong>First paragraph:</strong> say plainly what the page is about within the first two sentences.\n- <strong>Subheadings:</strong> use related variations and real customer questions as H2s.\n- <strong>Meta description:</strong> it does not directly affect rankings, but a clear one with the keyword earns more clicks.\n- <strong>Image alt text and internal links:</strong> describe images accurately, and link to the page from related pages using descriptive anchor text.",
+      `After that, stop. Google's own <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank" rel="noopener noreferrer" class="${linkClass}">SEO Starter Guide</a> is explicit that you should write naturally for readers, and its <a href="https://developers.google.com/search/docs/essentials/spam-policies" target="_blank" rel="noopener noreferrer" class="${linkClass}">spam policies list keyword stuffing as a violation</a> — repeating a phrase unnaturally, or in lists and blocks out of context, can hurt a page rather than help it.`,
+      "## Keyword research mistakes that stop pages ranking",
+      "Targeting only head terms. The biggest keywords are the least winnable and the least specific. Build authority on long-tail terms first.",
+      "Trusting search volume blindly. Tools estimate volume from limited data, and for smaller markets they often show zero for phrases that do get real searches. A keyword showing 10 searches a month with strong hiring intent can be worth more than one showing 10,000.",
+      "Ignoring intent. Writing a service page for an informational keyword, or a blog post for a transactional one, is the most common reason well-written pages never rank.",
+      "Writing for the keyword instead of the reader. Google's guidance on <a href=\"https://developers.google.com/search/docs/fundamentals/creating-helpful-content\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"" + linkClass + "\">helpful, people-first content</a> rewards pages that fully answer the searcher's question, not pages that mention a phrase the most times.",
+      "Never revisiting the list. Search behaviour changes, and Search Console will show you new queries every month. Keyword research is a quarterly habit, not a one-off project.",
+      "## Keyword research for businesses in Nepal",
+      "The method is the same everywhere, but a few things change in the Nepali market. Search volumes are smaller, so most tools under-report local demand; treat Search Console and your own enquiries as the more reliable data. Location modifiers carry a lot of weight — 'Lalitpur', 'Kathmandu', 'Pokhara', 'near me', and 'Nepal' turn a national battle into a local one you can win. And people search in a mix of English, Nepali, and romanised Nepali, so it is worth checking how your customers actually phrase things rather than assuming.",
+      "The upside is the same one we described for local search generally: competition is thinner here than in larger markets. Plenty of commercially valuable phrases in Nepal still have page-one results that are thin, outdated, or barely relevant. A business that does keyword research properly can hold those positions for years.",
+      "## Keywords in the age of AI search",
+      `AI Overviews and assistants like ChatGPT have not made keywords irrelevant, but they have shifted the emphasis from exact phrases toward questions and topics. The keyword research process above still finds what people want; the difference is that each page should now answer the underlying question directly, near the top, in a way an AI system can quote. We cover that side of it in <a href="${SITE_URL}/blog/answer-engine-optimization-aeo-nepal-2026" class="${linkClass}">our guide to Answer Engine Optimization</a>.`,
+      "## A simple keyword research checklist",
+      "1. List the questions and phrases customers already use in enquiries and calls.\n2. Expand each seed topic with autocomplete, People Also Ask, Search Console, and a keyword tool.\n3. Label each keyword by intent: informational, commercial, transactional, or navigational.\n4. Search each shortlisted keyword and judge whether page one is beatable.\n5. Assign one primary keyword to each page and group related variations under it.\n6. Put the primary keyword in the title, H1, URL, and first paragraph, then write naturally.\n7. Review Search Console every quarter for new queries and pages sitting just off page one.",
+      "## Need help finding keywords that rank?",
+      `Keyword research is the first step of every engagement we run as an <a href="${SITE_URL}/seo-company-in-lalitpur" class="${linkClass}">SEO company in Lalitpur</a>: we pull your Search Console data, map the keywords your customers use, and benchmark the pages currently outranking you. If your website itself is holding rankings back — slow on mobile, poorly structured, or built without a page for each service — our <a href="${SITE_URL}/website-development-company-in-lalitpur" class="${linkClass}">website development team</a> builds sites with that keyword map baked in from the start. You can see the results on <a href="${SITE_URL}/projects" class="${linkClass}">the live client websites in our portfolio</a>, or ask for a free SEO audit below.`,
+    ],
+  },
+  {
     slug: "it-companies-in-lalitpur",
     title: "IT Companies in Lalitpur: A 2026 Guide to Choosing the Right Tech Partner",
     metaTitle: "IT Companies in Lalitpur, Nepal: 2026 Buyer's Guide",

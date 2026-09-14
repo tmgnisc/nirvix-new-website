@@ -49,6 +49,9 @@ function buildLlmsTxt() {
     `- [Team](${SITE_URL}/team): The ${teamMembers.length} engineers, designers, and managers behind the work.`
   );
   lines.push(
+    `- [Website Development Company in Lalitpur](${SITE_URL}/website-development-company-in-lalitpur): Custom business websites, e-commerce stores with Nepali payment gateways, booking sites, and web apps.`
+  );
+  lines.push(
     `- [SEO Company in Lalitpur](${SITE_URL}/seo-company-in-lalitpur): Technical SEO, local SEO, and answer-engine optimisation for businesses in Lalitpur and Kathmandu.`
   );
   lines.push(`- [Blog](${SITE_URL}/blog): Articles on web, AI, SEO, and the Nepali tech market.`);

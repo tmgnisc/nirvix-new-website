@@ -14,6 +14,10 @@ const footerLinks = [
       // the same URL twice per page is flagged as duplicate anchor text by SEO audits.
       { label: "About Nirvix Technology", href: "/#about" },
       { label: "Software Development Services", href: "/services" },
+      {
+        label: "Website Development Company in Lalitpur",
+        href: "/website-development-company-in-lalitpur",
+      },
       { label: "SEO Company in Lalitpur", href: "/seo-company-in-lalitpur" },
       { label: "Our Projects", href: "/projects" },
       { label: "Our Team", href: "/team" },

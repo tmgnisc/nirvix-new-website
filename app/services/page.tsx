@@ -8,7 +8,7 @@ const PAGE_URL = `${SITE_URL}/services`;
 
 const PAGE_TITLE = "Website Development Company in Nepal | Nirvix Technology";
 const PAGE_DESCRIPTION =
-  "Website development company in Lalitpur, Nepal offering web development, mobile apps, custom software, AI solutions, SEO, and cloud. Get a free quote.";
+  "Software and website development company in Nepal offering web development, mobile apps, custom software, AI solutions, SEO, and cloud. Get a free quote.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
