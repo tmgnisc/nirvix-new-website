@@ -3,9 +3,15 @@ import { WebDevPageContent } from "@/components/web-dev-page-content";
 import {
   webDevOfferings,
   webDevFaqItems,
+  webDevPricingPlans,
   WEB_DEV_PAGE_SLUG,
 } from "@/lib/web-development-service-data";
 import { SITE_URL, ORGANIZATION_ID } from "@/lib/site";
+import {
+  buildPricingCatalogJsonLd,
+  pricingCatalogId,
+  pricingOfferRefs,
+} from "@/lib/pricing-schema";
 
 const PAGE_URL = `${SITE_URL}/${WEB_DEV_PAGE_SLUG}`;
 
@@ -73,6 +79,25 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const AREA_SERVED = [
+  { "@type": "City", name: "Lalitpur" },
+  { "@type": "City", name: "Kathmandu" },
+  { "@type": "City", name: "Bhaktapur" },
+  { "@type": "Country", name: "Nepal" },
+  { "@type": "Country", name: "Australia" },
+  { "@type": "Country", name: "New Zealand" },
+];
+
+const pricingJsonLd = buildPricingCatalogJsonLd({
+  plans: webDevPricingPlans,
+  pageUrl: PAGE_URL,
+  anchor: "web-development-pricing",
+  catalogName: "Website development packages and pricing in Nepal",
+  serviceType: "Website Development",
+  planSuffix: "Website Package",
+  areaServed: AREA_SERVED,
+});
+
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -82,32 +107,29 @@ const serviceJsonLd = {
   description: PAGE_DESCRIPTION,
   url: PAGE_URL,
   provider: { "@id": ORGANIZATION_ID },
-  areaServed: [
-    { "@type": "City", name: "Lalitpur" },
-    { "@type": "City", name: "Kathmandu" },
-    { "@type": "City", name: "Bhaktapur" },
-    { "@type": "Country", name: "Nepal" },
-    { "@type": "Country", name: "Australia" },
-    { "@type": "Country", name: "New Zealand" },
-  ],
+  areaServed: AREA_SERVED,
   availableChannel: {
     "@type": "ServiceChannel",
     serviceUrl: PAGE_URL,
     servicePhone: "+977-9818255423",
   },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Website development services",
-    itemListElement: webDevOfferings.map((offering) => ({
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: offering.name,
-        description: offering.description,
-        provider: { "@id": ORGANIZATION_ID },
-      },
-    })),
-  },
+  offers: pricingOfferRefs(webDevPricingPlans, PAGE_URL),
+  hasOfferCatalog: [
+    {
+      "@type": "OfferCatalog",
+      name: "Website development services",
+      itemListElement: webDevOfferings.map((offering) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: offering.name,
+          description: offering.description,
+          provider: { "@id": ORGANIZATION_ID },
+        },
+      })),
+    },
+    { "@id": pricingCatalogId(PAGE_URL) },
+  ],
 };
 
 const webPageJsonLd = {
@@ -152,6 +174,11 @@ export default function WebsiteDevelopmentCompanyLalitpurPage() {
         id="nirvix-jsonld-webdev-service"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        id="nirvix-jsonld-webdev-pricing"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
       />
       <script
         id="nirvix-jsonld-webdev-faq"

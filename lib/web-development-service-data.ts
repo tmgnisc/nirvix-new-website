@@ -1,4 +1,5 @@
 import type { FaqItem } from "@/lib/faq-data";
+import type { PricingPlan } from "@/lib/pricing-data";
 
 export const WEB_DEV_PAGE_SLUG = "website-development-company-in-lalitpur";
 
@@ -119,6 +120,64 @@ export const webDevProcess: { title: string; description: string }[] = [
   },
 ];
 
+export const webDevPricingPlans: PricingPlan[] = [
+  {
+    name: "Starter",
+    price: "NPR 25,000",
+    priceNote: "one-time project",
+    amount: "25000",
+    description:
+      "Static and WordPress websites for businesses that need a clean, credible presence quickly.",
+    features: [
+      "Static or WordPress build",
+      "Simple website of up to 10 pages",
+      "Mobile-responsive custom design",
+      "Contact form, Google Maps, and social links",
+      "On-page SEO basics, sitemap, and Search Console",
+      "Domain and hosting free for the first year",
+      "1 month of post-launch support",
+    ],
+  },
+  {
+    name: "Business",
+    price: "NPR 40,000",
+    priceNote: "starting, one-time project",
+    amount: "40000",
+    description:
+      "Dynamic websites with custom requirements, or a small full-stack web-based application.",
+    features: [
+      "Everything in Starter",
+      "Dynamic, database-driven build",
+      "Custom requirements and admin dashboard",
+      "Small full-stack web application",
+      "eSewa, Khalti, and Fonepay integration",
+      "Blog or catalogue managed through a CMS",
+      "Advanced SEO setup with schema markup",
+      "Domain and hosting free for the first year",
+      "3 months of post-launch support",
+    ],
+    highlight: true,
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    priceNote: "scoped to your requirements",
+    cta: "Get a Quote",
+    description:
+      "Large platforms, e-commerce, and enterprise systems quoted to scope — no fixed budget ceiling.",
+    features: [
+      "Everything in Business",
+      "Unlimited pages and custom modules",
+      "E-commerce, booking, and multi-vendor platforms",
+      "Third-party API, ERP, and CRM integrations",
+      "Dedicated project team and phased delivery",
+      "Performance, security, and load testing",
+      "Domain and hosting free for the first year",
+      "Maintenance and support agreement",
+    ],
+  },
+];
+
 export const webDevFaqItems: FaqItem[] = [
   {
     question: "What does a website development company in Lalitpur do?",
@@ -128,7 +187,7 @@ export const webDevFaqItems: FaqItem[] = [
   {
     question: "How much does website development cost in Lalitpur?",
     answer:
-      "It depends on scope. A business website, an e-commerce store with payment integration, and a custom web application are different price categories, not sizes of the same product. We give an itemised quote after a short discovery call, covering design, development, content, integrations, hosting, and maintenance, so you can compare it line by line against other quotes.",
+      "A static or WordPress site of up to 10 pages starts at NPR 25,000, a dynamic site with custom requirements or a small full-stack web app starts at NPR 40,000, and larger enterprise platforms are quoted to scope. A domain and hosting are included free for the first year on every package. We give an itemised quote after a short discovery call, covering design, development, content, integrations, hosting, and maintenance, so you can compare it line by line against other quotes. Prices exclude VAT.",
   },
   {
     question: "How long does it take to build a website?",

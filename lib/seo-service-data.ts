@@ -1,4 +1,5 @@
 import type { FaqItem } from "@/lib/faq-data";
+import type { PricingPlan } from "@/lib/pricing-data";
 
 export const SEO_PAGE_SLUG = "seo-company-in-lalitpur";
 
@@ -119,6 +120,68 @@ export const seoProcess: { title: string; description: string }[] = [
   },
 ];
 
+export const seoPricingPlans: PricingPlan[] = [
+  {
+    name: "Basic",
+    price: "NPR 20,000",
+    priceNote: "per month",
+    amount: "20000",
+    unitText: "MONTH",
+    description:
+      "For small business and single-location sites starting SEO properly for the first time.",
+    features: [
+      "Up to 15 target keywords tracked",
+      "Technical SEO audit and priority fixes",
+      "On-page optimisation for up to 10 pages",
+      "Google Business Profile setup and optimisation",
+      "2 SEO blog posts per month",
+      "Google Search Console and Analytics setup",
+      "Monthly ranking and traffic report",
+      "Domain and hosting free for the first year",
+    ],
+  },
+  {
+    name: "Growth",
+    price: "NPR 35,000",
+    priceNote: "per month",
+    amount: "35000",
+    unitText: "MONTH",
+    description:
+      "For businesses competing across Kathmandu valley that need content and links moving every month.",
+    features: [
+      "Everything in Basic",
+      "Up to 40 target keywords tracked",
+      "Full technical SEO and Core Web Vitals work",
+      "On-page optimisation across the whole site",
+      "4 SEO blog posts per month",
+      "Local citations and NAP cleanup",
+      "Schema markup and Answer Engine Optimization",
+      "Competitor tracking and a monthly strategy call",
+      "Domain and hosting free for the first year",
+    ],
+    highlight: true,
+  },
+  {
+    name: "Advanced",
+    price: "NPR 50,000",
+    priceNote: "per month",
+    amount: "50000",
+    unitText: "MONTH",
+    description:
+      "For e-commerce and national campaigns where organic search is a primary revenue channel.",
+    features: [
+      "Everything in Growth",
+      "100+ target keywords tracked",
+      "E-commerce and large-site SEO",
+      "8 SEO blog posts per month",
+      "Digital PR and authority link building",
+      "Conversion rate optimisation on key pages",
+      "Dedicated SEO strategist and fortnightly calls",
+      "Domain and hosting free for the first year",
+    ],
+  },
+];
+
 export const seoFaqItems: FaqItem[] = [
   {
     question: "What does an SEO company in Lalitpur actually do?",
@@ -128,7 +191,7 @@ export const seoFaqItems: FaqItem[] = [
   {
     question: "How much do SEO services in Lalitpur cost?",
     answer:
-      "It depends on the size of your site and how competitive your market is. A one-off technical audit and fix is a fixed-scope project; ongoing SEO is usually a monthly retainer covering content, links, and reporting. We quote after a free audit, so the number reflects your site rather than a package price list.",
+      "Our SEO retainers start at NPR 20,000 per month for the Basic plan, NPR 35,000 for Growth, and NPR 50,000 for Advanced, and every plan includes a domain and hosting free for the first year. Which one fits depends on the size of your site and how competitive your market is, so we confirm the scope after a free audit. Prices exclude VAT.",
   },
   {
     question: "How long does SEO take to show results in Nepal?",

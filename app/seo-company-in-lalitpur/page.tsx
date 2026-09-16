@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import { SeoPageContent } from "@/components/seo-page-content";
-import { seoOfferings, seoFaqItems, SEO_PAGE_SLUG } from "@/lib/seo-service-data";
+import {
+  seoOfferings,
+  seoFaqItems,
+  seoPricingPlans,
+  SEO_PAGE_SLUG,
+} from "@/lib/seo-service-data";
 import { SITE_URL, ORGANIZATION_ID } from "@/lib/site";
+import {
+  buildPricingCatalogJsonLd,
+  pricingCatalogId,
+  pricingOfferRefs,
+} from "@/lib/pricing-schema";
 
 const PAGE_URL = `${SITE_URL}/${SEO_PAGE_SLUG}`;
 
@@ -64,6 +74,23 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const AREA_SERVED = [
+  { "@type": "City", name: "Lalitpur" },
+  { "@type": "City", name: "Kathmandu" },
+  { "@type": "City", name: "Bhaktapur" },
+  { "@type": "Country", name: "Nepal" },
+];
+
+const pricingJsonLd = buildPricingCatalogJsonLd({
+  plans: seoPricingPlans,
+  pageUrl: PAGE_URL,
+  anchor: "seo-pricing",
+  catalogName: "SEO packages and pricing in Nepal",
+  serviceType: "Search Engine Optimization",
+  planSuffix: "SEO Plan",
+  areaServed: AREA_SERVED,
+});
+
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -73,30 +100,29 @@ const serviceJsonLd = {
   description: PAGE_DESCRIPTION,
   url: PAGE_URL,
   provider: { "@id": ORGANIZATION_ID },
-  areaServed: [
-    { "@type": "City", name: "Lalitpur" },
-    { "@type": "City", name: "Kathmandu" },
-    { "@type": "City", name: "Bhaktapur" },
-    { "@type": "Country", name: "Nepal" },
-  ],
+  areaServed: AREA_SERVED,
   availableChannel: {
     "@type": "ServiceChannel",
     serviceUrl: PAGE_URL,
     servicePhone: "+977-9818255423",
   },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "SEO services",
-    itemListElement: seoOfferings.map((offering) => ({
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: offering.name,
-        description: offering.description,
-        provider: { "@id": ORGANIZATION_ID },
-      },
-    })),
-  },
+  offers: pricingOfferRefs(seoPricingPlans, PAGE_URL),
+  hasOfferCatalog: [
+    {
+      "@type": "OfferCatalog",
+      name: "SEO services",
+      itemListElement: seoOfferings.map((offering) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: offering.name,
+          description: offering.description,
+          provider: { "@id": ORGANIZATION_ID },
+        },
+      })),
+    },
+    { "@id": pricingCatalogId(PAGE_URL) },
+  ],
 };
 
 const webPageJsonLd = {
@@ -141,6 +167,11 @@ export default function SeoCompanyLalitpurPage() {
         id="nirvix-jsonld-seo-service"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        id="nirvix-jsonld-seo-pricing"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
       />
       <script
         id="nirvix-jsonld-seo-faq"
